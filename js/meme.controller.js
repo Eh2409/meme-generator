@@ -12,6 +12,10 @@ function onInit() {
 function renderMeme() {
     var meme = getMeme()
     drawImage(meme)
+
+    // It's temporary here
+    const elInput = document.querySelector('.meme-text-input')
+    elInput.value = meme.lines[0].txt
 }
 
 
@@ -32,9 +36,15 @@ function drawText(lines, x = gElCanvas.width / 2, y = gElCanvas.height / 2) {
     gCtx.textAlign = "center";
     gCtx.fillText(txt, x, size);
 
-
     // gCtx.fillText(text, x, y);
 
     // gCtx.fillText(text, x, gElCanvas.height - 30);
+
 }
 
+function onSetLineTxt(text) {
+    // modal
+    setLineTxt(text)
+    // Dom
+    renderMeme()
+}

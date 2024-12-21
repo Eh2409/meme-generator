@@ -25,3 +25,7 @@ function findImgUrlById(imgId) {
     var img = gImgs.find(img => img.id === imgId)
     return img.url
 }
+
+function setLineTxt(text) {
+    gMeme.lines[0].txt = text
+}
