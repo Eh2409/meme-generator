@@ -10,24 +10,28 @@ function onInit() {
 }
 
 function renderMeme() {
-    drawImage()
+    var meme = getMeme()
+    drawImage(meme)
 }
 
 
-function drawImage() {
+function drawImage(meme) {
     const elImg = new Image()
-    elImg.src = 'images/5.jpg'
+    elImg.src = meme.imgUrl
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText('Mission accomplished')
+        drawText(meme.lines)
     }
 }
 
-function drawText(text, x = gElCanvas.width / 2, y = gElCanvas.height / 2) {
-    gCtx.font = "30px serif";
+function drawText(lines, x = gElCanvas.width / 2, y = gElCanvas.height / 2) {
+    var { txt, size, color } = lines[0]
+    gCtx.font = `${size}px Arial`;
 
+    gCtx.fillStyle = color
     gCtx.textAlign = "center";
-    gCtx.fillText(text, x, 40);
+    gCtx.fillText(txt, x, size);
+
 
     // gCtx.fillText(text, x, y);
 
