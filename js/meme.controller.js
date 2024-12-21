@@ -4,6 +4,8 @@ let gElCanvas
 let gCtx
 
 function onInit() {
+    renderGallery()
+
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
     renderMeme()
@@ -36,9 +38,9 @@ function drawText(lines, x = gElCanvas.width / 2, y = gElCanvas.height / 2) {
     gCtx.textAlign = "center";
     gCtx.fillText(txt, x, size);
 
-    // gCtx.fillText(text, x, y);
+    // gCtx.fillText(txt, x, y);
 
-    // gCtx.fillText(text, x, gElCanvas.height - 30);
+    // gCtx.fillText(txt, x, gElCanvas.height - 30);
 
 }
 

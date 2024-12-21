@@ -1,6 +1,10 @@
 "use strict"
 
-var gImgs = [{ id: 1, url: 'images/5.jpg', keywords: ['funny', 'baby'] }]
+var gImgs = [
+    { id: 1, url: 'images/2.jpg', keywords: ['funny', 'baby'] },
+    { id: 2, url: 'images/3.jpg', keywords: ['funny', 'baby'] },
+    { id: 3, url: 'images/5.jpg', keywords: ['funny', 'baby'] }
+]
 
 var gMeme = {
     selectedImgId: 1,
@@ -21,9 +25,17 @@ function getMeme() {
     return gMeme
 }
 
+function getImgs() {
+    return gImgs
+}
+
 function findImgUrlById(imgId) {
     var img = gImgs.find(img => img.id === imgId)
     return img.url
+}
+
+function setImg(imgId) {
+    gMeme.selectedImgId = imgId
 }
 
 function setLineTxt(text) {

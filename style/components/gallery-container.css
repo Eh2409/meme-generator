@@ -1,0 +1,29 @@
+.gallery-container {
+    column-count: 4;
+}
+
+
+.gallery-container>.photo-card {
+    position: relative;
+    display: flex;
+
+    border-radius: 10px;
+    margin-block-end: 10px;
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5);
+}
+
+.gallery-container>.photo-card>.meme-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: 1.05;
+    transition: 200ms;
+}
+
+.photo-card:hover .meme-image {
+    scale: 1;
+}
