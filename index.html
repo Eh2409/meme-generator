@@ -8,16 +8,27 @@
     <title>Meme generator</title>
 </head>
 
-<body onload="onInit()">
-    <header>
+<body class="main-layout" onload="onInit()">
+    <header class="main-headr flex justify-center">
         <div class="main-logo">
             <h1>Meme generator</h1>
         </div>
     </header>
-    <main class="main-content"></main>
+
+    <main class="main-content">
+
+        <section class="main-meme-generator flex justify-center">
+            <div class="canvas-container">
+                <canvas class="main-canvas" width="500px" height="500px"></canvas>
+            </div>
+        </section>
+
+    </main>
+
     <footer class="main-footer"></footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
 </body>
 
 </html>
