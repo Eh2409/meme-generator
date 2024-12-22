@@ -1,8 +1,3 @@
-.gallery-container {
-    column-count: 4;
-}
-
-
 .gallery-container>.photo-card {
     position: relative;
     display: flex;

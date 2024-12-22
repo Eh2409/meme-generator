@@ -1,0 +1,8 @@
+.main-logo {
+    font-size: 2em;
+}
+
+.main-logo>a {
+    color: #58578a;
+    font-weight: bold;
+}

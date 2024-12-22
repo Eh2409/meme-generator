@@ -1,6 +1,6 @@
 .main-layout {
     display: grid;
-    grid-template-columns: minmax(20px, 1fr) minmax(auto, 1080px) minmax(20px, 1fr);
+    grid-template-columns: 20px 1fr 20px;
 }
 
 .main-layout>*:not(.full) {
@@ -9,4 +9,16 @@
 
 .main-layout>.full {
     grid-column: 1 / -1;
+}
+
+/* main-nav */
+
+.main-nav>ul>li {
+    margin-inline-end: 1em;
+}
+
+/* gallery-container */
+
+.gallery-container {
+    column-count: 2;
 }

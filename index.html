@@ -9,45 +9,50 @@
 </head>
 
 <body class="main-layout" onload="onInit()">
-    <header class="main-headr flex justify-center">
-        <div class="main-logo">
-            <h1>Meme generator</h1>
+
+    <header class="main-header ">
+
+        <div class="header-content flex space-between align-center">
+            <div class="main-logo"><a href="#">Meme generator</a></div>
+            <nav class="main-nav">
+                <ul class="clean-list flex">
+                    <li><a href="#"><i class="fa-solid fa-image"></i> Gallery</a></li>
+                    <li><a href="#"><i class="fa-solid fa-camera-retro"></i> Randomize</a></li>
+                </ul>
+            </nav>
         </div>
+
     </header>
 
-    <main class="main-content">
+    <main class="main-content full main-layout">
 
-        <section class="main-meme-generator flex justify-center">
-            <div class="canvas-container">
-                <canvas class="main-canvas" width="500px" height="500px"></canvas>
-                <input type="text" placeholder="Enter text" class="meme-text-input" oninput="onSetLineTxt(this.value)">
+        <section class="main-meme-generator full main-layout">
+
+            <div class="generator-container">
+                <div class="canvas-container">
+                    <canvas class="main-canvas" width="500px" height="500px"></canvas>
+                </div>
+                <div class="main-editor flex direction-column">
+                    <input type="text" placeholder="Enter text" class="meme-text-input"
+                        oninput="onSetLineTxt(this.value)">
+                </div>
             </div>
+
         </section>
 
-        <section class="main-gallery main-layout">
 
+        <section class="main-gallery full main-layout">
             <div class="gallery-container">
-
                 <div class="photo-card" onclick="onImgSelect()">
-                    <img src="images/2.jpg" alt="" class="meme-image">
                 </div>
-
-                <div class="photo-card">
-                    <img src="images/4.jpg" alt="" class="meme-image">
-                </div>
-
-                <div class="photo-card">
-                    <img src="images/5.jpg" alt="" class="meme-image">
-                </div>
-
-            </div>
 
         </section>
 
     </main>
 
-    <footer class="main-footer"></footer>
-
+    <footer class="main-footer">
+        <small>footer</small>
+    </footer>
     <script src="js/services/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>

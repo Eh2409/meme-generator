@@ -3,7 +3,8 @@
 var gImgs = [
     { id: 1, url: 'images/2.jpg', keywords: ['funny', 'baby'] },
     { id: 2, url: 'images/3.jpg', keywords: ['funny', 'baby'] },
-    { id: 3, url: 'images/5.jpg', keywords: ['funny', 'baby'] }
+    { id: 3, url: 'images/5.jpg', keywords: ['funny', 'baby'] },
+    { id: 4, url: 'images/6.jpg', keywords: ['funny', 'baby'] },
 ]
 
 var gMeme = {

@@ -1,0 +1,4 @@
+.main-nav>ul>li>a:hover {
+    color: white;
+    background-color: rgba(237, 6, 119, 255);
+}
