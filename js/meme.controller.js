@@ -62,3 +62,18 @@ function onSetLineTxt(text) {
     // Dom
     renderMeme()
 }
+
+
+function onUploadImg() {
+    const canvasData = gElCanvas.toDataURL('image/jpeg')
+
+    // After a succesful upload, allow the user to share on Facebook
+    function onSuccess(uploadedImgUrl) {
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        console.log('encodedUploadedImgUrl:', encodedUploadedImgUrl)
+        document.querySelector('.download-link-container').innerHTML = `
+        <p>Image url: ${uploadedImgUrl}</p>`
+    }
+    uploadImg(canvasData, onSuccess)
+}
+

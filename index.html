@@ -13,7 +13,7 @@
     <header class="main-header ">
 
         <div class="header-content flex space-between align-center">
-            <div class="main-logo"><a href="#">Meme generator</a></div>
+            <div class="main-logo"><a href="index.html">Meme generator</a></div>
             <nav class="main-nav">
                 <ul class="clean-list flex">
                     <li><a href="#"><i class="fa-solid fa-image"></i> Gallery</a></li>
@@ -35,6 +35,10 @@
                 <div class="main-editor flex direction-column">
                     <input type="text" placeholder="Enter text" class="meme-text-input"
                         oninput="onSetLineTxt(this.value)">
+                    <button onclick="onUploadImg()">Download</button>
+                    <div>
+                        <div class="download-link-container"></div>
+                    </div>
                 </div>
             </div>
 
@@ -54,6 +58,7 @@
         <small>footer</small>
     </footer>
     <script src="js/services/meme.service.js"></script>
+    <script src="js/services/upload.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
