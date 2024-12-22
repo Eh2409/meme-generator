@@ -45,23 +45,28 @@ function setImg(imgId) {
 }
 
 function setLineTxt(text) {
-    gMeme.lines[0].txt = text
+    gMeme.lines[gMeme.selectedLineIdx].txt = text
 }
 
 function setFontColor(color) {
-    gMeme.lines[0].color = color
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
 function setFontSize(size) {
-    gMeme.lines[0].size = size
+    gMeme.lines[gMeme.selectedLineIdx].size = +size
 }
 
 function addLine() {
     var newLine = {
-        txt: 'a',
+        txt: 'Add text here',
         size: 30,
         color: '#ae4c4c'
     }
 
     gMeme.lines.push(newLine)
+}
+
+function switchLine() {
+    var nextLine = (gMeme.selectedLineIdx + 1 < gMeme.lines.length) ? gMeme.selectedLineIdx + 1 : 0;
+    gMeme.selectedLineIdx = nextLine
 }

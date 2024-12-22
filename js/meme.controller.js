@@ -30,7 +30,7 @@ function renderMeme() {
 }
 
 function setMemeDataOnEditor(meme) {
-    const { txt, size, color } = meme.lines[0]
+    const { txt, size, color } = meme.lines[meme.selectedLineIdx]
     document.querySelector('.meme-text-input').value = txt
     document.querySelector('.font-size-input').value = size
     document.querySelector('.font-size').innerText = `${size}px`
@@ -43,22 +43,32 @@ function drawImage(meme) {
     elImg.src = meme.imgUrl
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme.lines)
+        drawText(meme.lines, meme.selectedLineIdx)
     }
 }
 
-function drawText(lines, x = 0, y = 0) {
+function drawText(lines, selectedLineIdx, x = 0, y = 0) {
 
     lines.forEach((line, idx) => {
         var { txt, size, color } = line
-        console.log(color, idx);
 
-        gCtx.beginPath()
+
         gCtx.textBaseline = 'top';
         gCtx.fillStyle = color
         gCtx.textAlign = "start";
         gCtx.font = `${size}px Arial`;
+
         gCtx.fillText(txt, x, y, gElCanvas.width);
+
+
+        // Finds the selected line and frames it
+        if (idx === selectedLineIdx) {
+            var line = gCtx.measureText(txt)
+            gCtx.strokeStyle = 'red';
+            gCtx.setLineDash([10, 2]);
+            gCtx.strokeRect(x, y, line.width, size);
+            gCtx.setLineDash([]);
+        }
 
         y += size
     })
@@ -71,6 +81,7 @@ function onAddLine() { // create
     // Dom
     renderMeme()
 }
+
 
 // update functions
 
@@ -95,6 +106,16 @@ function onSetFontSize(size) {
     document.querySelector('.font-size').innerText = `${size}px`
     renderMeme()
 }
+
+function onSwitchLine() {
+    // modal
+    switchLine()
+    // Dom
+
+    renderMeme()
+}
+
+
 
 // upload image
 
