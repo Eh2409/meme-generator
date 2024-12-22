@@ -33,11 +33,12 @@ function renderMeme() {
 }
 
 function setMemeDataOnEditor(meme) {
-    const { txt, size, color } = meme.lines[meme.selectedLineIdx]
+    const { txt, size, color, fontFamily } = meme.lines[meme.selectedLineIdx]
     document.querySelector('.meme-text-input').value = txt
     document.querySelector('.font-size-input').value = size
     document.querySelector('.font-size').innerText = `${size}px`
     document.querySelector('.font-color-input').value = color
+    document.querySelector('.font-family-select').value = fontFamily
 }
 
 
@@ -54,12 +55,12 @@ function drawImage(meme) {
 function drawText(lines, selectedLineIdx, x = 0, y = 0) {
 
     lines.forEach((line, idx) => {
-        var { txt, size, color } = line
+        var { txt, size, color, fontFamily } = line
 
         gCtx.textBaseline = 'top';
         gCtx.fillStyle = color
         gCtx.textAlign = "start";
-        gCtx.font = `${size}px Arial`;
+        gCtx.font = `${size}px ${fontFamily}`;
         var lineWidth = gCtx.measureText(txt).width
         gCtx.fillText(txt, x, y, gElCanvas.width);
 
@@ -121,6 +122,17 @@ function onSwitchLine() {
 
     renderMeme()
 }
+
+function onSetFontFamily(fontFamily) {
+    // modal
+    setFontFamily(fontFamily)
+    // Dom
+    renderMeme()
+
+}
+
+
+/// download meme
 
 function onDownloadMeme(elLink) {
     const dataUrl = gElCanvas.toDataURL('image/jpeg')

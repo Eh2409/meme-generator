@@ -14,13 +14,9 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 40,
-            color: '#ffcc00'
+            color: '#ffcc00',
+            fontFamily: 'Arial'
         },
-        {
-            txt: 'i love food',
-            size: 20,
-            color: '#ae4c4c'
-        }
     ]
 }
 
@@ -56,11 +52,16 @@ function setFontSize(size) {
     gMeme.lines[gMeme.selectedLineIdx].size = +size
 }
 
+function setFontFamily(fontFamily) {
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily
+}
+
 function addLine() {
     var newLine = {
         txt: 'Add text here',
         size: 30,
-        color: '#ae4c4c'
+        color: '#ae4c4c',
+        fontFamily: 'Arial'
     }
 
     gMeme.lines.push(newLine)
