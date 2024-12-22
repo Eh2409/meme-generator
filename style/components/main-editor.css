@@ -1,16 +1,12 @@
 .main-editor {
     background-color: rgb(106, 135, 174);
     border-radius: 1em;
-    padding: 1em;
+    padding-block: 0.5em;
     box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5);
 }
 
-.main-editor {
-    display: flex;
-    flex-direction: column;
-}
-
 .main-editor>.meme-text-input {
-    padding: 0.5em;
     border-radius: 0.7em;
+    padding-block: 0.5em;
+    margin: 10px;
 }

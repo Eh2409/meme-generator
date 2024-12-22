@@ -36,6 +36,24 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* canvas-container */
+    .canvas-container {
+        width: 400px;
+        height: 400px;
+    }
+
+    /* main-editor */
+
+    .main-editor {
+        padding: 1em;
+    }
+
+    .main-editor>.meme-text-input {
+        padding: 0.5em;
+        border-radius: 0.7em;
+    }
+
 }
 
 /* LARGE  */
@@ -48,6 +66,12 @@
 
     .gallery-container {
         column-count: 4;
+    }
+
+    /* canvas-container */
+    .canvas-container {
+        width: 500px;
+        height: 500px;
     }
 
 }
