@@ -122,6 +122,11 @@ function onSwitchLine() {
     renderMeme()
 }
 
+function onDownloadMeme(elLink) {
+    const dataUrl = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = dataUrl
+    elLink.download = 'my-meme'
+}
 
 
 // upload image
