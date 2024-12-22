@@ -26,10 +26,14 @@ function resizeCanvas() {
 function renderMeme() {
     var meme = getMeme()
     drawImage(meme)
+    setMemeDataOnEditor(meme)
+}
 
-    // It's temporary here
-    const elInput = document.querySelector('.meme-text-input')
-    elInput.value = meme.lines[0].txt
+function setMemeDataOnEditor(meme) {
+    const elTextInput = document.querySelector('.meme-text-input')
+    elTextInput.value = meme.lines[0].txt
+    const elFontColorInput = document.querySelector('.font-color-input')
+    elFontColorInput.value = meme.lines[0].color
 }
 
 
@@ -56,9 +60,18 @@ function drawText(lines, x = gElCanvas.width / 2, y = gElCanvas.height / 2) {
 
 }
 
+// update functions
+
 function onSetLineTxt(text) {
     // modal
     setLineTxt(text)
+    // Dom
+    renderMeme()
+}
+
+function onSetFontColor(color) {
+    // modal
+    setFontColor(color)
     // Dom
     renderMeme()
 }
