@@ -30,10 +30,11 @@ function renderMeme() {
 }
 
 function setMemeDataOnEditor(meme) {
-    const elTextInput = document.querySelector('.meme-text-input')
-    elTextInput.value = meme.lines[0].txt
-    const elFontColorInput = document.querySelector('.font-color-input')
-    elFontColorInput.value = meme.lines[0].color
+    const { txt, size, color } = meme.lines[0]
+    document.querySelector('.meme-text-input').value = txt
+    document.querySelector('.font-size-input').value = size
+    document.querySelector('.font-size').innerText = `${size}px`
+    document.querySelector('.font-color-input').value = color
 }
 
 
@@ -76,6 +77,13 @@ function onSetFontColor(color) {
     renderMeme()
 }
 
+function onSetFontSize(size) {
+    // modal
+    setFontSize(size)
+    // Dom
+    document.querySelector('.font-size').innerText = `${size}px`
+    renderMeme()
+}
 
 function onUploadImg() {
     const canvasData = gElCanvas.toDataURL('image/jpeg')

@@ -36,6 +36,11 @@
                     <input type="text" placeholder="Enter text" class="meme-text-input"
                         oninput="onSetLineTxt(this.value)">
                     <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
+                    <div>
+                        <label for="font-size">font size: <span class="font-size"></span></label>
+                        <input type="range" id="font-size" class="font-size-input" min="1" max="100"
+                            oninput="onSetFontSize(this.value)">
+                    </div>
                     <button onclick="onUploadImg()">Download</button>
                     <div>
                         <div class="download-link-container"></div>

@@ -46,3 +46,7 @@ function setLineTxt(text) {
 function setFontColor(color) {
     gMeme.lines[0].color = color
 }
+
+function setFontSize(size) {
+    gMeme.lines[0].size = size
+}
