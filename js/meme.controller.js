@@ -12,6 +12,9 @@ function onInit() {
     renderMeme()
 
     window.onresize = resizeCanvas
+
+    addMouseListeners()
+    addTouchListeners()
 }
 
 function resizeCanvas() {
@@ -52,7 +55,7 @@ function drawText(lines, selectedLineIdx, x = 0, y = 0) {
     lines.forEach((line, idx) => {
         var { txt, size, color } = line
 
-
+        var line = gCtx.measureText(txt)
         gCtx.textBaseline = 'top';
         gCtx.fillStyle = color
         gCtx.textAlign = "start";
@@ -60,20 +63,27 @@ function drawText(lines, selectedLineIdx, x = 0, y = 0) {
 
         gCtx.fillText(txt, x, y, gElCanvas.width);
 
-
         // Finds the selected line and frames it
         if (idx === selectedLineIdx) {
-            var line = gCtx.measureText(txt)
+            line = gCtx.measureText(txt)
             gCtx.strokeStyle = 'red';
             gCtx.setLineDash([10, 2]);
             gCtx.strokeRect(x, y, line.width, size);
             gCtx.setLineDash([]);
         }
 
+        // Note to self going forward: think of a smarter way to do it
+        var pos = {
+            id: idx,
+            location: { x: x, y: y, lineWidth: line.width, size: size }
+        }
+
+        setLineLocation(pos)
+
         y += size
     })
-
 }
+
 
 function onAddLine() { // create
     // modal
@@ -132,3 +142,38 @@ function onUploadImg() {
     uploadImg(canvasData, onSuccess)
 }
 
+
+////  line click
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousedown', onDown)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+}
+
+function onDown(ev) {
+    const pos = getEvPos(ev)
+    if (!isLineClicked(pos)) return
+
+    renderMeme()
+}
+
+
+function getEvPos(ev) {
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+    if (['touchstart', 'touchmove', 'touchend'].includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}

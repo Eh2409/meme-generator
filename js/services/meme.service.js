@@ -70,3 +70,25 @@ function switchLine() {
     var nextLine = (gMeme.selectedLineIdx + 1 < gMeme.lines.length) ? gMeme.selectedLineIdx + 1 : 0;
     gMeme.selectedLineIdx = nextLine
 }
+
+function setLineLocation(pos) {
+    gMeme.lines[pos.id].location = pos.location
+}
+
+function isLineClicked(clickedPos) {
+    const { x: clickX, y: clickY } = clickedPos
+    const { lines } = gMeme
+
+    const clickedLine = lines.findIndex(line => {
+        const { x, y, lineWidth, size } = line.location
+        return clickX >= x && clickX <= x + lineWidth
+            && clickY >= y && clickY <= y + size
+    })
+
+    if (clickedLine !== -1) {
+        gMeme.selectedLineIdx = clickedLine
+        return true
+    } else {
+        return false
+    }
+}
