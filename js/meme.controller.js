@@ -47,18 +47,29 @@ function drawImage(meme) {
     }
 }
 
-function drawText(lines, x = gElCanvas.width / 2, y = gElCanvas.height / 2) {
-    var { txt, size, color } = lines[0]
-    gCtx.font = `${size}px Arial`;
+function drawText(lines, x = 0, y = 0) {
 
-    gCtx.fillStyle = color
-    gCtx.textAlign = "center";
-    gCtx.fillText(txt, x, size);
+    lines.forEach((line, idx) => {
+        var { txt, size, color } = line
+        console.log(color, idx);
 
-    // gCtx.fillText(txt, x, y);
+        gCtx.beginPath()
+        gCtx.textBaseline = 'top';
+        gCtx.fillStyle = color
+        gCtx.textAlign = "start";
+        gCtx.font = `${size}px Arial`;
+        gCtx.fillText(txt, x, y, gElCanvas.width);
 
-    // gCtx.fillText(txt, x, gElCanvas.height - 30);
+        y += size
+    })
 
+}
+
+function onAddLine() { // create
+    // modal
+    addLine()
+    // Dom
+    renderMeme()
 }
 
 // update functions
@@ -84,6 +95,8 @@ function onSetFontSize(size) {
     document.querySelector('.font-size').innerText = `${size}px`
     renderMeme()
 }
+
+// upload image
 
 function onUploadImg() {
     const canvasData = gElCanvas.toDataURL('image/jpeg')
