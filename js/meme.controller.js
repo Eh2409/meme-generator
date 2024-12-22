@@ -50,35 +50,32 @@ function drawImage(meme) {
     }
 }
 
+// Note to self: maybe break it down into several functions
 function drawText(lines, selectedLineIdx, x = 0, y = 0) {
 
     lines.forEach((line, idx) => {
         var { txt, size, color } = line
 
-        var line = gCtx.measureText(txt)
         gCtx.textBaseline = 'top';
         gCtx.fillStyle = color
         gCtx.textAlign = "start";
         gCtx.font = `${size}px Arial`;
-
+        var lineWidth = gCtx.measureText(txt).width
         gCtx.fillText(txt, x, y, gElCanvas.width);
 
         // Finds the selected line and frames it
         if (idx === selectedLineIdx) {
-            line = gCtx.measureText(txt)
-            gCtx.strokeStyle = 'red';
+            gCtx.strokeStyle = 'green';
             gCtx.setLineDash([10, 2]);
-            gCtx.strokeRect(x, y, line.width, size);
+            gCtx.strokeRect(x, y, lineWidth, size);
             gCtx.setLineDash([]);
         }
 
         // Note to self going forward: think of a smarter way to do it
-        var pos = {
+        setLineLocation({
             id: idx,
-            location: { x: x, y: y, lineWidth: line.width, size: size }
-        }
-
-        setLineLocation(pos)
+            location: { x: x, y: y, lineWidth: lineWidth, size: size }
+        })
 
         y += size
     })
@@ -159,7 +156,6 @@ function onDown(ev) {
 
     renderMeme()
 }
-
 
 function getEvPos(ev) {
     let pos = {

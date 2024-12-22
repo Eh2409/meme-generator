@@ -75,6 +75,8 @@ function setLineLocation(pos) {
     gMeme.lines[pos.id].location = pos.location
 }
 
+// Note to self, think of a way to improve this function
+
 function isLineClicked(clickedPos) {
     const { x: clickX, y: clickY } = clickedPos
     const { lines } = gMeme
@@ -89,6 +91,6 @@ function isLineClicked(clickedPos) {
         gMeme.selectedLineIdx = clickedLine
         return true
     } else {
-        return false
+        return
     }
 }
