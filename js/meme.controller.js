@@ -33,12 +33,16 @@ function renderMeme() {
 }
 
 function setMemeDataOnEditor(meme) {
-    const { txt, size, color, fontFamily } = meme.lines[meme.selectedLineIdx]
+    if (!meme.lines.length) return
+    const { txt, size, color, fontFamily, location } = meme.lines[meme.selectedLineIdx]
     document.querySelector('.meme-text-input').value = txt
     document.querySelector('.font-size-input').value = size
     document.querySelector('.font-size').innerText = `${size}px`
     document.querySelector('.font-color-input').value = color
     document.querySelector('.font-family-select').value = fontFamily
+
+    var lineHigth = (!location) ? 0 : location.y
+    document.querySelector('.line-height-input').value = lineHigth
 }
 
 
@@ -160,6 +164,12 @@ function onSetLineHeight(num) {
     renderMeme()
 }
 
+function onDeleteCurrLine() {
+    // modal
+    deleteCurrLine()
+    // Dom
+    renderMeme()
+}
 
 /// download meme
 

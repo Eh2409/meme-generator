@@ -36,7 +36,7 @@
                 <div class="main-editor flex direction-column">
                     <input type="text" placeholder="Enter text" class="meme-text-input"
                         oninput="onSetLineTxt(this.value)">
-                    <input type="color" class="font-color-input" oninput="onSetFontColor(+this.value)">
+                    <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
                     <div>
                         <label for="font-size">font size: <span class="font-size"></span></label>
                         <input type="range" id="font-size" class="font-size-input" min="1" max="100"
@@ -60,8 +60,9 @@
                         <button onclick="onSetTextAlign('right')"><i class="fa-solid fa-align-right"></i></button>
                     </div>
 
+                    <button class="delete-Line" onclick="onDeleteCurrLine()"><i class="fa-solid fa-trash"></i></button>
                     <div>
-                        <label for="lineHeight"></label>
+                        <label for="lineHeight">line height</label>
                         <input type="range" id="lineHeight" class="line-height-input" min=" 0" max="500" value="0"
                             oninput="onSetLineHeight(this.value)">
                     </div>

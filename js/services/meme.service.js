@@ -16,7 +16,7 @@ var gMeme = {
             size: 40,
             color: '#ffcc00',
             fontFamily: 'Arial',
-            textAlign: 'left'
+            textAlign: 'center'
         },
     ]
 }
@@ -71,7 +71,7 @@ function addLine() {
         size: 30,
         color: '#ae4c4c',
         fontFamily: 'Arial',
-        textAlign: 'left'
+        textAlign: 'center'
     }
 
     gMeme.lines.push(newLine)
@@ -86,6 +86,18 @@ function setLineLocation(pos) {
     gMeme.lines[pos.id].location = pos.location
 }
 
+function deleteCurrLine() {
+    var idx = gMeme.selectedLineIdx
+    gMeme.lines.splice(idx, 1)
+    gMeme.selectedLineIdx = 0
+
+    /// Temporary operation to prevent toilet malfunctions - will be improved later
+
+    if (!gMeme.lines.length) {
+        addLine()
+    }
+}
+
 
 // Note to self, think of a way to improve this function
 
@@ -98,6 +110,8 @@ function isLineClicked(clickedPos) {
         return clickX >= x && clickX <= x + lineWidth
             && clickY >= y && clickY <= y + size
     })
+
+    console.log(clickedLine);
 
     if (clickedLine !== -1) {
         gMeme.selectedLineIdx = clickedLine
