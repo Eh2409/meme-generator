@@ -34,9 +34,9 @@
                     <canvas class="main-canvas" width="10px" height="10px"></canvas>
                 </div>
                 <div class="main-editor flex direction-column">
-                    <input type="text" placeholder="Enter text" class="meme-text-input"
-                        oninput="onSetLineTxt(this.value)">
-                    <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
+                    <!-- <input type="text" placeholder="Enter text" class="meme-text-input"
+                        oninput="onSetLineTxt(this.value)"> -->
+                    <!-- <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
                     <div>
                         <label for="font-size">font size: <span class="font-size"></span></label>
                         <input type="range" id="font-size" class="font-size-input" min="1" max="100"
@@ -75,6 +75,36 @@
 
                     <div>
                         <div class="download-link-container"></div>
+                    </div> -->
+
+                    <div class="editor-box">
+                        <div class="editor-nav flex space-between align-center ">
+                            <div>
+                                <button class="delete-Line" onclick="onDeleteCurrLine()"><i
+                                        class="fa-solid fa-trash"></i></button>
+                                <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                                <button onclick="onSwitchLine()"><i class="fa-solid fa-arrows-up-down"></i></button>
+                            </div>
+                            <div>
+                                <button><i class="fa-solid fa-text-height"></i></button>
+                                <button><i class="fa-solid fa-brush"></i></button>
+                                <button><i class="fa-solid fa-fill-drip"></i></button>
+                                <button onclick="onSetTextAlign('left')"><i class="fa-solid fa-align-left"></i></button>
+                                <button onclick="onSetTextAlign('center')"><i
+                                        class="fa-solid fa-align-justify"></i></button>
+                                <button onclick="onSetTextAlign('right')"><i
+                                        class="fa-solid fa-align-right"></i></button>
+                                <button><i class="fa-brands fa-adn"></i></button>
+                                <button class="font-size-btn" onclick="onClickEditorBtn(this)">
+                                    <i class="fa-solid fa-font"></i>
+                                    <span class="font-size"></span>
+                                    <input type="range" id="font-size" class="font-size-input" min="1" max="100"
+                                        oninput="onSetFontSize(+this.value)">
+                                </button>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Enter text" class="meme-text-input"
+                            oninput="onSetLineTxt(this.value)">
                     </div>
                 </div>
             </div>

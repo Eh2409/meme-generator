@@ -2,6 +2,7 @@
     background-color: rgb(106, 135, 174);
     border-radius: 1em;
     padding-block: 0.5em;
+    padding-inline: 1em;
     box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5);
 }
 
