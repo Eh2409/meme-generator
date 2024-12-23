@@ -61,6 +61,10 @@ function setTextAlign(direction) {
     gMeme.lines[gMeme.selectedLineIdx].textAlign = direction
 }
 
+function setLineHeight(num) {
+    gMeme.lines[gMeme.selectedLineIdx].location.y = num
+}
+
 function addLine() {
     var newLine = {
         txt: 'Add text here',

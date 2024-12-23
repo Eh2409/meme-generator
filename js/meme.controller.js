@@ -52,10 +52,11 @@ function drawImage(meme) {
 }
 
 // Note to self: maybe break it down into several functions
-function drawText(lines, selectedLineIdx, y = 0) {
+function drawText(lines, selectedLineIdx) {
 
     lines.forEach((line, idx) => {
         var { txt, size, color, fontFamily, textAlign } = line
+        var y = (!line.location) ? (idx * 30) : line.location.y
 
         gCtx.textBaseline = 'top';
         gCtx.fillStyle = color
@@ -77,8 +78,6 @@ function drawText(lines, selectedLineIdx, y = 0) {
             id: idx,
             location: { x: xPos, y: y, lineWidth: lineWidth, size: size }
         })
-
-        y += size
     })
 }
 
@@ -150,6 +149,13 @@ function onSetFontFamily(fontFamily) {
 function onSetTextAlign(direction) {
     // modal
     setTextAlign(direction)
+    // Dom
+    renderMeme()
+}
+
+function onSetLineHeight(num) {
+    // modal
+    setLineHeight(num)
     // Dom
     renderMeme()
 }
