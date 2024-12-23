@@ -52,34 +52,50 @@ function drawImage(meme) {
 }
 
 // Note to self: maybe break it down into several functions
-function drawText(lines, selectedLineIdx, x = 0, y = 0) {
+function drawText(lines, selectedLineIdx, y = 0) {
 
     lines.forEach((line, idx) => {
-        var { txt, size, color, fontFamily } = line
+        var { txt, size, color, fontFamily, textAlign } = line
 
         gCtx.textBaseline = 'top';
         gCtx.fillStyle = color
-        gCtx.textAlign = "start";
+        gCtx.textAlign = textAlign;
         gCtx.font = `${size}px ${fontFamily}`;
+
         var lineWidth = gCtx.measureText(txt).width
-        gCtx.fillText(txt, x, y, gElCanvas.width);
+        var xPos = textAlignPos(textAlign, 0)
+
+        gCtx.fillText(txt, xPos, y, gElCanvas.width);
 
         // Finds the selected line and frames it
         if (idx === selectedLineIdx) {
-            gCtx.strokeStyle = 'green';
-            gCtx.setLineDash([10, 2]);
-            gCtx.strokeRect(x, y, lineWidth, size);
-            gCtx.setLineDash([]);
+            frameSelectedLine(y, textAlign, lineWidth, size)
         }
 
         // Note to self going forward: think of a smarter way to do it
         setLineLocation({
             id: idx,
-            location: { x: x, y: y, lineWidth: lineWidth, size: size }
+            location: { x: xPos, y: y, lineWidth: lineWidth, size: size }
         })
 
         y += size
     })
+}
+
+function frameSelectedLine(y, textAlign, lineWidth, size) {
+    var xPos = textAlignPos(textAlign, lineWidth)
+    gCtx.strokeStyle = 'green';
+    gCtx.setLineDash([10, 2]);
+    gCtx.strokeRect(xPos, y, lineWidth, size);
+    gCtx.setLineDash([]);
+}
+
+function textAlignPos(textAlign, lineWidth) {
+    switch (textAlign) {
+        case 'left': return 0;
+        case 'center': return gElCanvas.width / 2 - lineWidth / 2;
+        case 'right': return gElCanvas.width - lineWidth;
+    }
 }
 
 
@@ -129,6 +145,13 @@ function onSetFontFamily(fontFamily) {
     // Dom
     renderMeme()
 
+}
+
+function onSetTextAlign(direction) {
+    // modal
+    setTextAlign(direction)
+    // Dom
+    renderMeme()
 }
 
 

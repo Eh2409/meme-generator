@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://kit.fontawesome.com/cbf5806738.js" crossorigin="anonymous"></script>
     <title>Meme generator</title>
 </head>
 
@@ -52,6 +53,12 @@
                         <option value="Impact">Impact</option>
                         <option value="Verdana">Verdana</option>
                     </select>
+
+                    <div>
+                        <button onclick="onSetTextAlign('left')"><i class="fa-solid fa-align-left"></i></button>
+                        <button onclick="onSetTextAlign('center')"><i class="fa-solid fa-align-justify"></i></button>
+                        <button onclick="onSetTextAlign('right')"><i class="fa-solid fa-align-right"></i></button>
+                    </div>
 
                     <button onclick="onAddLine()">Add line</button>
                     <button onclick="onSwitchLine()">switch line</button>
