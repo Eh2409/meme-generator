@@ -13,6 +13,7 @@ var gMeme = {
     lines: [
         {
             txt: 'I sometimes eat Falafel',
+            location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
             size: 40,
             color: '#ffcc00',
             fontFamily: 'Arial',
@@ -68,6 +69,7 @@ function setLineHeight(num) {
 function addLine() {
     var newLine = {
         txt: 'Add text here',
+        location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
         size: 30,
         color: '#ae4c4c',
         fontFamily: 'Arial',
@@ -98,7 +100,6 @@ function deleteCurrLine() {
     }
 }
 
-
 // Note to self, think of a way to improve this function
 
 function isLineClicked(clickedPos) {
@@ -106,11 +107,19 @@ function isLineClicked(clickedPos) {
     const { lines } = gMeme
 
     const clickedLine = lines.findIndex(line => {
-        const { x, y, lineWidth, size } = line.location
-        return clickX >= x && clickX <= x + lineWidth
-            && clickY >= y && clickY <= y + size
-    })
+        var { textAlign } = line
+        var { x, y, lineWidth, textHeight } = line.location
 
+        if (textAlign === 'center') {
+            x -= lineWidth / 2
+        } else if (textAlign === 'right') {
+            x -= lineWidth
+        }
+
+        return clickX >= x && clickX <= x + lineWidth
+            && clickY >= y && clickY <= y + textHeight
+
+    })
     console.log(clickedLine);
 
     if (clickedLine !== -1) {

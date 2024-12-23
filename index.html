@@ -40,7 +40,7 @@
                     <div>
                         <label for="font-size">font size: <span class="font-size"></span></label>
                         <input type="range" id="font-size" class="font-size-input" min="1" max="100"
-                            oninput="onSetFontSize(this.value)">
+                            oninput="onSetFontSize(+this.value)">
                     </div>
 
                     <select name="font-family" class="font-family-select" onchange="onSetFontFamily(this.value)">
@@ -64,7 +64,7 @@
                     <div>
                         <label for="lineHeight">line height</label>
                         <input type="range" id="lineHeight" class="line-height-input" min=" 0" max="500" value="0"
-                            oninput="onSetLineHeight(this.value)">
+                            oninput="onSetLineHeight(+this.value)">
                     </div>
 
                     <button onclick="onAddLine()">Add line</button>

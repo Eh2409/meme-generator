@@ -40,9 +40,7 @@ function setMemeDataOnEditor(meme) {
     document.querySelector('.font-size').innerText = `${size}px`
     document.querySelector('.font-color-input').value = color
     document.querySelector('.font-family-select').value = fontFamily
-
-    var lineHigth = (!location) ? 0 : location.y
-    document.querySelector('.line-height-input').value = lineHigth
+    document.querySelector('.line-height-input').value = location.y
 }
 
 
@@ -60,36 +58,40 @@ function drawText(lines, selectedLineIdx) {
 
     lines.forEach((line, idx) => {
         var { txt, size, color, fontFamily, textAlign } = line
-        var y = (!line.location) ? (idx * 30) : line.location.y
+        var { y } = line.location
 
         gCtx.textBaseline = 'top';
-        gCtx.fillStyle = color
         gCtx.textAlign = textAlign;
+        gCtx.fillStyle = color
         gCtx.font = `${size}px ${fontFamily}`;
 
         var lineWidth = gCtx.measureText(txt).width
         var xPos = textAlignPos(textAlign, 0)
 
-        gCtx.fillText(txt, xPos, y, gElCanvas.width);
+        var textHeight = gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
+        console.log(textHeight);
+
+        gCtx.fillText(txt, xPos, y);
+
 
         // Finds the selected line and frames it
         if (idx === selectedLineIdx) {
-            frameSelectedLine(y, textAlign, lineWidth, size)
+            frameSelectedLine(y, textAlign, lineWidth, textHeight)
         }
 
         // Note to self going forward: think of a smarter way to do it
         setLineLocation({
             id: idx,
-            location: { x: xPos, y: y, lineWidth: lineWidth, size: size }
+            location: { x: xPos, y: y, lineWidth: lineWidth, textHeight: textHeight }
         })
     })
 }
 
-function frameSelectedLine(y, textAlign, lineWidth, size) {
+function frameSelectedLine(y, textAlign, lineWidth, textHeight) {
     var xPos = textAlignPos(textAlign, lineWidth)
     gCtx.strokeStyle = 'green';
     gCtx.setLineDash([10, 2]);
-    gCtx.strokeRect(xPos, y, lineWidth, size);
+    gCtx.strokeRect(xPos, y - 2, lineWidth, textHeight);
     gCtx.setLineDash([]);
 }
 
@@ -158,6 +160,7 @@ function onSetTextAlign(direction) {
 }
 
 function onSetLineHeight(num) {
+    console.log(typeof num);
     // modal
     setLineHeight(num)
     // Dom
@@ -211,6 +214,11 @@ function onDown(ev) {
     if (!isLineClicked(pos)) return
 
     renderMeme()
+}
+
+function onMove(ev) {
+    const pos = getEvPos(ev)
+    text(pos)
 }
 
 function getEvPos(ev) {
