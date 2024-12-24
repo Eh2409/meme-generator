@@ -34,13 +34,20 @@ function renderMeme() {
 
 function setMemeDataOnEditor(meme) {
     if (!meme.lines.length) return
-    const { txt, size, color, fontFamily, location } = meme.lines[meme.selectedLineIdx]
+    const { txt, size, color, fontFamily, textAlign, location } = meme.lines[meme.selectedLineIdx]
+    document.querySelector('.line-count').innerText = `${meme.selectedLineIdx + 1} / ${meme.lines.length}`
     document.querySelector('.meme-text-input').value = txt
     document.querySelector('.font-size-input').value = size
     document.querySelector('.font-size').innerText = `${size}px`
-    document.querySelector('.font-color-input').value = color
+    document.querySelector('.fa-solid.fa-fill-drip').style.color = color
     document.querySelector('.font-family-select').value = fontFamily
     document.querySelector('.line-height-input').value = location.y
+    document.querySelector('.font-height').innerText = `${location.y}px`
+
+    const elAlignBtns = document.querySelectorAll('.align-btn');
+    elAlignBtns.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.align-${textAlign}-btn.align-btn`).classList.add('active');
+
 }
 
 
@@ -243,4 +250,9 @@ function getEvPos(ev) {
 
 function onClickEditorBtn(elBtn) {
     elBtn.classList.toggle('active')
+}
+
+
+function triggerColorPicker() {
+    document.querySelector('.font-color-input').click();
 }

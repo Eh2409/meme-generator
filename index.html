@@ -33,78 +33,77 @@
                 <div class="canvas-container">
                     <canvas class="main-canvas" width="10px" height="10px"></canvas>
                 </div>
-                <div class="main-editor flex direction-column">
-                    <!-- <input type="text" placeholder="Enter text" class="meme-text-input"
-                        oninput="onSetLineTxt(this.value)"> -->
-                    <!-- <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
-                    <div>
-                        <label for="font-size">font size: <span class="font-size"></span></label>
-                        <input type="range" id="font-size" class="font-size-input" min="1" max="100"
-                            oninput="onSetFontSize(+this.value)">
+
+                <div class="main-editor">
+                    <div class="main-editor-header flex space-between align-center">
+                        <span class="main-editor-logo">Meme editor</span>
+                        <div class="editor-header-btns flex align-center">
+                            <button onclick="onAddLine()">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <button onclick="onSwitchLine()">
+                                <i class="fa-solid fa-arrows-up-down"></i>
+                            </button>
+                            <button class="delete-Line" onclick="onDeleteCurrLine()">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            <div class="line-count">1 / 1</div>
+                        </div>
                     </div>
-
-                    <select name="font-family" class="font-family-select" onchange="onSetFontFamily(this.value)">
-                        <option value="Arial">Arial</option>
-                        <option value="Courier New">Courier New</option>
-                        <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
-                        <option value="Gill Sans">Gill Sans</option>
-                        <option value="Trebuchet MS">Trebuchet MS</option>
-                        <option value="Georgia">Georgia</option>
-                        <option value="Impact">Impact</option>
-                        <option value="Verdana">Verdana</option>
-                    </select>
-
-                    <div>
-                        <button onclick="onSetTextAlign('left')"><i class="fa-solid fa-align-left"></i></button>
-                        <button onclick="onSetTextAlign('center')"><i class="fa-solid fa-align-justify"></i></button>
-                        <button onclick="onSetTextAlign('right')"><i class="fa-solid fa-align-right"></i></button>
-                    </div>
-
-                    <button class="delete-Line" onclick="onDeleteCurrLine()"><i class="fa-solid fa-trash"></i></button>
-                    <div>
-                        <label for="lineHeight">line height</label>
-                        <input type="range" id="lineHeight" class="line-height-input" min=" 0" max="500" value="0"
-                            oninput="onSetLineHeight(+this.value)">
-                    </div>
-
-                    <button onclick="onAddLine()">Add line</button>
-                    <button onclick="onSwitchLine()">switch line</button>
-                    <a href="#" onclick="onDownloadMeme(this)" download="file-name">
-                        <button>Download</button>
-                    </a>
-
-                    <div>
-                        <div class="download-link-container"></div>
-                    </div> -->
 
                     <div class="editor-box">
-                        <div class="editor-nav flex space-between align-center ">
-                            <div>
-                                <button class="delete-Line" onclick="onDeleteCurrLine()"><i
-                                        class="fa-solid fa-trash"></i></button>
-                                <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
-                                <button onclick="onSwitchLine()"><i class="fa-solid fa-arrows-up-down"></i></button>
-                            </div>
-                            <div>
-                                <button><i class="fa-solid fa-text-height"></i></button>
-                                <button><i class="fa-solid fa-brush"></i></button>
-                                <button><i class="fa-solid fa-fill-drip"></i></button>
-                                <button onclick="onSetTextAlign('left')"><i class="fa-solid fa-align-left"></i></button>
-                                <button onclick="onSetTextAlign('center')"><i
-                                        class="fa-solid fa-align-justify"></i></button>
-                                <button onclick="onSetTextAlign('right')"><i
-                                        class="fa-solid fa-align-right"></i></button>
-                                <button><i class="fa-brands fa-adn"></i></button>
-                                <button class="font-size-btn" onclick="onClickEditorBtn(this)">
-                                    <i class="fa-solid fa-font"></i>
-                                    <span class="font-size"></span>
-                                    <input type="range" id="font-size" class="font-size-input" min="1" max="100"
-                                        oninput="onSetFontSize(+this.value)">
-                                </button>
-                            </div>
+                        <div class="editor-nav flex  justify-center align-center ">
+
+                            <select name="font-family" class="font-family-select"
+                                onchange="onSetFontFamily(this.value)">
+                                <option value="Arial">Arial</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Times">Times</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Impact">Impact</option>
+                                <option value="Verdana">Verdana</option>
+                            </select>
+
+                            <button class="font-height-btn" onclick="onClickEditorBtn(this)">
+                                <i class="fa-solid fa-text-height"></i>
+                                <span class="font-height"></span>
+                                <input type="range" id="lineHeight" class="line-height-input" min=" 0" max="500"
+                                    value="0" oninput="onSetLineHeight(+this.value)">
+                            </button>
+
+                            <!-- <button><i class="fa-solid fa-brush"></i></button> -->
+
+                            <button class="font-color-btn" onclick="triggerColorPicker()">
+                                <i class="fa-solid fa-fill-drip"></i>
+                                <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
+                            </button>
+
+                            <button class="align-left-btn align-btn" onclick="onSetTextAlign('left')">
+                                <i class="fa-solid fa-align-left"></i></button>
+                            <button class="align-center-btn align-btn" onclick="onSetTextAlign('center')">
+                                <i class="fa-solid fa-align-justify"></i></button>
+                            <button class="align-btn align-right-btn" onclick="onSetTextAlign('right')">
+                                <i class="fa-solid fa-align-right"></i></button>
+
+                            <button class="font-size-btn" onclick="onClickEditorBtn(this)">
+                                <i class="fa-solid fa-font"></i>
+                                <span class="font-size"></span>
+                                <input type="range" id="font-size" class="font-size-input" min="1" max="100"
+                                    oninput="onSetFontSize(+this.value)">
+                            </button>
                         </div>
                         <input type="text" placeholder="Enter text" class="meme-text-input"
                             oninput="onSetLineTxt(this.value)">
+                    </div>
+                    <div class="main-submit-btns flex space-between align-center">
+                        <button>save</button>
+                        <button>
+                            <a href="#" onclick="onDownloadMeme(this)" download="file-name">
+                                Download
+                            </a>
+                        </button>
+                        <button>Share</button>
                     </div>
                 </div>
             </div>

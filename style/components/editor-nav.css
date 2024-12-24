@@ -1,0 +1,79 @@
+.editor-nav {
+    background-color: azure;
+}
+
+.editor-nav>button {
+    border: none;
+    padding: 0.4em;
+    width: 2em;
+    font-size: 1.0625em;
+    background-color: azure;
+    color: rgb(2, 12, 101);
+
+    &:hover {
+        background-color: rgb(169, 208, 208);
+    }
+}
+
+
+.editor-nav>.font-size-btn,
+.editor-nav>.font-height-btn {
+    position: relative;
+
+    & i {
+        translate: 0 -5px;
+    }
+
+    &.active {
+        background-color: rgb(169, 208, 208);
+    }
+}
+
+.editor-nav>.font-size-btn.active .font-size-input,
+.editor-nav>.font-height-btn.active .line-height-input {
+    scale: 1 1;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.editor-nav>.font-size-btn .font-size,
+.editor-nav>.font-height-btn .font-height {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    color: rgb(36, 36, 192);
+    font-weight: bold;
+    font-size: 0.7em;
+}
+
+.font-size-input,
+.line-height-input {
+    position: absolute;
+    right: 0;
+    top: 2.5em;
+
+    scale: 0 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: 100ms;
+}
+
+.editor-nav>.align-btn.active {
+    background-color: rgb(169, 208, 208);
+    color: orange;
+}
+
+.editor-nav>.font-color-btn {
+    position: relative;
+}
+
+.editor-nav>.font-color-btn>.font-color-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    width: 1px;
+}

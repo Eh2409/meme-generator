@@ -1,14 +1,16 @@
 /* SMALL  */
 @media (min-width: 640px) {
+
+    .main-nav>ul>li {
+        margin-inline-end: 1em;
+    }
+
     /* gallery-container */
 
     .gallery-container {
         column-count: 3;
     }
 
-    .main-nav>ul>li {
-        margin-inline-end: 1em;
-    }
 }
 
 /* MEDIUM  */
@@ -49,11 +51,18 @@
         padding: 1em;
     }
 
-    .main-editor>.meme-text-input {
-        padding: 0.5em;
-        border-radius: 0.7em;
+
+    .main-editor-header>.main-editor-logo {
+        font-size: 1.375em;
     }
 
+
+    /* editor-nav */
+
+    .editor-nav {
+        background-color: azure;
+        gap: 0.5em;
+    }
 }
 
 /* LARGE  */

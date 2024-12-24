@@ -1,0 +1,35 @@
+.main-editor-header {
+    margin-block-end: 1em;
+    color: rgb(2, 12, 101);
+}
+
+.main-editor-header>.main-editor-logo {
+    font-size: 1em;
+}
+
+
+.main-editor-header>.editor-header-btns {
+    gap: 0.5em;
+}
+
+.main-editor-header>.editor-header-btns>button {
+    border: none;
+    padding: 0.4em;
+    width: 2em;
+    font-size: 1.0625em;
+    background-color: rgb(106, 135, 174);
+    color: rgb(2, 12, 101);
+
+    &:hover {
+        background-color: rgb(169, 208, 208);
+    }
+}
+
+
+.main-editor-header>.editor-header-btns>.line-count {
+    font-size: 1.25em;
+    text-align: center;
+    width: 4em;
+    font-weight: bold;
+    color: rgb(2, 12, 101);
+}

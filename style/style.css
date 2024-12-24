@@ -10,15 +10,17 @@
 
 
 /* COMPONENTS */
-
 @import url(../style/components/main-header.css);
 @import url(../style/components/main-logo.css);
 @import url(../style/components/main-nav.css);
 @import url(../style/components/main-meme-generator.css);
 @import url(../style/components/generator-container.css);
-@import url(../style/components/main-editor.css);
-@import url(../style/components/editor-box.css);
 @import url(../style/components/canvas-container.css);
+@import url(../style/components/main-editor.css);
+@import url(../style/components/main-editor-header.css);
+@import url(../style/components/editor-box.css);
+@import url(../style/components/editor-nav.css);
+@import url(../style/components/main-submit-btns.css);
 @import url(../style/components/main-gallery.css);
 @import url(../style/components/gallery-container.css);
 
