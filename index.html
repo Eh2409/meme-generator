@@ -18,7 +18,7 @@
             <nav class="main-nav">
                 <ul class="clean-list flex">
                     <li><a href="#"><i class="fa-solid fa-image"></i> Gallery</a></li>
-                    <li><a href="#"><i class="fa-solid fa-camera-retro"></i> Randomize</a></li>
+                    <!-- <li><a href="#"><i class="fa-solid fa-camera-retro"></i> Randomize</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -27,7 +27,15 @@
 
     <main class="main-content full main-layout">
 
-        <section class="main-meme-generator full main-layout">
+        <section class="main-saved-meme full main-layout">
+            <div class="saved-meme"></div>
+            <div class="saved-meme-btns">
+                <button>download</button>
+                <button>edit</button>
+            </div>
+        </section>
+
+        <section class="main-meme-generator full main-layout ">
 
             <div class="generator-container">
 
@@ -98,7 +106,7 @@
                             oninput="onSetLineTxt(this.value)">
                     </div>
                     <div class="main-submit-btns flex space-between align-center">
-                        <button>save</button>
+                        <button onclick="onSaveMeme()">save</button>
                         <button>
                             <a href="#" onclick="onDownloadMeme(this)" download="file-name">
                                 Download
@@ -113,9 +121,13 @@
 
 
         <section class="main-gallery full main-layout">
-            <div class="gallery-container">
-                <div class="photo-card" onclick="onImgSelect()">
-                </div>
+            <div class="flex">
+                <button onclick="onSetDisplay('gallery')">meme-gallery</button>
+                <button onclick="onSetDisplay('my-meme')">my-meme-gallery</button>
+            </div>
+
+            <div class="gallery-container hide"></div>
+            <div class="my-meme-container hide"></div>
 
         </section>
 
@@ -124,6 +136,8 @@
     <footer class="main-footer">
         <small>footer</small>
     </footer>
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/services/upload.service.js"></script>
     <script src="js/gallery.controller.js"></script>

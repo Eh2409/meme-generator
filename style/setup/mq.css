@@ -11,6 +11,10 @@
         column-count: 3;
     }
 
+    .my-meme-container {
+        column-count: 3;
+    }
+
 }
 
 /* MEDIUM  */
@@ -76,6 +80,10 @@
     /* gallery-container */
 
     .gallery-container {
+        column-count: 4;
+    }
+
+    .my-meme-container {
         column-count: 4;
     }
 

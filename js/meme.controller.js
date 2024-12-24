@@ -3,14 +3,14 @@
 let gElCanvas
 let gCtx
 
-function onInit() {
-    renderGallery()
+function initCanvas() {
+    // displayCanvas()
 
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    resizeCanvas()
     renderMeme()
+    resizeCanvas()
 
     window.addEventListener('resize', () => {
         resizeCanvas()
@@ -18,6 +18,15 @@ function onInit() {
 
     addMouseListeners()
     addTouchListeners()
+
+}
+
+function displayCanvas() {
+    const elSections = document.querySelectorAll('main section')
+    elSections.forEach(section => section.classList.add('hide'))
+    const elMemeGenerator = document.querySelector('.main-meme-generator')
+    console.log(elMemeGenerator);
+    elMemeGenerator.classList.remove('hide')
 }
 
 function resizeCanvas() {
@@ -36,12 +45,13 @@ function coverCanvasWithImg(elImg) {
 
 function renderMeme(meme) {
     var meme = getMeme()
+    console.log(meme);
     drawImage(meme)
     setMemeDataOnEditor(meme)
 }
 
 function setMemeDataOnEditor(meme) {
-    if (!meme.lines.length) return
+    if (meme.selectedLineIdx === -1) return
     const { txt, size, color, fontFamily, textAlign, location } = meme.lines[meme.selectedLineIdx]
     document.querySelector('.line-count').innerText = `${meme.selectedLineIdx + 1} / ${meme.lines.length}`
     document.querySelector('.meme-text-input').value = txt
@@ -55,7 +65,6 @@ function setMemeDataOnEditor(meme) {
     const elAlignBtns = document.querySelectorAll('.align-btn');
     elAlignBtns.forEach(btn => btn.classList.remove('active'));
     document.querySelector(`.align-${textAlign}-btn.align-btn`).classList.add('active');
-
 }
 
 
@@ -190,9 +199,35 @@ function onDeleteCurrLine() {
     renderMeme()
 }
 
+/// save meme
+
+function onSaveMeme() {
+
+    removeFramefromLine()
+
+    setTimeout(() => {
+
+        const dataUrl = gElCanvas.toDataURL('image/jpeg');
+        saveMeme(dataUrl);
+
+        const elShowSave = document.querySelector('.saved-meme');
+        elShowSave.innerHTML = `<img src="${dataUrl}" alt="Saved Meme">`;
+
+    }, 100);
+}
+
+function removeFramefromLine() {
+    // modal
+    setSelectedlineIdx(-1)
+    // Dom
+    renderMeme()
+}
+
 /// download meme
 
 function onDownloadMeme(elLink) {
+    removeFramefromLine()
+
     const dataUrl = gElCanvas.toDataURL('image/jpeg')
     elLink.href = dataUrl
     elLink.download = 'my-meme'
@@ -256,7 +291,6 @@ function getEvPos(ev) {
 
 
 /// dom function
-
 function onClickEditorBtn(elBtn) {
     elBtn.classList.toggle('active')
 }

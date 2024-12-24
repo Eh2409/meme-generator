@@ -17,9 +17,17 @@
     margin-inline-end: 1em;
 }
 
+/* לאחד אותם להלפר אחד שעושה את כל הדיספליי */
+
 /* gallery-container */
 
 .gallery-container {
+    column-count: 2;
+}
+
+/* my-meme-container */
+
+.my-meme-container {
     column-count: 2;
 }
 

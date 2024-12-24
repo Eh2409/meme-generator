@@ -1,10 +1,19 @@
 "use strict"
 
 var gImgs = [
-    { id: 1, url: 'images/22.jpg', keywords: ['funny', 'baby'] },
+    { id: 1, url: 'images/5.jpg', keywords: ['funny', 'baby'] },
     { id: 2, url: 'images/28.jpg', keywords: ['funny', 'baby'] },
     { id: 3, url: 'images/40.jpg', keywords: ['funny', 'baby'] },
     { id: 4, url: 'images/44.png', keywords: ['funny', 'baby'] },
+    { id: 5, url: 'images/20.jpg', keywords: ['funny', 'baby'] },
+    { id: 6, url: 'images/21.jpg', keywords: ['funny', 'baby'] },
+    { id: 7, url: 'images/23.jpg', keywords: ['funny', 'baby'] },
+    { id: 8, url: 'images/24.jpg', keywords: ['funny', 'baby'] },
+    { id: 9, url: 'images/17.jpg', keywords: ['funny', 'baby'] },
+    { id: 10, url: 'images/28.jpg', keywords: ['funny', 'baby'] },
+    { id: 11, url: 'images/18.jpg', keywords: ['funny', 'baby'] },
+    { id: 12, url: 'images/8.jpg', keywords: ['funny', 'baby'] },
+    { id: 13, url: 'images/4.jpg', keywords: ['funny', 'baby'] },
 ]
 
 var gMeme = {
@@ -12,7 +21,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'Enter text here',
             location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
             size: 40,
             color: '#ffcc00',
@@ -21,6 +30,11 @@ var gMeme = {
         },
     ]
 }
+
+const MYMEMES_KEY = 'myMemes'
+var gMyMemes = []
+_loadMyMemes()
+
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
@@ -100,6 +114,11 @@ function deleteCurrLine() {
     }
 }
 
+function setSelectedlineIdx(idx) {
+    gMeme.selectedLineIdx = idx
+}
+
+
 // Note to self, think of a way to improve this function
 
 function isLineClicked(clickedPos) {
@@ -120,12 +139,58 @@ function isLineClicked(clickedPos) {
             && clickY >= y && clickY <= y + textHeight
 
     })
-    console.log(clickedLine);
+
 
     if (clickedLine !== -1) {
-        gMeme.selectedLineIdx = clickedLine
+        setSelectedlineIdx(clickedLine)
         return true
     } else {
         return
     }
+}
+
+// my-memes functions
+
+function saveMeme(imgUrl) {
+    var meme = structuredClone(gMeme)
+    meme.id = makeId()
+    meme.url = imgUrl
+    gMyMemes.unshift(meme)
+    _saveMyMemes()
+
+    resetMeme()
+}
+
+function _saveMyMemes() {
+    return saveToStorage(MYMEMES_KEY, gMyMemes)
+}
+
+function resetMeme() {
+    gMeme = {
+        selectedImgId: 1,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: 'Enter text here',
+                location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
+                size: 40,
+                color: '#ffcc00',
+                fontFamily: 'Arial',
+                textAlign: 'center'
+            },
+        ]
+    };
+}
+
+function _loadMyMemes() {
+    gMyMemes = loadFromStorage(MYMEMES_KEY)
+    console.log(gMyMemes);
+    if (gMyMemes && gMyMemes.length > 0) return
+
+    gMyMemes = []
+    _saveMyMemes()
+}
+
+function getMyMemes() {
+    return gMyMemes
 }

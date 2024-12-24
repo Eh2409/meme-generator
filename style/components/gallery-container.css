@@ -1,4 +1,5 @@
-.gallery-container>.photo-card {
+.gallery-container>.photo-card,
+.my-meme-container>.photo-card {
     position: relative;
     display: flex;
 
@@ -11,7 +12,8 @@
     box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5);
 }
 
-.gallery-container>.photo-card>.meme-image {
+.gallery-container>.photo-card>.meme-image,
+.my-meme-container>.photo-card>.meme-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -19,6 +21,7 @@
     transition: 200ms;
 }
 
-.photo-card:hover .meme-image {
+.photo-card:hover .meme-image,
+.my-meme-container .meme-image {
     scale: 1;
 }
