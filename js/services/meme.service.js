@@ -2,9 +2,9 @@
 
 var gImgs = [
     { id: 1, url: 'images/22.jpg', keywords: ['funny', 'baby'] },
-    { id: 2, url: 'images/5.jpg', keywords: ['funny', 'baby'] },
-    { id: 3, url: 'images/21.jpg', keywords: ['funny', 'baby'] },
-    { id: 4, url: 'images/20.jpg', keywords: ['funny', 'baby'] },
+    { id: 2, url: 'images/28.jpg', keywords: ['funny', 'baby'] },
+    { id: 3, url: 'images/40.jpg', keywords: ['funny', 'baby'] },
+    { id: 4, url: 'images/44.png', keywords: ['funny', 'baby'] },
 ]
 
 var gMeme = {

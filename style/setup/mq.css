@@ -37,17 +37,19 @@
     .generator-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
     }
 
     /* canvas-container */
     .canvas-container {
-        width: 400px;
-        height: 400px;
+        grid-column: 1;
+        margin-block-end: 0;
     }
 
     /* main-editor */
 
     .main-editor {
+        grid-column: 2;
         padding: 1em;
     }
 
@@ -77,10 +79,10 @@
         column-count: 4;
     }
 
-    /* canvas-container */
-    .canvas-container {
-        width: 500px;
-        height: 500px;
-    }
+    /* generator-container */
 
+    .generator-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+    }
 }

@@ -8,10 +8,13 @@ function onInit() {
 
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
+
     resizeCanvas()
     renderMeme()
 
-    window.onresize = resizeCanvas
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+    })
 
     addMouseListeners()
     addTouchListeners()
@@ -20,13 +23,18 @@ function onInit() {
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.clientWidth
-    gElCanvas.height = elContainer.clientHeight
 
     renderMeme()
 }
 
+function coverCanvasWithImg(elImg) {
+    if (!elImg) return
+    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+}
 
-function renderMeme() {
+
+function renderMeme(meme) {
     var meme = getMeme()
     drawImage(meme)
     setMemeDataOnEditor(meme)
@@ -56,6 +64,7 @@ function drawImage(meme) {
     elImg.src = meme.imgUrl
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        coverCanvasWithImg(elImg)
         drawText(meme.lines, meme.selectedLineIdx)
     }
 }

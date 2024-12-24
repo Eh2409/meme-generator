@@ -1,3 +1,11 @@
+.canvas-container {
+    position: relative;
+    width: 80%;
+    aspect-ratio: auto;
+    background-color: white;
+}
+
 .canvas-container>.main-canvas {
     background-color: white;
+    outline: solid 10px white;
 }

@@ -25,7 +25,5 @@
 
 /* canvas-container */
 .canvas-container {
-    width: 90vw;
-    height: 500px;
-    margin-block-end: 2em;
+    margin-block-end: 1em;
 }
