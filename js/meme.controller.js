@@ -66,6 +66,7 @@ function setMemeDataOnEditor(meme) {
     document.querySelector('.fa-solid.fa-fill-drip').style.color = color
     document.querySelector('.font-family-select').value = fontFamily
     document.querySelector('.line-height-input').value = location.y
+    document.querySelector('.line-height-input').max = gElCanvas.height
     document.querySelector('.font-height').innerText = `${location.y}px`
 
     const elAlignBtns = document.querySelectorAll('.align-btn');
@@ -85,7 +86,7 @@ function drawText(lines, selectedLineIdx) {
         }
 
         if (!line.location.y && idx === 0) {
-            y = 10
+            y = 0
         }
 
         if (!line.location.y && idx === 1) {
