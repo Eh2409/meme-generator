@@ -39,11 +39,10 @@ function renderImageGallery() {
     var strHtml = ''
     const imgs = getImgs() // List
 
-    // var addImage =
-    //     `<div class="photo-card">
-    //      <input type="file" name="name" id="fileInput" accept="image/*" onchange="onAddImage(event)">
-    // <img src="images/add-image.png" alt="meme-image">
-    // </div>`
+    var addImage =
+        `<div class="photo-card">
+    <input type="file" name="name" class="upload-image-input" id="fileInput" accept="image/*" onchange="onImgInput(event)" hidden>
+    <img src="images/add-image.png" class="upload-btn" alt="meme-image" onclick="onClickUpload()"></div>`
 
     strHtml = imgs.map(({ id, url }) => {
         return `
@@ -52,7 +51,7 @@ function renderImageGallery() {
             </div>  `
     })
 
-    // strHtml.unshift(addImage)
+    strHtml.unshift(addImage)
 
     elGalleryContainer.innerHTML = strHtml.join('')
 

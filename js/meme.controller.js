@@ -331,10 +331,35 @@ function onToggleMenu() {
 
 
 ////  edit meme
-
 function onEditMeme(memeId) {
     // modal
     editMeme(memeId)
+    // Dom
+    initCanvas()
+}
+
+/// upload image
+
+function onClickUpload() {
+    document.querySelector('.upload-image-input').click()
+}
+
+
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+}
+function loadImageFromInput(ev, onImageReady) {
+    var reader = new FileReader()
+    reader.onload = function (event) {
+        var img = new Image()
+        img.onload = () => onImageReady(img)
+        img.src = event.target.result
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+function renderImg(img) {
+    // modal
+    uploadImage(img)
     // Dom
     initCanvas()
 }

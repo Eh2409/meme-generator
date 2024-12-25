@@ -264,3 +264,8 @@ function findMyMemeById(memeId) {
     return gMyMemes.find(meme => meme.id === memeId)
 }
 
+// upload image 
+
+function uploadImage(img) {
+    gMeme.imgUrl = img.src
+}
