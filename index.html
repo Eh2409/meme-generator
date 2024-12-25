@@ -32,8 +32,8 @@
         <section class="main-saved-meme full main-layout hide">
             <div class="saved-meme"></div>
             <div class="saved-meme-btns">
-                <a href="#" download="file-name"><button class="download-btn">Download</button></a>
-                <button>edit</button>
+                <a href="#" download="file-name"><button class="download-btn submit-btn">Download</button></a>
+                <button class="submit-btn">Edit</button>
             </div>
         </section>
 
@@ -108,10 +108,10 @@
                             oninput="onSetLineTxt(this.value)">
                     </div>
                     <div class="main-submit-btns flex space-between align-center">
-                        <button onclick="onSaveMeme()">save</button>
+                        <button onclick="onSaveMeme()" class="submit-btn">Save</button>
                         <a href="#" onclick="onDownloadMeme(this)" download="file-name"><button
-                                class="download-btn">Download</button></a>
-                        <button onclick=" onUploadImg()">Share</button>
+                                class="download-btn submit-btn">Download</button></a>
+                        <button onclick=" onUploadImg()" class="submit-btn">Share</button>
                     </div>
                 </div>
             </div>
@@ -121,8 +121,8 @@
         <section class="main-gallery full main-layout">
             <div class="main-gallery-nav">
                 <ul class="clean-list flex justify-center">
-                    <li onclick="onSetDisplay('gallery')">meme gallery</li>
-                    <li onclick="onSetDisplay('my-meme')">my meme gallery</li>
+                    <li onclick="onSetDisplay('gallery')" class="submit-btn">meme gallery</li>
+                    <li onclick="onSetDisplay('my-meme')" class="submit-btn">my meme gallery</li>
                 </ul>
 
             </div>
