@@ -51,7 +51,6 @@ _loadMyMemes()
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 function getMeme() {
-    gMeme.imgUrl = findImgUrlById(gMeme.selectedImgId)
     return gMeme
 }
 
@@ -66,7 +65,13 @@ function findImgUrlById(imgId) {
 
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
+    gMeme.imgUrl = findImgUrlById(gMeme.selectedImgId)
 }
+
+function onAddImage(img) {
+    console.log(img);
+}
+
 
 function setLineTxt(text) {
     gMeme.lines[gMeme.selectedLineIdx].txt = text
@@ -161,6 +166,8 @@ function isLineClicked(clickedPos) {
     }
 }
 
+
+
 // my-memes functions
 
 function saveMeme(imgUrl) {
@@ -205,3 +212,4 @@ function _loadMyMemes() {
 function getMyMemes() {
     return gMyMemes
 }
+

@@ -179,6 +179,7 @@
     /* canvas-container */
     .canvas-container {
         grid-column: 1;
+        width: 80%;
         margin-block-end: 0;
     }
 

@@ -10,7 +10,6 @@
 </head>
 
 <body class="main-layout" onload="onInit()">
-
     <div class="main-screen" onclick="onToggleMenu()"></div>
 
     <header class="main-header ">
@@ -19,9 +18,8 @@
             <div class="main-logo"><a href="index.html">Meme generator</a></div>
             <nav class="main-nav">
                 <ul class="clean-list flex">
-                    <li><a href="#" onclick="toggleDisplay('main-gallery')">
-                            <i class="fa-solid fa-image"></i>Gallery</a>
-                    </li>
+                    <li><a href="#" onclick="toggleDisplay('main-gallery')"></i>Gallery</a></li>
+                    <li> <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" /></li>
                 </ul>
             </nav>
             <button type="button" class="menu-btn" onclick="onToggleMenu()"></button>
