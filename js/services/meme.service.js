@@ -57,6 +57,8 @@ const MYMEMES_KEY = 'myMemes'
 var gMyMemes = []
 _loadMyMemes()
 
+var gIsEditModeOn = false
+
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
@@ -74,6 +76,7 @@ function findImgUrlById(imgId) {
 }
 
 function setImg(imgId) {
+    gIsEditModeOn = false
     gMeme.selectedImgId = imgId
     gMeme.imgUrl = findImgUrlById(gMeme.selectedImgId)
 }
@@ -84,30 +87,37 @@ function onAddImage(img) {
 
 
 function setLineTxt(text) {
+    if (gMeme.selectedLineIdx === -1) return
     gMeme.lines[gMeme.selectedLineIdx].txt = text
 }
 
 function setFontColor(color) {
+    if (gMeme.selectedLineIdx === -1) return
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
 function setStrokeColor(color) {
+    if (gMeme.selectedLineIdx === -1) return
     gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
 }
 
 function setFontSize(size) {
+    if (gMeme.selectedLineIdx === -1) return
     gMeme.lines[gMeme.selectedLineIdx].size = +size
 }
 
 function setFontFamily(fontFamily) {
+    if (gMeme.selectedLineIdx === -1) return
     gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily
 }
 
 function setTextAlign(direction) {
+    if (gMeme.selectedLineIdx === -1) return
     gMeme.lines[gMeme.selectedLineIdx].textAlign = direction
 }
 
 function setLineHeight(num) {
+    if (gMeme.selectedLineIdx === -1) return
     gMeme.lines[gMeme.selectedLineIdx].location.y = num
 }
 
@@ -169,7 +179,6 @@ function isLineClicked(clickedPos) {
 
         return clickX >= x && clickX <= x + lineWidth
             && clickY >= y && clickY <= y + textHeight
-
     })
 
 
@@ -182,16 +191,21 @@ function isLineClicked(clickedPos) {
 }
 
 
-
 // my-memes functions
 
 function saveMeme(imgUrl) {
-    var meme = structuredClone(gMeme)
-    meme.id = makeId()
-    meme.url = imgUrl
-    gMyMemes.unshift(meme)
+    if (gIsEditModeOn) {
+        var idx = gMyMemes.findIndex(meme => meme.id === gMeme.id)
+        gMyMemes[idx] = structuredClone(gMeme)
+        gMyMemes[idx].url = imgUrl
+        gIsEditModeOn = false
+    } else {
+        var meme = structuredClone(gMeme)
+        meme.id = makeId()
+        meme.url = imgUrl
+        gMyMemes.unshift(meme)
+    }
     _saveMyMemes()
-
     resetMeme()
 }
 
@@ -236,5 +250,17 @@ function _loadMyMemes() {
 
 function getMyMemes() {
     return gMyMemes
+}
+
+function editMeme(memeId) {
+    gIsEditModeOn = true
+    var myMeme = findMyMemeById(memeId)
+    gMeme = myMeme
+    gMeme.selectedLineIdx = 0
+    console.log(myMeme);
+}
+
+function findMyMemeById(memeId) {
+    return gMyMemes.find(meme => meme.id === memeId)
 }
 

@@ -2,7 +2,6 @@
 
 let gElCanvas
 let gCtx
-var gIsNewCanvas
 
 function initCanvas() {
     toggleDisplay('main-meme-generator')
@@ -10,7 +9,6 @@ function initCanvas() {
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    gIsNewCanvas = true
     resizeCanvas()
 
     window.addEventListener('resize', () => {
@@ -51,6 +49,7 @@ function resizeCanvas() {
 }
 
 function coverCanvasWithImg(elImg) {
+    console.log(elImg)
     if (!elImg) return
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -331,4 +330,11 @@ function onToggleMenu() {
 }
 
 
+////  edit meme
 
+function onEditMeme(memeId) {
+    // modal
+    editMeme(memeId)
+    // Dom
+    initCanvas()
+}

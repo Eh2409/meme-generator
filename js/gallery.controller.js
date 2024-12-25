@@ -23,7 +23,7 @@ function renderMyMemes() {
 
     strHtml = meme.map(({ id, url }) => {
         return `
-             <div class="photo-card">
+             <div class="photo-card" onclick="onEditMeme('${id}')">
                     <img src="${url}" alt="" class="meme-image">
             </div>  `
     })
