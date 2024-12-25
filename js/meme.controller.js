@@ -4,7 +4,7 @@ let gElCanvas
 let gCtx
 
 function initCanvas() {
-    // displayCanvas()
+    toggleDisplay('main-meme-generator')
 
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -21,12 +21,11 @@ function initCanvas() {
 
 }
 
-function displayCanvas() {
+function toggleDisplay(className) {
     const elSections = document.querySelectorAll('main section')
     elSections.forEach(section => section.classList.add('hide'))
-    const elMemeGenerator = document.querySelector('.main-meme-generator')
-    console.log(elMemeGenerator);
-    elMemeGenerator.classList.remove('hide')
+    const elcurrDisplay = document.querySelector(`.${className}`)
+    elcurrDisplay.classList.remove('hide')
 }
 
 function resizeCanvas() {
@@ -212,7 +211,7 @@ function onSaveMeme() {
 
         const elShowSave = document.querySelector('.saved-meme');
         elShowSave.innerHTML = `<img src="${dataUrl}" alt="Saved Meme">`;
-
+        toggleDisplay('main-saved-meme')
     }, 100);
 }
 
@@ -298,4 +297,13 @@ function onClickEditorBtn(elBtn) {
 
 function triggerColorPicker() {
     document.querySelector('.font-color-input').click();
+}
+
+function onToggleButtonMenu(elNavButton) {
+
+    elNavButton.classList.toggle('active')
+
+}
+function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
 }

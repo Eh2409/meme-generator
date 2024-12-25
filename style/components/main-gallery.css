@@ -3,3 +3,19 @@
     background-color: #82ce9b;
     margin-block-end: 1em;
 }
+
+.main-gallery-nav {
+    margin-block-end: 1em;
+}
+
+.main-gallery-nav>ul>li {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #35814e;
+    margin-inline-end: 1em;
+    cursor: pointer;
+
+    &:hover {
+        color: #4077e4;
+    }
+}

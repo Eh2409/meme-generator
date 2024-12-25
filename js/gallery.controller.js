@@ -30,7 +30,7 @@ function renderMyMemes() {
 
     elMyMemesContainer.innerHTML = strHtml.join('')
 
-    toggleDisplay()
+    toggleGallery()
 }
 
 
@@ -48,7 +48,7 @@ function renderImageGallery() {
 
     elGalleryContainer.innerHTML = strHtml.join('')
 
-    toggleDisplay()
+    toggleGallery()
 }
 
 
@@ -66,7 +66,7 @@ function onMemeSelect(memeId) {
     initCanvas()
 }
 
-function toggleDisplay() {
+function toggleGallery() {
     const elMyMeme = document.querySelector('.my-meme-container')
     const elGallery = document.querySelector('.gallery-container')
 

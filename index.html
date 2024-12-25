@@ -11,23 +11,28 @@
 
 <body class="main-layout" onload="onInit()">
 
+    <div class="main-screen" onclick="onToggleMenu()"></div>
+
     <header class="main-header ">
 
         <div class="header-content flex space-between align-center">
             <div class="main-logo"><a href="index.html">Meme generator</a></div>
             <nav class="main-nav">
                 <ul class="clean-list flex">
-                    <li><a href="#"><i class="fa-solid fa-image"></i> Gallery</a></li>
+                    <li><a href="#" onclick="toggleDisplay('main-gallery')">
+                            <i class="fa-solid fa-image"></i>Gallery</a>
+                    </li>
                     <!-- <li><a href="#"><i class="fa-solid fa-camera-retro"></i> Randomize</a></li> -->
                 </ul>
             </nav>
+            <button type="button" class="menu-btn" onclick="onToggleMenu()"></button>
         </div>
 
     </header>
 
     <main class="main-content full main-layout">
 
-        <section class="main-saved-meme full main-layout">
+        <section class="main-saved-meme full main-layout hide">
             <div class="saved-meme"></div>
             <div class="saved-meme-btns">
                 <button>download</button>
@@ -35,7 +40,7 @@
             </div>
         </section>
 
-        <section class="main-meme-generator full main-layout ">
+        <section class="main-meme-generator full main-layout hide">
 
             <div class="generator-container">
 
@@ -119,11 +124,13 @@
 
         </section>
 
-
         <section class="main-gallery full main-layout">
-            <div class="flex">
-                <button onclick="onSetDisplay('gallery')">meme-gallery</button>
-                <button onclick="onSetDisplay('my-meme')">my-meme-gallery</button>
+            <div class="main-gallery-nav">
+                <ul class="clean-list flex justify-center">
+                    <li onclick="onSetDisplay('gallery')">meme gallery</li>
+                    <li onclick="onSetDisplay('my-meme')">my meme gallery</li>
+                </ul>
+
             </div>
 
             <div class="gallery-container hide"></div>
