@@ -9,7 +9,7 @@ function initCanvas() {
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    renderMeme()
+    resizeCanvas()
 
     window.addEventListener('resize', () => {
         resizeCanvas()
@@ -17,6 +17,13 @@ function initCanvas() {
 
     addMouseListeners()
     addTouchListeners()
+}
+
+function toggleDisplay(className) {
+    const elSections = document.querySelectorAll('main section')
+    elSections.forEach(section => section.classList.add('hide'))
+    const elcurrDisplay = document.querySelector(`.${className}`)
+    elcurrDisplay.classList.remove('hide')
 }
 
 function renderMeme() {
@@ -29,9 +36,6 @@ function drawImage(meme) {
     const elImg = new Image()
     elImg.src = meme.imgUrl
     elImg.onload = () => {
-        resizeCanvas()
-
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         coverCanvasWithImg(elImg)
         drawText(meme.lines, meme.selectedLineIdx)
     }
@@ -39,7 +43,8 @@ function drawImage(meme) {
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.clientWidth
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
     renderMeme()
 }
 
@@ -48,14 +53,6 @@ function coverCanvasWithImg(elImg) {
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
-
-function toggleDisplay(className) {
-    const elSections = document.querySelectorAll('main section')
-    elSections.forEach(section => section.classList.add('hide'))
-    const elcurrDisplay = document.querySelector(`.${className}`)
-    elcurrDisplay.classList.remove('hide')
-}
-
 
 function setMemeDataOnEditor(meme) {
     if (meme.selectedLineIdx === -1) return
@@ -77,7 +74,6 @@ function setMemeDataOnEditor(meme) {
 
 // Note to self: maybe break it down into several functions
 function drawText(lines, selectedLineIdx) {
-
     lines.forEach((line, idx) => {
         var { txt, size, color, fontFamily, textAlign } = line
         var { y } = line.location
@@ -123,13 +119,13 @@ function textAlignPos(textAlign, lineWidth) {
     }
 }
 
-
 function onAddLine() { // create
     // modal
     addLine()
     // Dom
     renderMeme()
 }
+
 
 
 // update functions
@@ -297,15 +293,12 @@ function onClickEditorBtn(elBtn) {
     elBtn.classList.toggle('active')
 }
 
-
 function triggerColorPicker() {
     document.querySelector('.font-color-input').click();
 }
 
 function onToggleButtonMenu(elNavButton) {
-
     elNavButton.classList.toggle('active')
-
 }
 function onToggleMenu() {
     document.body.classList.toggle('menu-open')

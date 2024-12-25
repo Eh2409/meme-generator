@@ -39,12 +39,20 @@ function renderImageGallery() {
     var strHtml = ''
     const imgs = getImgs() // List
 
+    // var addImage =
+    //     `<div class="photo-card">
+    //      <input type="file" name="name" id="fileInput" accept="image/*" onchange="onAddImage(event)">
+    // <img src="images/add-image.png" alt="meme-image">
+    // </div>`
+
     strHtml = imgs.map(({ id, url }) => {
         return `
              <div class="photo-card" onclick="onImgSelect(${id})">
                     <img src="${url}" alt="" class="meme-image">
             </div>  `
     })
+
+    // strHtml.unshift(addImage)
 
     elGalleryContainer.innerHTML = strHtml.join('')
 
