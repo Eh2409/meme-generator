@@ -35,9 +35,17 @@ var gMeme = {
         {
             txt: 'Enter text here',
             location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-            size: 40,
+            size: 50,
             color: '#ffcc00',
-            fontFamily: 'Arial',
+            fontFamily: 'Impact',
+            textAlign: 'center'
+        },
+        {
+            txt: 'Enter text here',
+            location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
+            size: 50,
+            color: '#ffcc00',
+            fontFamily: 'Impact',
             textAlign: 'center'
         },
     ]
@@ -99,11 +107,11 @@ function setLineHeight(num) {
 
 function addLine() {
     var newLine = {
-        txt: 'Add text here',
+        txt: 'Enter text here',
         location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-        size: 30,
-        color: '#ae4c4c',
-        fontFamily: 'Arial',
+        size: 50,
+        color: '#ffcc00',
+        fontFamily: 'Impact',
         textAlign: 'center'
     }
 

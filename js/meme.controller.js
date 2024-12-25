@@ -2,6 +2,7 @@
 
 let gElCanvas
 let gCtx
+var gIsNewCanvas
 
 function initCanvas() {
     toggleDisplay('main-meme-generator')
@@ -9,6 +10,7 @@ function initCanvas() {
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
 
+    gIsNewCanvas = true
     resizeCanvas()
 
     window.addEventListener('resize', () => {
@@ -78,10 +80,24 @@ function drawText(lines, selectedLineIdx) {
         var { txt, size, color, fontFamily, textAlign } = line
         var { y } = line.location
 
+        if (!line.location.y) {
+            y = (gElCanvas.height / 2) - (size / 2)
+        }
+
+        if (!line.location.y && idx === 0) {
+            y = 10
+        }
+
+        if (!line.location.y && idx === 1) {
+            y = gElCanvas.height - 10 - size
+        }
+
+
         gCtx.textBaseline = 'top';
         gCtx.textAlign = textAlign;
         gCtx.fillStyle = color
         gCtx.font = `${size}px ${fontFamily}`;
+        gCtx.strokeStyle = 'black';
 
         var lineWidth = gCtx.measureText(txt).width
         var xPos = textAlignPos(textAlign, 0)
@@ -89,6 +105,7 @@ function drawText(lines, selectedLineIdx) {
         var textHeight = gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
 
         gCtx.fillText(txt, xPos, y);
+        gCtx.strokeText(txt, xPos, y);
 
         // Finds the selected line and frames it
         if (idx === selectedLineIdx) {
@@ -303,3 +320,6 @@ function onToggleButtonMenu(elNavButton) {
 function onToggleMenu() {
     document.body.classList.toggle('menu-open')
 }
+
+
+
