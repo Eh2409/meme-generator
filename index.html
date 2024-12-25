@@ -91,7 +91,6 @@
                                 <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
                             </button>
 
-
                             <button class="align-left-btn align-btn" onclick="onSetTextAlign('left')">
                                 <i class="fa-solid fa-align-left"></i></button>
                             <button class="align-center-btn align-btn" onclick="onSetTextAlign('center')">
@@ -109,6 +108,19 @@
                         <input type="text" placeholder="Enter text" class="meme-text-input"
                             oninput="onSetLineTxt(this.value)">
                     </div>
+
+                    <div class="emojis-box flex">
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😃</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😂</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😍</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🥸</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😱</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🫢</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🤮</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😵‍💫</span>
+                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🤑</span>
+                    </div>
+
                     <div class="main-submit-btns flex space-between align-center">
                         <button onclick="onSaveMeme()" class="submit-btn">Save</button>
                         <a href="#" onclick="onDownloadMeme(this)" download="file-name"><button

@@ -177,14 +177,13 @@
     /* main-editor */
 
     .main-editor {
-        /* grid-column: 2; */
         padding: 1em;
+        padding: 10px;
     }
 
     .main-editor-header>.main-editor-logo {
         font-size: 1.375em;
     }
-
 
     /* editor-nav */
 

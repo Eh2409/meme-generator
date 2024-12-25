@@ -144,6 +144,16 @@ function onAddLine() { // create
     renderMeme()
 }
 
+function onAddEmoji(emoji) { // create
+    console.log(emoji);
+
+    // modal
+    addEmoji(emoji)
+    // Dom
+    renderMeme()
+}
+
+
 // update functions
 
 function onSetLineTxt(text) {
@@ -341,7 +351,6 @@ function onEditMeme(memeId) {
 function onClickUpload() {
     document.querySelector('.upload-image-input').click()
 }
-
 
 function onImgInput(ev) {
     loadImageFromInput(ev, renderImg)

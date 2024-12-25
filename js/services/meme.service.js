@@ -41,9 +41,11 @@ function getMeme() {
     return gMeme
 }
 
-function getImgs(filterBy) {
-    console.log(filterBy);
+function getkeywordCountMap() {
+    return gKeywordSearchCountMap
+}
 
+function getImgs(filterBy) {
     var images = gImgs.filter(({ keywords }) =>
         keywords.some(word => word.toLowerCase().includes(filterBy.toLowerCase())))
 
@@ -113,6 +115,19 @@ function addLine() {
     }
 
     gMeme.lines.push(newLine)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function addEmoji(emoji) {
+    var newEmoji = {
+        txt: emoji,
+        location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
+        size: 50,
+        textAlign: 'center'
+    }
+
+    gMeme.lines.push(newEmoji)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function switchLine() {

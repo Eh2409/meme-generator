@@ -57,6 +57,7 @@ function renderImageGallery() {
     elGalleryContainer.innerHTML = strHtml.join('')
 
     toggleGallery()
+    // onLoadKeywords()
 }
 
 
@@ -102,8 +103,15 @@ function onGalleryFilter(keywords) {
 }
 
 function onClearGalleryFilter() {
+    const elGalleryFilter = document.querySelector('.gallery-filter')
     // modal
     gFilterGalleryBy = ''
+    elGalleryFilter.value = ''
     // Dom
     renderDisplay()
 }
+
+// function onLoadKeywords() {
+//     var keywordCountMap = getkeywordCountMap()
+
+// }

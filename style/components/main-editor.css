@@ -2,7 +2,7 @@
     background-color: rgb(106, 135, 174);
     border-radius: 1em;
     padding-block: 0.5em;
-    padding-inline: 1em;
+    padding-inline: 0.3em;
     box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5);
     height: max-content;
 }
@@ -11,4 +11,17 @@
     border-radius: 0.7em;
     padding-block: 0.5em;
     margin: 10px;
+}
+
+.main-editor>.emojis-box {
+    background-color: white;
+    border-radius: 10px;
+    margin-block-end: 1em;
+    place-content: center;
+}
+
+.main-editor>.emojis-box>.emoji {
+    font-size: 1.5em;
+    cursor: pointer;
+
 }
