@@ -58,12 +58,13 @@ function coverCanvasWithImg(elImg) {
 
 function setMemeDataOnEditor(meme) {
     if (meme.selectedLineIdx === -1) return
-    const { txt, size, color, fontFamily, textAlign, location } = meme.lines[meme.selectedLineIdx]
+    const { txt, size, color, strokeColor, fontFamily, textAlign, location } = meme.lines[meme.selectedLineIdx]
     document.querySelector('.line-count').innerText = `${meme.selectedLineIdx + 1} / ${meme.lines.length}`
     document.querySelector('.meme-text-input').value = txt
     document.querySelector('.font-size-input').value = size
     document.querySelector('.font-size').innerText = `${size}px`
     document.querySelector('.fa-solid.fa-fill-drip').style.color = color
+    document.querySelector('.fa-solid.fa-brush').style.color = strokeColor
     document.querySelector('.font-family-select').value = fontFamily
     document.querySelector('.line-height-input').value = location.y
     document.querySelector('.line-height-input').max = gElCanvas.height
@@ -78,7 +79,7 @@ function setMemeDataOnEditor(meme) {
 // Note to self: maybe break it down into several functions
 function drawText(lines, selectedLineIdx) {
     lines.forEach((line, idx) => {
-        var { txt, size, color, fontFamily, textAlign } = line
+        var { txt, size, color, strokeColor, fontFamily, textAlign } = line
         var { y } = line.location
 
         if (!line.location.y) {
@@ -98,7 +99,7 @@ function drawText(lines, selectedLineIdx) {
         gCtx.textAlign = textAlign;
         gCtx.fillStyle = color
         gCtx.font = `${size}px ${fontFamily}`;
-        gCtx.strokeStyle = 'black';
+        gCtx.strokeStyle = strokeColor;
 
         var lineWidth = gCtx.measureText(txt).width
         var xPos = textAlignPos(textAlign, 0)
@@ -158,6 +159,13 @@ function onSetLineTxt(text) {
 function onSetFontColor(color) {
     // modal
     setFontColor(color)
+    // Dom
+    renderMeme()
+}
+
+function onSetStrokeColor(color) {
+    // modal
+    setStrokeColor(color)
     // Dom
     renderMeme()
 }
@@ -311,8 +319,8 @@ function onClickEditorBtn(elBtn) {
     elBtn.classList.toggle('active')
 }
 
-function triggerColorPicker() {
-    document.querySelector('.font-color-input').click();
+function triggerColorPicker(type) {
+    document.querySelector(`.${type}-color-input`).click();
 }
 
 function onToggleButtonMenu(elNavButton) {

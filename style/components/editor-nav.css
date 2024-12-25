@@ -65,11 +65,13 @@
     color: orange;
 }
 
-.editor-nav>.font-color-btn {
+.editor-nav>.font-color-btn,
+.editor-nav>.stroke-color-btn {
     position: relative;
 }
 
-.editor-nav>.font-color-btn>.font-color-input {
+.editor-nav>.font-color-btn>.font-color-input,
+.editor-nav>.stroke-color-btn>.stroke-color-input {
     position: absolute;
     top: 0;
     left: 0;

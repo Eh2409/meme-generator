@@ -36,7 +36,8 @@ var gMeme = {
             txt: 'Enter text here',
             location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
             size: 50,
-            color: '#ffcc00',
+            color: '#ffb921',
+            strokeColor: '#000000',
             fontFamily: 'Impact',
             textAlign: 'center'
         },
@@ -44,7 +45,8 @@ var gMeme = {
             txt: 'Enter text here',
             location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
             size: 50,
-            color: '#ffcc00',
+            color: '#ffb921',
+            strokeColor: '#000000',
             fontFamily: 'Impact',
             textAlign: 'center'
         },
@@ -89,6 +91,10 @@ function setFontColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
+function setStrokeColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
+}
+
 function setFontSize(size) {
     gMeme.lines[gMeme.selectedLineIdx].size = +size
 }
@@ -110,7 +116,8 @@ function addLine() {
         txt: 'Enter text here',
         location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
         size: 50,
-        color: '#ffcc00',
+        color: '#ffb921',
+        strokeColor: '#000000',
         fontFamily: 'Impact',
         textAlign: 'center'
     }
@@ -200,9 +207,19 @@ function resetMeme() {
             {
                 txt: 'Enter text here',
                 location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-                size: 40,
-                color: '#ffcc00',
-                fontFamily: 'Arial',
+                size: 50,
+                color: '#ffb921',
+                strokeColor: '#000000',
+                fontFamily: 'Impact',
+                textAlign: 'center'
+            },
+            {
+                txt: 'Enter text here',
+                location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
+                size: 50,
+                color: '#ffb921',
+                strokeColor: '#000000',
+                fontFamily: 'Impact',
                 textAlign: 'center'
             },
         ]

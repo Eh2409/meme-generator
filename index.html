@@ -83,12 +83,16 @@
                                     value="0" oninput="onSetLineHeight(+this.value)">
                             </button>
 
-                            <!-- <button><i class="fa-solid fa-brush"></i></button> -->
+                            <button class="stroke-color-btn" onclick="triggerColorPicker('stroke')">
+                                <i class="fa-solid fa-brush"></i>
+                                <input type="color" class="stroke-color-input" oninput="onSetStrokeColor(this.value)">
+                            </button>
 
-                            <button class="font-color-btn" onclick="triggerColorPicker()">
+                            <button class="font-color-btn" onclick="triggerColorPicker('font')">
                                 <i class="fa-solid fa-fill-drip"></i>
                                 <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
                             </button>
+
 
                             <button class="align-left-btn align-btn" onclick="onSetTextAlign('left')">
                                 <i class="fa-solid fa-align-left"></i></button>
