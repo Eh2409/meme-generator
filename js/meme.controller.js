@@ -207,6 +207,13 @@ function onSaveMeme() {
 
         const elShowSave = document.querySelector('.saved-meme');
         elShowSave.innerHTML = `<img src="${dataUrl}" alt="Saved Meme">`;
+
+        const elDownloadBtn = document.querySelector('.saved-meme-btns a');
+        console.log(elDownloadBtn);
+
+        elDownloadBtn.href = dataUrl
+        elDownloadBtn.download = 'my-meme'
+
         toggleDisplay('main-saved-meme')
     }, 100);
 }
@@ -232,14 +239,14 @@ function onDownloadMeme(elLink) {
 // upload image
 
 function onUploadImg() {
+    setSelectedlineIdx(-1)
     const canvasData = gElCanvas.toDataURL('image/jpeg')
 
-    // After a succesful upload, allow the user to share on Facebook
     function onSuccess(uploadedImgUrl) {
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         console.log('encodedUploadedImgUrl:', encodedUploadedImgUrl)
-        document.querySelector('.download-link-container').innerHTML = `
-        <p>Image url: ${uploadedImgUrl}</p>`
+
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`)
     }
     uploadImg(canvasData, onSuccess)
 }

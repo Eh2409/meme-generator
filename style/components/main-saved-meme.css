@@ -1,4 +1,17 @@
 .main-saved-meme {
+    min-height: 80vh;
+    place-items: center;
+    justify-items: center;
     background-color: rgba(237, 6, 119, 255);
     margin-block-end: 1em;
+}
+
+.main-saved-meme>.saved-meme {
+    width: 40%;
+}
+
+.main-saved-meme>.saved-meme>img {
+    width: 100%;
+    object-fit: contain;
+    outline: solid 10px white;
 }
