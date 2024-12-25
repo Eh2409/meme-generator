@@ -10,7 +10,6 @@ function initCanvas() {
     gCtx = gElCanvas.getContext('2d')
 
     renderMeme()
-    resizeCanvas()
 
     window.addEventListener('resize', () => {
         resizeCanvas()
@@ -18,20 +17,29 @@ function initCanvas() {
 
     addMouseListeners()
     addTouchListeners()
-
 }
 
-function toggleDisplay(className) {
-    const elSections = document.querySelectorAll('main section')
-    elSections.forEach(section => section.classList.add('hide'))
-    const elcurrDisplay = document.querySelector(`.${className}`)
-    elcurrDisplay.classList.remove('hide')
+function renderMeme() {
+    var meme = getMeme()
+    drawImage(meme)
+    setMemeDataOnEditor(meme)
+}
+
+function drawImage(meme) {
+    const elImg = new Image()
+    elImg.src = meme.imgUrl
+    elImg.onload = () => {
+        resizeCanvas()
+
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        coverCanvasWithImg(elImg)
+        drawText(meme.lines, meme.selectedLineIdx)
+    }
 }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.clientWidth
-
     renderMeme()
 }
 
@@ -41,13 +49,13 @@ function coverCanvasWithImg(elImg) {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-
-function renderMeme(meme) {
-    var meme = getMeme()
-    console.log(meme);
-    drawImage(meme)
-    setMemeDataOnEditor(meme)
+function toggleDisplay(className) {
+    const elSections = document.querySelectorAll('main section')
+    elSections.forEach(section => section.classList.add('hide'))
+    const elcurrDisplay = document.querySelector(`.${className}`)
+    elcurrDisplay.classList.remove('hide')
 }
+
 
 function setMemeDataOnEditor(meme) {
     if (meme.selectedLineIdx === -1) return
@@ -67,16 +75,6 @@ function setMemeDataOnEditor(meme) {
 }
 
 
-function drawImage(meme) {
-    const elImg = new Image()
-    elImg.src = meme.imgUrl
-    elImg.onload = () => {
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        coverCanvasWithImg(elImg)
-        drawText(meme.lines, meme.selectedLineIdx)
-    }
-}
-
 // Note to self: maybe break it down into several functions
 function drawText(lines, selectedLineIdx) {
 
@@ -93,10 +91,8 @@ function drawText(lines, selectedLineIdx) {
         var xPos = textAlignPos(textAlign, 0)
 
         var textHeight = gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
-        console.log(textHeight);
 
         gCtx.fillText(txt, xPos, y);
-
 
         // Finds the selected line and frames it
         if (idx === selectedLineIdx) {

@@ -1,9 +1,7 @@
 .canvas-container {
-    position: relative;
     width: 80%;
-    aspect-ratio: auto;
+    position: relative;
     background-color: white;
-    background-image: url(/images/gir.gif);
 }
 
 .canvas-container>.main-canvas {

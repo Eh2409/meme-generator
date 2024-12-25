@@ -156,7 +156,6 @@
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--m)) minmax(20px, 1fr);
     }
 
-
     /* main-header */
 
     .main-header>.header-content {
@@ -226,4 +225,11 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1em;
     }
+
+    /* canvas-container */
+
+    .canvas-container {
+        width: 100%;
+    }
+
 }
