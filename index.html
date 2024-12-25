@@ -127,6 +127,17 @@
                     <li onclick="onSetDisplay('my-meme')" class="submit-btn">my meme gallery</li>
                 </ul>
 
+                <input class="gallery-filter" list="keywords" oninput="onGalleryFilter(this.value)">
+
+                <datalist id="keywords">
+                    <option value="cat">
+                    <option value="dog">
+                    <option value="baby">
+                    <option value="funny">
+                </datalist>
+
+                <button class="submit-btn" onclick="onClearGalleryFilter()">clear</button>
+                <div class="search-by-keywords"></div>
             </div>
 
             <div class="gallery-container hide"></div>

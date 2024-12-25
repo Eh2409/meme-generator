@@ -123,7 +123,7 @@ function drawText(lines, selectedLineIdx) {
 
 function frameSelectedLine(y, textAlign, lineWidth, textHeight) {
     var xPos = textAlignPos(textAlign, lineWidth)
-    gCtx.strokeStyle = 'green';
+    gCtx.strokeStyle = '#f6cd55';
     gCtx.setLineDash([10, 2]);
     gCtx.strokeRect(xPos, y, lineWidth, textHeight);
     gCtx.setLineDash([]);
@@ -143,8 +143,6 @@ function onAddLine() { // create
     // Dom
     renderMeme()
 }
-
-
 
 // update functions
 

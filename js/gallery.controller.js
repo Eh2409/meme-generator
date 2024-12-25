@@ -1,6 +1,7 @@
 "use strict"
 
 var gDisplay = 'gallery'
+var gFilterGalleryBy = ''
 
 function onInit() {
     renderDisplay()
@@ -37,7 +38,7 @@ function renderMyMemes() {
 function renderImageGallery() {
     const elGalleryContainer = document.querySelector('.gallery-container')
     var strHtml = ''
-    const imgs = getImgs() // List
+    const imgs = getImgs(gFilterGalleryBy) // List
 
     var addImage =
         `<div class="photo-card">
@@ -89,5 +90,20 @@ function toggleGallery() {
 function onSetDisplay(displayType) {
     gDisplay = displayType
 
+    renderDisplay()
+}
+
+
+function onGalleryFilter(keywords) {
+    // modal
+    gFilterGalleryBy = keywords
+    // Dom
+    renderDisplay()
+}
+
+function onClearGalleryFilter() {
+    // modal
+    gFilterGalleryBy = ''
+    // Dom
     renderDisplay()
 }
