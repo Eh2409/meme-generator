@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="">
     <script src="https://kit.fontawesome.com/cbf5806738.js" crossorigin="anonymous"></script>
     <title>Meme generator</title>
 </head>
@@ -18,7 +19,7 @@
             <div class="main-logo"><a href="index.html">Meme generator</a></div>
             <nav class="main-nav">
                 <ul class="clean-list flex">
-                    <li><a href="#" onclick="toggleDisplay('main-gallery')">Gallery</a></li>
+                    <li><a href="index.html">Gallery</a></li>
                 </ul>
             </nav>
             <button type="button" class="menu-btn" onclick="onToggleMenu()"></button>
@@ -120,11 +121,14 @@
                         <span class="emoji" onclick="onAddEmoji(this.innerText)">😵‍💫</span>
                         <span class="emoji" onclick="onAddEmoji(this.innerText)">🤑</span>
                     </div>
+                
 
                     <div class="main-submit-btns flex space-between align-center">
                         <button onclick="onSaveMeme()" class="submit-btn">Save</button>
-                        <a href="#" onclick="onDownloadMeme(this)" download="file-name"><button
-                                class="download-btn submit-btn">Download</button></a>
+
+                        <a href="#" onclick="onDownloadMeme(this)" download="file-name" class="download-url" hidden></a>
+                        <button class="download-btn submit-btn" onclick="setDownload()">Download</button>
+
                         <button onclick=" onUploadImg()" class="submit-btn">Share</button>
                     </div>
                 </div>

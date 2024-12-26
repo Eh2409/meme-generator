@@ -22,14 +22,22 @@ function renderMyMemes() {
     var strHtml = ''
     const meme = getMyMemes() // List
 
-    strHtml = meme.map(({ id, url }) => {
-        return `
-             <div class="photo-card" onclick="onEditMeme('${id}')">
-                    <img src="${url}" alt="" class="meme-image">
-            </div>  `
-    })
-
-    elMyMemesContainer.innerHTML = strHtml.join('')
+    if (!meme.length) {
+        strHtml = `
+        <div class="photo-card">
+            <input type="file" name="name" class="upload-image-input" id="fileInput" accept="image/*" onchange="onImgInput(event)" hidden>
+            <img src="images/add-image.png" class="upload-btn" alt="Upload Meme" onclick="onClickUpload()">
+        </div>`
+        elMyMemesContainer.innerHTML = strHtml
+    } else {
+        strHtml = meme.map(({ id, url }) => {
+            return `
+                 <div class="photo-card" onclick="onEditMeme('${id}')">
+                        <img src="${url}" alt="" class="meme-image">
+                </div>  `
+        })
+        elMyMemesContainer.innerHTML = strHtml.join('')
+    }
 
     toggleGallery()
 }
@@ -97,7 +105,6 @@ function onSetDisplay(displayType) {
     renderDisplay()
 }
 
-
 function onGalleryFilter(keywords) {
     // modal
     gFilterGalleryBy = keywords
@@ -114,17 +121,18 @@ function onClearGalleryFilter() {
     renderDisplay()
 }
 
-
 function onRenderKeywords() {
     var keywordCountMap = getkeywordCountMap()
-    console.log(keywordCountMap);
 
     var strHtml = ''
     for (var keyword in keywordCountMap) {
-        strHtml += `<span class="keyword ${keyword}"
-         style="font-size: ${keywordCountMap[keyword] * 0.3}em;"
-          onclick="onUpvoteKeyword('${keyword}')">${keyword}</span>`
+        strHtml += `<a href="#" class="keyword ${keyword}"
+         style="font-size: ${keywordCountMap[keyword] * 0.10}em;"
+          onclick="onUpvoteKeyword('${keyword}')">${keyword}</a>`
     }
+
+    console.log(strHtml);
+
 
     const elSearchByKeywords = document.querySelector('.search-by-keywords')
     elSearchByKeywords.innerHTML = strHtml

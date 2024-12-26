@@ -20,12 +20,7 @@ function initCanvas() {
     addListeners()
 }
 
-function toggleDisplay(className) {
-    const elSections = document.querySelectorAll('main section')
-    elSections.forEach(section => section.classList.add('hide'))
-    const elcurrDisplay = document.querySelector(`.${className}`)
-    elcurrDisplay.classList.remove('hide')
-}
+// Render canvas function
 
 function renderMeme() {
     var meme = getMeme()
@@ -77,13 +72,10 @@ function setMemeDataOnEditor(meme) {
 
 }
 
-
-// Note to self: maybe break it down into several functions
 function drawText(lines, selectedLineIdx) {
     lines.forEach((line, idx) => {
         var { txt, size, color, strokeColor, fontFamily, textAlign } = line
         var { x, y } = line.location
-        console.log(x, y);
 
         if (!line.location.y) {
             y = (gElCanvas.height / 2) - (size / 2)
@@ -148,6 +140,14 @@ function textAlignPos(textAlign, lineWidth) {
     }
 }
 
+function toggleDisplay(className) {
+    const elSections = document.querySelectorAll('main section')
+    elSections.forEach(section => section.classList.add('hide'))
+    const elcurrDisplay = document.querySelector(`.${className}`)
+    elcurrDisplay.classList.remove('hide')
+}
+
+
 function onAddLine() { // create
     // modal
     addLine()
@@ -156,16 +156,13 @@ function onAddLine() { // create
 }
 
 function onAddEmoji(emoji) { // create
-    console.log(emoji);
-
     // modal
-    addEmoji(emoji)
+    addLine(emoji)
     // Dom
     renderMeme()
 }
 
-
-// update functions
+// Update functions
 
 function onSetLineTxt(text) {
     // modal
@@ -220,7 +217,6 @@ function onSetTextAlign(direction) {
 }
 
 function onSetLineHeight(num) {
-    console.log(typeof num);
     // modal
     setLineHeight(num)
     // Dom
@@ -234,7 +230,7 @@ function onDeleteCurrLine() {
     renderMeme()
 }
 
-/// save meme
+/// Save meme
 
 function onSaveMeme() {
 
@@ -265,7 +261,15 @@ function removeFramefromLine() {
     renderMeme()
 }
 
-/// download meme
+/// Download meme
+
+function setDownload() {
+    removeFramefromLine()
+    const elDownLoad = document.querySelector('.download-url')
+    setTimeout(() => {
+        elDownLoad.click()
+    }, 200);
+}
 
 function onDownloadMeme(elLink) {
     removeFramefromLine()
@@ -276,7 +280,7 @@ function onDownloadMeme(elLink) {
 }
 
 
-// upload image
+// Upload to cloud and share
 
 function onUploadImg() {
     setSelectedlineIdx(-1)
@@ -291,7 +295,8 @@ function onUploadImg() {
     uploadImg(canvasData, onSuccess)
 }
 
-/// dom function
+
+/// Dom function
 function onClickEditorBtn(elBtn) {
     elBtn.classList.toggle('active')
 }
@@ -307,8 +312,7 @@ function onToggleMenu() {
     document.body.classList.toggle('menu-open')
 }
 
-
-////  edit meme
+////  Edit meme
 function onEditMeme(memeId) {
     // modal
     editMeme(memeId)
@@ -316,7 +320,7 @@ function onEditMeme(memeId) {
     initCanvas()
 }
 
-/// upload image
+/// Upload image
 
 function onClickUpload() {
     document.querySelector('.upload-image-input').click()
@@ -341,8 +345,7 @@ function renderImg(img) {
     initCanvas()
 }
 
-////  line click
-
+////  Line click
 
 function addListeners() {
     gElCanvas.addEventListener('mouseout', mouseOut)
@@ -391,7 +394,6 @@ function onMove(ev) {
 function onUp(ev) {
     const isDrag = getLine()
     console.log(isDrag);
-    console.log('Moving the circle')
 
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
@@ -406,7 +408,6 @@ function onUp() {
     gIsMouseDown = false
     document.body.style.cursor = 'default'
 }
-
 
 function getEvPos(ev) {
     let pos = {
@@ -424,3 +425,6 @@ function getEvPos(ev) {
     }
     return pos
 }
+
+
+

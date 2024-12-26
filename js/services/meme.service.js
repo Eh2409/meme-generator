@@ -41,36 +41,10 @@ var gMeme = {
 }
 
 
+// Meme Management
+
 function getMeme() {
     return gMeme
-}
-
-function getkeywordCountMap() {
-    console.log(gKeywordSearchCountMap);
-
-    return gKeywordSearchCountMap
-}
-
-function upvoteKeyword(word) {
-    for (var keyword in gKeywordSearchCountMap) {
-        if (keyword === word && gKeywordSearchCountMap[keyword] < 20) {
-            gKeywordSearchCountMap[word]++
-            console.log(gKeywordSearchCountMap[word]);
-        }
-    }
-    saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
-}
-
-function getImgs(filterBy) {
-    var images = gImgs.filter(({ keywords }) =>
-        keywords.some(word => word.toLowerCase().includes(filterBy.toLowerCase())))
-
-    return images
-}
-
-function findImgUrlById(imgId) {
-    var img = gImgs.find(img => img.id === imgId)
-    return img.url
 }
 
 function setImg(imgId) {
@@ -78,11 +52,6 @@ function setImg(imgId) {
     gMeme.selectedImgId = imgId
     gMeme.imgUrl = findImgUrlById(gMeme.selectedImgId)
 }
-
-function onAddImage(img) {
-    console.log(img);
-}
-
 
 function setLineTxt(text) {
     if (gMeme.selectedLineIdx === -1) return
@@ -119,77 +88,9 @@ function setLineHeight(num) {
     gMeme.lines[gMeme.selectedLineIdx].location.y = num
 }
 
-function addLine() {
-    var newLine = {
-        txt: 'Enter text here',
-        location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-        size: 50,
-        color: '#ffb921',
-        strokeColor: '#000000',
-        fontFamily: 'Impact',
-        textAlign: 'center',
-        isDrag: false
-    }
-
-    gMeme.lines.push(newLine)
-    gMeme.selectedLineIdx = gMeme.lines.length - 1
-}
-
-function addEmoji(emoji) {
-    var newEmoji = {
-        txt: emoji,
-        location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-        size: 50,
-        textAlign: 'center'
-    }
-
-    gMeme.lines.push(newEmoji)
-    gMeme.selectedLineIdx = gMeme.lines.length - 1
-}
-
-function switchLine() {
-    var nextLine = (gMeme.selectedLineIdx + 1 < gMeme.lines.length) ? gMeme.selectedLineIdx + 1 : 0;
-    gMeme.selectedLineIdx = nextLine
-}
-
-function setLineLocation(pos) {
-    gMeme.lines[pos.id].location = pos.location
-}
-
-function deleteCurrLine() {
-    var idx = gMeme.selectedLineIdx
-    gMeme.lines.splice(idx, 1)
-    gMeme.selectedLineIdx = 0
-
-    /// Temporary operation to prevent toilet malfunctions - will be improved later
-
-    if (!gMeme.lines.length) {
-        addLine()
-    }
-}
-
 function setSelectedlineIdx(idx) {
     gMeme.selectedLineIdx = idx
 }
-
-// my-memes functions
-
-function saveMeme(imgUrl) {
-    if (gIsEditModeOn) {
-        var idx = gMyMemes.findIndex(meme => meme.id === gMeme.id)
-        gMyMemes[idx] = structuredClone(gMeme)
-        gMyMemes[idx].url = imgUrl
-        gIsEditModeOn = false
-    } else {
-        var meme = structuredClone(gMeme)
-        meme.id = makeId()
-        meme.url = imgUrl
-        gMyMemes.unshift(meme)
-    }
-    saveToStorage(MYMEMES_KEY, gMyMemes)
-    resetMeme()
-}
-
 
 function resetMeme() {
     gMeme = {
@@ -220,43 +121,15 @@ function resetMeme() {
     };
 }
 
-function _loadMyMemes() {
-    gMyMemes = loadFromStorage(MYMEMES_KEY)
-    if (gMyMemes && gMyMemes.length > 0) return
 
-    gMyMemes = []
-    saveToStorage(MYMEMES_KEY, gMyMemes)
-}
-
-function getMyMemes() {
-    return gMyMemes
-}
-
-function editMeme(memeId) {
-    gIsEditModeOn = true
-    var myMeme = findMyMemeById(memeId)
-    gMeme = myMeme
-    gMeme.selectedLineIdx = 0
-}
-
-function findMyMemeById(memeId) {
-    return gMyMemes.find(meme => meme.id === memeId)
-}
-
-// upload image 
-
-function uploadImage(img) {
-    gMeme.imgUrl = img.src
-}
-
-///// set images 
+// Image Management
 
 function _setgImgs() {
     gImgs = [
         { id: 1, url: 'images/1.jpg', keywords: ['funny', 'baby'] },
         { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
         { id: 3, url: 'images/3.jpg', keywords: ['funny', 'baby'] },
-        { id: 4, url: 'images/4.JPG', keywords: ['funny', 'baby'] },
+        { id: 4, url: 'images/4.jpg', keywords: ['funny', 'baby'] },
         { id: 5, url: 'images/5.jpg', keywords: ['dragon', 'baby'] },
         { id: 6, url: 'images/6.jpg', keywords: ['funny', 'baby'] },
         { id: 8, url: 'images/8.jpg', keywords: ['funny', 'dog'] },
@@ -281,12 +154,124 @@ function _setgImgs() {
     ]
 }
 
+function getImgs(filterBy) {
+    var images = gImgs.filter(({ keywords }) =>
+        keywords.some(word => word.toLowerCase().includes(filterBy.toLowerCase())))
+
+    return images
+}
+
+function findImgUrlById(imgId) {
+    var img = gImgs.find(img => img.id === imgId)
+    return img.url
+}
+
+// Line Management
+
+function addLine(emoji) {
+    var newLine = {
+        txt: emoji || 'Enter text here',
+        location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
+        size: 50,
+        color: '#ffb921',
+        strokeColor: '#000000',
+        fontFamily: 'Impact',
+        textAlign: 'center',
+        isDrag: false
+    }
+
+    gMeme.lines.push(newLine)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function switchLine() {
+    var nextLine = (gMeme.selectedLineIdx + 1 < gMeme.lines.length) ? gMeme.selectedLineIdx + 1 : 0;
+    gMeme.selectedLineIdx = nextLine
+}
+
+function setLineLocation(pos) {
+    gMeme.lines[pos.id].location = pos.location
+}
+
+function deleteCurrLine() {
+    var idx = gMeme.selectedLineIdx
+    gMeme.lines.splice(idx, 1)
+    gMeme.selectedLineIdx = 0
+
+    if (!gMeme.lines.length) {
+        addLine()
+    }
+}
+
+// My Memes
+
+function _loadMyMemes() {
+    gMyMemes = loadFromStorage(MYMEMES_KEY)
+    if (gMyMemes && gMyMemes.length > 0) return
+
+    gMyMemes = []
+    saveToStorage(MYMEMES_KEY, gMyMemes)
+}
+
+function saveMeme(imgUrl) {
+    if (gIsEditModeOn) {
+        var idx = gMyMemes.findIndex(meme => meme.id === gMeme.id)
+        gMyMemes[idx] = structuredClone(gMeme)
+        gMyMemes[idx].url = imgUrl
+        gIsEditModeOn = false
+    } else {
+        var meme = structuredClone(gMeme)
+        meme.id = makeId()
+        meme.url = imgUrl
+        gMyMemes.unshift(meme)
+    }
+    saveToStorage(MYMEMES_KEY, gMyMemes)
+    resetMeme()
+}
+
+function getMyMemes() {
+    return gMyMemes
+}
+
+function editMeme(memeId) {
+    gIsEditModeOn = true
+    var myMeme = findMyMemeById(memeId)
+    gMeme = myMeme
+    gMeme.selectedLineIdx = 0
+}
+
+function findMyMemeById(memeId) {
+    return gMyMemes.find(meme => meme.id === memeId)
+}
+
+// Keyword and Search
+
+function getkeywordCountMap() {
+    return gKeywordSearchCountMap
+}
+
+function upvoteKeyword(word) {
+    for (var keyword in gKeywordSearchCountMap) {
+        if (keyword === word && gKeywordSearchCountMap[keyword] < 20) {
+            gKeywordSearchCountMap[word]++
+        }
+    }
+    saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
+}
+
 function _loadKeywordCountMap() {
     gKeywordSearchCountMap = loadFromStorage(KEYWORD_KEY)
     if (gKeywordSearchCountMap) return
 
     gKeywordSearchCountMap = { 'funny': 2, 'cat': 2, 'baby': 2 }
     saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
+}
+
+
+// upload image 
+
+function uploadImage(img) {
+    gMeme.imgUrl = img.src
 }
 
 
@@ -327,5 +312,4 @@ function getLine() {
 function moveLine(dx, dy) {
     gMeme.lines[gMeme.selectedLineIdx].location.x += dx
     gMeme.lines[gMeme.selectedLineIdx].location.y += dy
-    console.log(gMeme.lines[gMeme.selectedLineIdx].location);
 }
