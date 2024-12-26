@@ -24,7 +24,8 @@ var gMeme = {
             color: '#ffb921',
             strokeColor: '#000000',
             fontFamily: 'Impact',
-            textAlign: 'center'
+            textAlign: 'center',
+            isDrag: false
         },
         {
             txt: 'Enter text here',
@@ -33,7 +34,8 @@ var gMeme = {
             color: '#ffb921',
             strokeColor: '#000000',
             fontFamily: 'Impact',
-            textAlign: 'center'
+            textAlign: 'center',
+            isDrag: false
         },
     ]
 }
@@ -125,7 +127,8 @@ function addLine() {
         color: '#ffb921',
         strokeColor: '#000000',
         fontFamily: 'Impact',
-        textAlign: 'center'
+        textAlign: 'center',
+        isDrag: false
     }
 
     gMeme.lines.push(newLine)
@@ -169,36 +172,6 @@ function setSelectedlineIdx(idx) {
     gMeme.selectedLineIdx = idx
 }
 
-
-// Note to self, think of a way to improve this function
-
-function isLineClicked(clickedPos) {
-    const { x: clickX, y: clickY } = clickedPos
-    const { lines } = gMeme
-
-    const clickedLine = lines.findIndex(line => {
-        var { textAlign } = line
-        var { x, y, lineWidth, textHeight } = line.location
-
-        if (textAlign === 'center') {
-            x -= lineWidth / 2
-        } else if (textAlign === 'right') {
-            x -= lineWidth
-        }
-
-        return clickX >= x && clickX <= x + lineWidth
-            && clickY >= y && clickY <= y + textHeight
-    })
-
-    if (clickedLine !== -1) {
-        setSelectedlineIdx(clickedLine)
-        return true
-    } else {
-        return
-    }
-}
-
-
 // my-memes functions
 
 function saveMeme(imgUrl) {
@@ -230,7 +203,8 @@ function resetMeme() {
                 color: '#ffb921',
                 strokeColor: '#000000',
                 fontFamily: 'Impact',
-                textAlign: 'center'
+                textAlign: 'center',
+                isDrag: false
             },
             {
                 txt: 'Enter text here',
@@ -239,7 +213,8 @@ function resetMeme() {
                 color: '#ffb921',
                 strokeColor: '#000000',
                 fontFamily: 'Impact',
-                textAlign: 'center'
+                textAlign: 'center',
+                isDrag: false
             },
         ]
     };
@@ -306,12 +281,51 @@ function _setgImgs() {
     ]
 }
 
-
-
 function _loadKeywordCountMap() {
     gKeywordSearchCountMap = loadFromStorage(KEYWORD_KEY)
     if (gKeywordSearchCountMap) return
 
     gKeywordSearchCountMap = { 'funny': 2, 'cat': 2, 'baby': 2 }
     saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
+}
+
+
+/// Touch a line  canvas
+
+function isLineClicked(clickedPos) {
+    const { x: clickX, y: clickY } = clickedPos
+    const { lines } = gMeme
+
+    const clickedLine = lines.findIndex(line => {
+        var { x, y, lineWidth, textHeight } = line.location
+
+        return clickX >= x && clickX <= x + lineWidth
+            && clickY >= y && clickY <= y + textHeight
+    })
+
+    if (clickedLine !== -1) {
+        setSelectedlineIdx(clickedLine)
+        return true
+    } else {
+        return false
+    }
+}
+
+function setLineDrag(isDrag) {
+    if (gMeme.selectedImgId === -1) return
+
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+    if (isDrag) {
+        gMeme.lines[gMeme.selectedLineIdx].textAlign = ''
+    }
+}
+
+function getLine() {
+    return gMeme.lines[gMeme.selectedLineIdx].isDrag
+}
+
+function moveLine(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].location.x += dx
+    gMeme.lines[gMeme.selectedLineIdx].location.y += dy
+    console.log(gMeme.lines[gMeme.selectedLineIdx].location);
 }
