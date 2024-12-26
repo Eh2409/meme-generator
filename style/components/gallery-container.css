@@ -1,3 +1,8 @@
+.gallery-container,
+.my-meme-container {
+    min-height: 60vh;
+}
+
 .gallery-container>.photo-card,
 .my-meme-container>.photo-card {
     position: relative;

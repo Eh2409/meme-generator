@@ -138,18 +138,19 @@
                     <li onclick="onSetDisplay('gallery')" class="submit-btn">meme gallery</li>
                     <li onclick="onSetDisplay('my-meme')" class="submit-btn">my meme gallery</li>
                 </ul>
+                <div class="main-gallery-filters flex align-center">
+                    <input class="gallery-filter" list="keywords" oninput="onGalleryFilter(this.value)">
 
-                <input class="gallery-filter" list="keywords" oninput="onGalleryFilter(this.value)">
+                    <datalist id="keywords">
+                        <option value="cat">
+                        <option value="dog">
+                        <option value="baby">
+                        <option value="funny">
+                    </datalist>
 
-                <datalist id="keywords">
-                    <option value="cat">
-                    <option value="dog">
-                    <option value="baby">
-                    <option value="funny">
-                </datalist>
-
-                <button class="submit-btn" onclick="onClearGalleryFilter()">clear</button>
-                <div class="search-by-keywords"></div>
+                    <button class="submit-btn" onclick="onClearGalleryFilter()">clear</button>
+                    <div class="search-by-keywords flex align-center space-around"></div>
+                </div>
             </div>
 
             <div class="gallery-container hide"></div>
@@ -173,3 +174,5 @@
 </body>
 
 </html>
+
+<span></span>

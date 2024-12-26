@@ -57,7 +57,7 @@ function renderImageGallery() {
     elGalleryContainer.innerHTML = strHtml.join('')
 
     toggleGallery()
-    // onLoadKeywords()
+    onRenderKeywords()
 }
 
 
@@ -78,13 +78,16 @@ function onMemeSelect(memeId) {
 function toggleGallery() {
     const elMyMeme = document.querySelector('.my-meme-container')
     const elGallery = document.querySelector('.gallery-container')
+    const elGalleryFilters = document.querySelector('.main-gallery-filters')
 
     if (gDisplay === 'my-meme') {
         elMyMeme.classList.remove('hide')
         elGallery.classList.add('hide')
+        elGalleryFilters.classList.add('hide')
     } else {
         elGallery.classList.remove('hide')
         elMyMeme.classList.add('hide')
+        elGalleryFilters.classList.remove('hide')
     }
 }
 
@@ -111,7 +114,26 @@ function onClearGalleryFilter() {
     renderDisplay()
 }
 
-// function onLoadKeywords() {
-//     var keywordCountMap = getkeywordCountMap()
 
-// }
+function onRenderKeywords() {
+    var keywordCountMap = getkeywordCountMap()
+    console.log(keywordCountMap);
+
+    var strHtml = ''
+    for (var keyword in keywordCountMap) {
+        strHtml += `<span class="keyword ${keyword}"
+         style="font-size: ${keywordCountMap[keyword] * 0.3}em;"
+          onclick="onUpvoteKeyword('${keyword}')">${keyword}</span>`
+    }
+
+    const elSearchByKeywords = document.querySelector('.search-by-keywords')
+    elSearchByKeywords.innerHTML = strHtml
+}
+
+function onUpvoteKeyword(word) {
+    // modal
+    upvoteKeyword(word)
+    // dom
+    onGalleryFilter(word)
+    onRenderKeywords()
+}

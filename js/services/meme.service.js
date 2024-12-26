@@ -3,6 +3,16 @@
 var gImgs = []
 _setgImgs()
 
+const MYMEMES_KEY = 'myMemes'
+var gMyMemes = []
+_loadMyMemes()
+
+var gIsEditModeOn = false
+
+const KEYWORD_KEY = 'KeywordCountMap'
+var gKeywordSearchCountMap
+_loadKeywordCountMap()
+
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -28,21 +38,25 @@ var gMeme = {
     ]
 }
 
-const MYMEMES_KEY = 'myMemes'
-var gMyMemes = []
-_loadMyMemes()
-
-var gIsEditModeOn = false
-
-
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 function getMeme() {
     return gMeme
 }
 
 function getkeywordCountMap() {
+    console.log(gKeywordSearchCountMap);
+
     return gKeywordSearchCountMap
+}
+
+function upvoteKeyword(word) {
+    for (var keyword in gKeywordSearchCountMap) {
+        if (keyword === word && gKeywordSearchCountMap[keyword] < 20) {
+            gKeywordSearchCountMap[word]++
+            console.log(gKeywordSearchCountMap[word]);
+        }
+    }
+    saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
 }
 
 function getImgs(filterBy) {
@@ -176,7 +190,6 @@ function isLineClicked(clickedPos) {
             && clickY >= y && clickY <= y + textHeight
     })
 
-
     if (clickedLine !== -1) {
         setSelectedlineIdx(clickedLine)
         return true
@@ -200,13 +213,10 @@ function saveMeme(imgUrl) {
         meme.url = imgUrl
         gMyMemes.unshift(meme)
     }
-    _saveMyMemes()
+    saveToStorage(MYMEMES_KEY, gMyMemes)
     resetMeme()
 }
 
-function _saveMyMemes() {
-    return saveToStorage(MYMEMES_KEY, gMyMemes)
-}
 
 function resetMeme() {
     gMeme = {
@@ -240,7 +250,7 @@ function _loadMyMemes() {
     if (gMyMemes && gMyMemes.length > 0) return
 
     gMyMemes = []
-    _saveMyMemes()
+    saveToStorage(MYMEMES_KEY, gMyMemes)
 }
 
 function getMyMemes() {
@@ -252,7 +262,6 @@ function editMeme(memeId) {
     var myMeme = findMyMemeById(memeId)
     gMeme = myMeme
     gMeme.selectedLineIdx = 0
-    console.log(myMeme);
 }
 
 function findMyMemeById(memeId) {
@@ -295,4 +304,14 @@ function _setgImgs() {
         { id: 25, url: 'images/25.jpg', keywords: ['cat', 'dog'] },
         { id: 26, url: 'images/26.jpg', keywords: ['funny', 'baby'] },
     ]
+}
+
+
+
+function _loadKeywordCountMap() {
+    gKeywordSearchCountMap = loadFromStorage(KEYWORD_KEY)
+    if (gKeywordSearchCountMap) return
+
+    gKeywordSearchCountMap = { 'funny': 2, 'cat': 2, 'baby': 2 }
+    saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
 }
