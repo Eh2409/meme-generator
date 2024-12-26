@@ -16,8 +16,7 @@ function initCanvas() {
         resizeCanvas()
     })
 
-    addMouseListeners()
-    addTouchListeners()
+    addListeners()
 }
 
 function toggleDisplay(className) {
@@ -344,16 +343,19 @@ function renderImg(img) {
 ////  line click
 
 
-function addMouseListeners() {
-    gElCanvas.addEventListener('mousedown', onDown)
-    gElCanvas.addEventListener('mousemove', onMove)
-    gElCanvas.addEventListener('mouseup', onUp)
+function addListeners() {
+    gElCanvas.addEventListener('mouseout', mouseOut)
+    addMultiEventListener(['mousedown', 'touchstart'], onDown, gElCanvas)
+    addMultiEventListener(['mousemove', 'touchmove'], onMove, gElCanvas)
+    addMultiEventListener(['mouseup', 'touchend'], onUp, gElCanvas)
 }
-
-function addTouchListeners() {
-    gElCanvas.addEventListener('touchstart', onDown)
-    gElCanvas.addEventListener('touchmove', onMove)
-    gElCanvas.addEventListener('touchend', onUp)
+function mouseOut() {
+    gIsMouseDown = false
+}
+function addMultiEventListener(events, func, el) {
+    events.forEach((ev) => {
+        el.addEventListener(ev, func)
+    })
 }
 
 
