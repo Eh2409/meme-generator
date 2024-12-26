@@ -53,11 +53,14 @@
         transform: translateX(100%);
     }
 
+    body.menu-open {
+        overflow-y: hidden;
+    }
+
     body.menu-open .main-nav {
         animation: fadeInRight 600ms;
         border-bottom-left-radius: 0;
         height: 100vh;
-
     }
 
     .main-nav>ul {
