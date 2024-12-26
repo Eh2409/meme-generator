@@ -3,6 +3,7 @@
 let gElCanvas
 let gCtx
 let gStartPos
+var gIsMouseDown = false
 
 function initCanvas() {
     toggleDisplay('main-meme-generator')
@@ -66,7 +67,7 @@ function setMemeDataOnEditor(meme) {
     document.querySelector('.font-family-select').value = fontFamily
     document.querySelector('.line-height-input').value = location.y
     document.querySelector('.line-height-input').max = gElCanvas.height
-    document.querySelector('.font-height').innerText = `${location.y}px`
+    document.querySelector('.font-height').innerText = `${Math.floor(location.y)}px`
 
     const elAlignBtns = document.querySelectorAll('.align-btn');
     elAlignBtns.forEach(btn => btn.classList.remove('active'));
@@ -358,7 +359,6 @@ function addMultiEventListener(events, func, el) {
     })
 }
 
-
 function onDown(ev) {
     const pos = getEvPos(ev)
     if (!isLineClicked(pos)) return
@@ -366,17 +366,17 @@ function onDown(ev) {
 
     setLineDrag(true)
     gStartPos = pos
-    document.body.style.cursor = 'grabbing'
-    console.log(gStartPos);
-
+    gIsMouseDown = true
+    document.body.style.cursor = 'grab'
 }
 
 function onMove(ev) {
+    if (!gIsMouseDown) return
     const isDrag = getLine()
     console.log(isDrag);
 
     if (!isDrag) return
-    console.log('Moving the circle')
+    document.body.style.cursor = 'grabbing'
 
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
@@ -403,7 +403,8 @@ function onUp(ev) {
 
 function onUp() {
     setLineDrag(false)
-    document.body.style.cursor = 'grab'
+    gIsMouseDown = false
+    document.body.style.cursor = 'default'
 }
 
 
