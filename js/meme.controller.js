@@ -24,6 +24,7 @@ function initCanvas() {
 
 function renderMeme() {
     var meme = getMeme()
+
     drawImage(meme)
     setMemeDataOnEditor(meme)
 }

@@ -18,8 +18,9 @@
         <div class="header-content flex space-between align-center">
             <div class="main-logo"><a href="index.html">Meme generator</a></div>
             <nav class="main-nav">
-                <ul class="clean-list flex">
-                    <li><a href="index.html">Gallery</a></li>
+                <ul class="clean-list flex" onclick="onToggleMenu()">
+                    <li><a href="#" onclick=" toggleDisplay('main-gallery')">Gallery</a></li>
+                    <li><a href="#" onclick=" toggleDisplay('main-about')">About</a></li>
                 </ul>
             </nav>
             <button type="button" class="menu-btn" onclick="onToggleMenu()"></button>
@@ -32,7 +33,7 @@
         <section class="main-saved-meme full main-layout hide">
             <div class="saved-meme"></div>
             <div class="saved-meme-btns">
-                <a href="#" download="file-name"><button class="download-btn submit-btn">Download</button></a>
+                <a href="#" download="file-name"><button class="download-btn key-btn">Download</button></a>
             </div>
         </section>
 
@@ -121,15 +122,15 @@
                         <span class="emoji" onclick="onAddEmoji(this.innerText)">😵‍💫</span>
                         <span class="emoji" onclick="onAddEmoji(this.innerText)">🤑</span>
                     </div>
-                
+
 
                     <div class="main-submit-btns flex space-between align-center">
-                        <button onclick="onSaveMeme()" class="submit-btn">Save</button>
+                        <button onclick="onSaveMeme()" class="key-btn">Save</button>
 
                         <a href="#" onclick="onDownloadMeme(this)" download="file-name" class="download-url" hidden></a>
-                        <button class="download-btn submit-btn" onclick="setDownload()">Download</button>
+                        <button class="download-btn key-btn" onclick="setDownload()">Download</button>
 
-                        <button onclick=" onUploadImg()" class="submit-btn">Share</button>
+                        <button onclick=" onUploadImg()" class="key-btn">Share</button>
                     </div>
                 </div>
             </div>
@@ -139,20 +140,24 @@
         <section class="main-gallery full main-layout">
             <div class="main-gallery-nav">
                 <ul class="clean-list flex justify-center">
-                    <li onclick="onSetDisplay('gallery')" class="submit-btn">meme gallery</li>
-                    <li onclick="onSetDisplay('my-meme')" class="submit-btn">my meme gallery</li>
+                    <li onclick="onSetDisplay('gallery')" class="key-btn">Meme gallery</li>
+                    <li onclick="onSetDisplay('my-meme')" class="key-btn">My meme gallery</li>
                 </ul>
-                <div class="main-gallery-filters flex align-center">
-                    <input class="gallery-filter" list="keywords" oninput="onGalleryFilter(this.value)">
+                <div class="main-gallery-filters flex">
+                    <div class="gallery-filter-bar flex">
+                        <input class="gallery-filter" list="keywords" oninput="onGalleryFilter(this.value)"
+                            placeholder="Search keyword">
 
-                    <datalist id="keywords">
-                        <option value="cat">
-                        <option value="dog">
-                        <option value="baby">
-                        <option value="funny">
-                    </datalist>
+                        <datalist id="keywords">
+                            <option value="cat">
+                            <option value="dog">
+                            <option value="baby">
+                            <option value="funny">
+                        </datalist>
 
-                    <button class="submit-btn" onclick="onClearGalleryFilter()">clear</button>
+                        <button class="clear-filter" onclick="onClearGalleryFilter()">clear</button>
+                    </div>
+
                     <div class="search-by-keywords flex align-center space-around"></div>
                 </div>
             </div>
@@ -162,11 +167,25 @@
 
         </section>
 
+
+        <section class="main-about full main-layout hide">
+            <div class="main-about-container">
+                <h1>About Meme Generator</h1>
+                <p>Welcome to <strong>Meme Generator</strong>, the ultimate tool for creating and sharing your own
+                    hilarious memes! Whether you want to upload your own images or select from a variety of fun
+                    templates, our easy-to-use platform lets you add custom text to craft the perfect meme. Once
+                    you're done, you can save your creation to your computer or share it with friends and followers.
+                </p>
+                <p><strong>Meme Generator</strong> is all about fun, creativity, and self-expression—turn any image
+                    into a meme with just a few clicks!</p>
+                <p>Start creating now and bring your meme ideas to life!</p>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="main-footer">
-
-        <small>footer</small>
+    <footer class="main-footer full main-layout">
+        <small>Meme generator</small>
     </footer>
 
     <script src="js/services/util.service.js"></script>

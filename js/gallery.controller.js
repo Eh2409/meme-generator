@@ -8,7 +8,6 @@ function onInit() {
 }
 
 function renderDisplay() {
-
     if (gDisplay === 'my-meme') {
         renderMyMemes()
     } else {
@@ -130,9 +129,6 @@ function onRenderKeywords() {
          style="font-size: ${keywordCountMap[keyword] * 0.10}em;"
           onclick="onUpvoteKeyword('${keyword}')">${keyword}</a>`
     }
-
-    console.log(strHtml);
-
 
     const elSearchByKeywords = document.querySelector('.search-by-keywords')
     elSearchByKeywords.innerHTML = strHtml

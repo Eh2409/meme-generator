@@ -2,13 +2,10 @@
     min-height: 80vh;
     place-items: center;
     justify-items: center;
-    background-color: rgba(237, 6, 119, 255);
+    background-color: var(--background-color-Seved-meme);
     margin-block-end: 1em;
 }
 
-.main-saved-meme>.saved-meme {
-    width: 40%;
-}
 
 .main-saved-meme>.saved-meme>img {
     width: 100%;

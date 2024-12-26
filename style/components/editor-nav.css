@@ -1,4 +1,5 @@
 .editor-nav {
+    direction: ltr;
     background-color: azure;
 }
 
@@ -79,5 +80,3 @@
     opacity: 0;
     width: 1px;
 }
-
-

@@ -19,6 +19,7 @@
 
 .gallery-container>.photo-card>.meme-image,
 .gallery-container>.photo-card>.upload-btn,
+.my-meme-container>.photo-card>.upload-btn,
 .my-meme-container>.photo-card>.meme-image {
     width: 100%;
     aspect-ratio: auto;

@@ -1,9 +1,12 @@
 :root {
     /* COLORS */
-
+    --site-background-color: #ffd333;
+    --background-color-gallery: #82ce9b;
+    --background-color-generator: #6a87ae;
+    --background-color-editor: #377ad4;
+    --background-color-Seved-meme: #e6338a;
 
     /* LAYOUT SIZE */
-
     --s: 600px;
     --m: 800px;
     --l: 1080px;

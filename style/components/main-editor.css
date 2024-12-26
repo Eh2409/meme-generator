@@ -1,5 +1,5 @@
 .main-editor {
-    background-color: rgb(106, 135, 174);
+    background-color: var(--background-color-editor);
     border-radius: 1em;
     padding-block: 0.5em;
     padding-inline: 0.3em;

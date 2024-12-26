@@ -4,6 +4,7 @@
 }
 
 .canvas-container>.main-canvas {
+    direction: ltr;
     background-color: white;
     outline: solid 10px white;
 }

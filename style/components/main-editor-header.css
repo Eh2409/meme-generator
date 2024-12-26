@@ -5,6 +5,7 @@
 
 .main-editor-header>.main-editor-logo {
     font-size: 1em;
+    filter: drop-shadow(1px 1px 0px #141b7b);
 }
 
 
@@ -13,18 +14,18 @@
 }
 
 .main-editor-header>.editor-header-btns>button {
+
     border: none;
     padding: 0.4em;
     width: 2em;
     font-size: 1.0625em;
-    background-color: rgb(106, 135, 174);
+    background-color: var(--background-color-editor);
     color: rgb(2, 12, 101);
 
     &:hover {
-        background-color: rgb(169, 208, 208);
+        color: rgb(197, 249, 249);
     }
 }
-
 
 .main-editor-header>.editor-header-btns>.line-count {
     font-size: 1.25em;

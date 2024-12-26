@@ -22,21 +22,37 @@
     min-height: 80vh;
 }
 
-/* לאחד אותם להלפר אחד שעושה את כל הדיספליי */
+/* .main-gallery-filters */
+.main-gallery-filters {
+    flex-direction: column;
+    padding: 0.5em;
+}
 
 /* gallery-container */
 
 .gallery-container {
     column-count: 2;
+    padding-inline: 1em;
 }
 
 /* my-meme-container */
 
 .my-meme-container {
     column-count: 2;
+    padding-inline: 1em;
 }
 
 /* canvas-container */
 .canvas-container {
     margin-block-end: 1em;
+}
+
+/* .main-saved-meme */
+.main-saved-meme {
+    place-content: center;
+}
+
+.main-saved-meme>.saved-meme {
+    width: 90%;
+    margin-block: 1em;
 }

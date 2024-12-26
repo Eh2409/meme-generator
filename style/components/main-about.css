@@ -1,0 +1,6 @@
+.main-about {
+    min-height: 80vh;
+    background-color: rgb(255, 247, 192);
+    place-content: center;
+    padding: 1em;
+}
