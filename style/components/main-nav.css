@@ -1,5 +1,6 @@
 .main-nav>ul>li>a {
     color: var(--main-font-color);
+    font-size: 1.25em;
 }
 
 .main-nav>ul>li>a:hover {

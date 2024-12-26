@@ -59,7 +59,7 @@
     filter: drop-shadow(3px 3px 0px var(--color-filters-shadow));
 
     &:hover {
-        color: var(--key-btn-color-hover);
+        scale: 1.3;
     }
 }
 
