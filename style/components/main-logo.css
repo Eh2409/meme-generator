@@ -3,6 +3,6 @@
 }
 
 .main-logo>a {
-    color: #58578a;
+    color: var(--main-font-color);
     font-weight: bold;
 }

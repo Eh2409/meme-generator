@@ -1,6 +1,8 @@
 .main-about {
     min-height: 80vh;
-    background-color: rgb(255, 247, 192);
+    background-color: var(--background-color-about);
     place-content: center;
     padding: 1em;
+    margin-block-end: 1em;
+    color: var(--main-font-color);
 }

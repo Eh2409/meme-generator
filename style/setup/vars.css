@@ -2,9 +2,38 @@
     /* COLORS */
     --site-background-color: #ffd333;
     --background-color-gallery: #82ce9b;
-    --background-color-generator: #6a87ae;
+    --background-color-generator: #3e508f;
     --background-color-editor: #377ad4;
     --background-color-Seved-meme: #e6338a;
+    --background-color-about: rgb(255, 247, 192);
+    --background-color-btn-editor: azure;
+
+    --white-color: white;
+    --black-color: black;
+
+    --editor-btn-hover: rgb(169, 208, 208);
+    --editor-btn-font-size: rgb(36, 36, 192);
+
+
+    --background-color-filters: orange;
+    --color-filters-shadow: #8f5203;
+
+    --editor-font-color: rgb(2, 12, 101);
+    --editor-font-hover-color: rgb(197, 249, 249);
+
+    --main-font-color: #58578a;
+
+    --key-btn-color: #2933be;
+    --key-btn-color-shadow: #141b7b;
+    --key-btn-color-hover: #3f49d6;
+
+    --key-btn-color-green: green;
+    --key-btn-color-shadow-green: rgb(1, 82, 1);
+    --key-btn-color-hover-green: rgb(6, 173, 6);
+
+    --key-btn-color-purple: purple;
+    --key-btn-color-shadow-purple: rgb(84, 1, 84);
+    --key-btn-color-hover-purple: rgb(163, 4, 163);
 
     /* LAYOUT SIZE */
     --s: 600px;

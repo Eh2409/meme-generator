@@ -4,19 +4,45 @@
     padding: 0.4em;
     border-radius: 20px;
     translate: -5px -5px;
-    background-color: #2933be;
-    color: white;
+    background-color: var(--key-btn-color);
+    color: var(--white-color);
     border: none;
-    filter: drop-shadow(5px 5px 0px #141b7b);
+    filter: drop-shadow(5px 5px 0px var(--key-btn-color-shadow));
     transition: 100ms;
     cursor: pointer;
 
     &:active {
-        filter: drop-shadow(0px 0px 0px #141b7b)brightness(1.6);
+        filter: drop-shadow(0px 0px 0px var(--key-btn-color-shadow))brightness(1.6);
         translate: 0 0;
     }
 
     &:hover {
-        background-color: #3f49d6;
+        background-color: var(--key-btn-color-hover);
+    }
+}
+
+.btn-green {
+    background-color: var(--key-btn-color-green);
+    filter: drop-shadow(5px 5px 0px var(--key-btn-color-shadow-green));
+
+    &:active {
+        filter: drop-shadow(0px 0px 0px var(--key-btn-color-shadow-green))brightness(1.6);
+    }
+
+    &:hover {
+        background-color: var(--key-btn-color-hover-green);
+    }
+}
+
+.btn-purple {
+    background-color: var(--key-btn-color-purple);
+    filter: drop-shadow(5px 5px 0px var(--key-btn-color-shadow-purple));
+
+    &:active {
+        filter: drop-shadow(0px 0px 0px var(--key-btn-color-shadow-purple))brightness(1.6);
+    }
+
+    &:hover {
+        background-color: var(--key-btn-color-hover-purple);
     }
 }

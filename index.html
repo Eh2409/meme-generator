@@ -33,8 +33,9 @@
         <section class="main-saved-meme full main-layout hide">
             <div class="saved-meme"></div>
             <div class="saved-meme-btns">
-                <a href="#" download="file-name"><button class="download-btn key-btn">Download</button></a>
-                <a href="#"><button onclick="onSetDisplay('my-meme'),toggleDisplay('main-gallery')" class="key-btn">My
+                <a href="#" download="file-name"><button class="download-btn key-btn ">Download</button></a>
+                <a href="#"><button onclick="onSetDisplay('my-meme'),toggleDisplay('main-gallery')"
+                        class="key-btn btn-green">My
                         meme gallery</button></a>
             </div>
         </section>
@@ -127,10 +128,10 @@
 
 
                     <div class="main-submit-btns flex space-between align-center">
-                        <button onclick="onSaveMeme()" class="key-btn">Save</button>
+                        <button onclick="onSaveMeme()" class="key-btn btn-green">Save</button>
 
                         <a href="#" onclick="onDownloadMeme(this)" download="file-name" class="download-url" hidden></a>
-                        <button class="download-btn key-btn" onclick="setDownload()">Download</button>
+                        <button class="download-btn key-btn btn-purple" onclick="setDownload()">Download</button>
 
                         <button onclick=" onUploadImg()" class="key-btn">Share</button>
                     </div>
@@ -142,8 +143,8 @@
         <section class="main-gallery full main-layout">
             <div class="main-gallery-nav">
                 <ul class="clean-list flex justify-center">
-                    <li onclick="onSetDisplay('gallery')" class="key-btn">Meme gallery</li>
-                    <li onclick="onSetDisplay('my-meme')" class="key-btn">My meme gallery</li>
+                    <li onclick="onSetDisplay('gallery')" class="key-btn btn-green">Meme gallery</li>
+                    <li onclick="onSetDisplay('my-meme')" class="key-btn btn-green">My meme gallery</li>
                 </ul>
                 <div class="main-gallery-filters flex">
                     <div class="gallery-filter-bar flex">
@@ -168,7 +169,6 @@
             <div class="my-meme-container hide"></div>
 
         </section>
-
 
         <section class="main-about full main-layout hide">
             <div class="main-about-container">

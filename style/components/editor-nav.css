@@ -1,6 +1,6 @@
 .editor-nav {
     direction: ltr;
-    background-color: azure;
+    background-color: var(--background-color-btn-editor);
 }
 
 .editor-nav>button {
@@ -8,11 +8,11 @@
     padding: 0.4em;
     width: 2em;
     font-size: 1.0625em;
-    background-color: azure;
-    color: rgb(2, 12, 101);
+    background-color: var(--background-color-btn-editor);
+    color: var(-editor-font-color);
 
     &:hover {
-        background-color: rgb(169, 208, 208);
+        background-color: var(--editor-btn-hover);
     }
 }
 
@@ -26,7 +26,7 @@
     }
 
     &.active {
-        background-color: rgb(169, 208, 208);
+        background-color: var(--editor-btn-hover);
     }
 }
 
@@ -44,7 +44,7 @@
     right: 0;
     left: 0;
 
-    color: rgb(36, 36, 192);
+    color: var(--editor-btn-font-size);
     font-weight: bold;
     font-size: 0.7em;
 }
@@ -62,8 +62,8 @@
 }
 
 .editor-nav>.align-btn.active {
-    background-color: rgb(169, 208, 208);
-    color: orange;
+    background-color: var(--editor-btn-hover);
+    color: var(--background-color-filters);
 }
 
 .editor-nav>.font-color-btn,

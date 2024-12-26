@@ -2,6 +2,6 @@
     font-family: Fredoka, sans-serif;
     background-color: var(--site-background-color);
     border: none;
-    color: #58578a;
+    color: var(--main-font-color);
     z-index: 10;
 }

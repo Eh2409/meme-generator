@@ -14,7 +14,7 @@
 }
 
 .main-editor>.emojis-box {
-    background-color: white;
+    background-color: var(--white-color);
     border-radius: 10px;
     margin-block-end: 1em;
     place-content: center;

@@ -1,4 +1,5 @@
 .main-footer {
     place-items: center;
     margin-block-end: 1em;
+    color: var(--main-font-color);
 }

@@ -29,9 +29,7 @@ h6 {
 
 
 a {
-    /* temporary */
-    color: black;
-
+    color: var(--black-color);
     text-decoration: none;
     cursor: pointer;
 }
