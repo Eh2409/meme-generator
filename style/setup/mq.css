@@ -248,7 +248,7 @@
 
     .canvas-container {
         grid-column: 1;
-        width: 90%;
+        width: 100%;
     }
 
     /* main-editor */
