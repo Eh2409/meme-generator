@@ -1,20 +1,22 @@
 .gallery-container,
 .my-meme-container {
     min-height: 60vh;
+    gap: 10px;
+    background: linear-gradient(12deg, #3d3f45 3%, #646b82 100%);
+    border-radius: 10px;
 }
 
 .gallery-container>.photo-card,
 .my-meme-container>.photo-card {
-    position: relative;
     display: flex;
 
-    border-radius: 10px;
+    border-radius: 5px;
     margin-block-end: 10px;
     cursor: pointer;
 
     overflow: hidden;
 
-    box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5);
+    /* box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5); */
 }
 
 .gallery-container>.photo-card>.meme-image,
@@ -32,4 +34,5 @@
 .photo-card:hover .upload-btn,
 .my-meme-container .meme-image {
     scale: 1;
+
 }

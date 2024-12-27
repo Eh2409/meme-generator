@@ -27,8 +27,5 @@
 
     outline: solid 1px rgb(255, 255, 255);
     border-radius: 2px;
-}
-
-.main-editor {
-    grid-column: 2;
+    box-shadow: 1px 1px 3px 1px #4d4d4d;
 }
