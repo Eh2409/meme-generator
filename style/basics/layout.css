@@ -18,8 +18,13 @@
 }
 
 /* main-meme-generator */
-.main-meme-generator {
-    min-height: 80vh;
+.canvas-box {
+    margin-block-end: 1em;
+}
+
+.main-editor>.emojis-box>.emoji {
+    font-size: 1.5em;
+
 }
 
 /* .main-gallery-filters */
@@ -40,11 +45,6 @@
 .my-meme-container {
     column-count: 2;
     padding-inline: 1em;
-}
-
-/* canvas-container */
-.canvas-container {
-    margin-block-end: 1em;
 }
 
 /* .main-saved-meme */

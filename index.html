@@ -40,103 +40,103 @@
             </div>
         </section>
 
-        <section class="main-meme-generator full main-layout hide">
-
-            <div class="generator-container">
-
-                <div class="canvas-container">
-                    <canvas class="main-canvas" width="500px" height="500px"></canvas>
-                </div>
-
-                <div class="main-editor">
-                    <div class="main-editor-header flex space-between align-center">
-                        <span class="main-editor-logo">Meme editor</span>
-                        <div class="editor-header-btns flex align-center">
-                            <button onclick="onAddLine()">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                            <button onclick="onSwitchLine()">
-                                <i class="fa-solid fa-arrows-up-down"></i>
-                            </button>
-                            <button class="delete-Line" onclick="onDeleteCurrLine()">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                            <div class="line-count">1 / 1</div>
-                        </div>
-                    </div>
-
-                    <div class="editor-box">
-                        <div class="editor-nav flex  justify-center align-center ">
-
-                            <select name="font-family" class="font-family-select"
-                                onchange="onSetFontFamily(this.value)">
-                                <option value="Arial">Arial</option>
-                                <option value="Courier New">Courier New</option>
-                                <option value="Times">Times</option>
-                                <option value="Trebuchet MS">Trebuchet MS</option>
-                                <option value="Georgia">Georgia</option>
-                                <option value="Impact">Impact</option>
-                                <option value="Verdana">Verdana</option>
-                            </select>
-
-                            <button class="font-height-btn" onclick="onClickEditorBtn(this)">
-                                <i class="fa-solid fa-text-height"></i>
-                                <span class="font-height"></span>
-                                <input type="range" id="lineHeight" class="line-height-input" min=" 0" max="500"
-                                    value="0" oninput="onSetLineHeight(+this.value)">
-                            </button>
-
-                            <button class="stroke-color-btn" onclick="triggerColorPicker('stroke')">
-                                <i class="fa-solid fa-brush"></i>
-                                <input type="color" class="stroke-color-input" oninput="onSetStrokeColor(this.value)">
-                            </button>
-
-                            <button class="font-color-btn" onclick="triggerColorPicker('font')">
-                                <i class="fa-solid fa-fill-drip"></i>
-                                <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
-                            </button>
-
-                            <button class="align-left-btn align-btn" onclick="onSetTextAlign('left')">
-                                <i class="fa-solid fa-align-left"></i></button>
-                            <button class="align-center-btn align-btn" onclick="onSetTextAlign('center')">
-                                <i class="fa-solid fa-align-justify"></i></button>
-                            <button class="align-btn align-right-btn" onclick="onSetTextAlign('right')">
-                                <i class="fa-solid fa-align-right"></i></button>
-
-                            <button class="font-size-btn" onclick="onClickEditorBtn(this)">
-                                <i class="fa-solid fa-font"></i>
-                                <span class="font-size"></span>
-                                <input type="range" id="font-size" class="font-size-input" min="1" max="100"
-                                    oninput="onSetFontSize(+this.value)">
-                            </button>
-                        </div>
-                        <input type="text" placeholder="Enter text" class="meme-text-input"
-                            oninput="onSetLineTxt(this.value)">
-                    </div>
-
-                    <div class="emojis-box flex">
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😃</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😂</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😍</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🥸</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😱</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🫢</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🤮</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">😵‍💫</span>
-                        <span class="emoji" onclick="onAddEmoji(this.innerText)">🤑</span>
-                    </div>
+        <section class="main-meme-generator hide">
 
 
-                    <div class="main-submit-btns flex space-between align-center">
-                        <button onclick="onSaveMeme()" class="key-btn btn-green">Save</button>
-
-                        <a href="#" onclick="onDownloadMeme(this)" download="file-name" class="download-url" hidden></a>
-                        <button class="download-btn key-btn btn-purple" onclick="setDownload()">Download</button>
-
-                        <button onclick=" onUploadImg()" class="key-btn">Share</button>
-                    </div>
+            <div class="canvas-box">
+                <div class="canvas-container flex justify-center align-center">
+                    <canvas class="main-canvas" width="300px" height="300px"></canvas>
                 </div>
             </div>
+
+            <div class="main-editor">
+                <div class="main-editor-header flex space-between align-center">
+                    <span class="main-editor-logo">Meme editor</span>
+                    <div class="editor-header-btns flex align-center">
+                        <button onclick="onAddLine()">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <button onclick="onSwitchLine()">
+                            <i class="fa-solid fa-arrows-up-down"></i>
+                        </button>
+                        <button class="delete-Line" onclick="onDeleteCurrLine()">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <div class="line-count">1 / 1</div>
+                    </div>
+                </div>
+
+                <select name="font-family" class="font-family-select" onchange="onSetFontFamily(this.value)">
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Times">Times</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Verdana">Verdana</option>
+                </select>
+
+                <div class="editor-box">
+                    <div class="editor-nav flex  justify-center align-center ">
+
+                        <button class="font-height-btn" onclick="onClickEditorBtn(this)">
+                            <i class="fa-solid fa-text-height"></i>
+                            <span class="font-height"></span>
+                            <input type="range" id="lineHeight" class="line-height-input" min=" 0" max="500" value="0"
+                                oninput="onSetLineHeight(+this.value)">
+                        </button>
+
+                        <button class="stroke-color-btn" onclick="triggerColorPicker('stroke')">
+                            <i class="fa-solid fa-brush"></i>
+                            <input type="color" class="stroke-color-input" oninput="onSetStrokeColor(this.value)">
+                        </button>
+
+                        <button class="font-color-btn" onclick="triggerColorPicker('font')">
+                            <i class="fa-solid fa-fill-drip"></i>
+                            <input type="color" class="font-color-input" oninput="onSetFontColor(this.value)">
+                        </button>
+
+                        <button class="align-left-btn align-btn" onclick="onSetTextAlign('left')">
+                            <i class="fa-solid fa-align-left"></i></button>
+                        <button class="align-center-btn align-btn" onclick="onSetTextAlign('center')">
+                            <i class="fa-solid fa-align-justify"></i></button>
+                        <button class="align-btn align-right-btn" onclick="onSetTextAlign('right')">
+                            <i class="fa-solid fa-align-right"></i></button>
+
+                        <button class="font-size-btn" onclick="onClickEditorBtn(this)">
+                            <i class="fa-solid fa-font"></i>
+                            <span class="font-size"></span>
+                            <input type="range" id="font-size" class="font-size-input" min="1" max="100"
+                                oninput="onSetFontSize(+this.value)">
+                        </button>
+                    </div>
+                    <input type="text" placeholder="Enter text" class="meme-text-input"
+                        oninput="onSetLineTxt(this.value)">
+                </div>
+
+                <div class="emojis-box flex">
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">😃</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">😂</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">😍</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🥸</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">😱</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🫢</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🤮</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">😵‍💫</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🤑</span>
+                </div>
+
+
+                <div class="main-submit-btns flex space-between align-center">
+                    <button onclick="onSaveMeme()" class="key-btn btn-green">Save</button>
+
+                    <a href="#" onclick="onDownloadMeme(this)" download="file-name" class="download-url" hidden></a>
+                    <button class="download-btn key-btn btn-purple" onclick="setDownload()">Download</button>
+
+                    <button onclick=" onUploadImg()" class="key-btn">Share</button>
+                </div>
+            </div>
+
 
         </section>
 

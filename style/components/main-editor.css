@@ -1,10 +1,10 @@
 .main-editor {
-    background-color: var(--background-color-editor);
-    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
     padding-block: 0.5em;
     padding-inline: 0.3em;
-    box-shadow: 3px 3px 0 3px rgb(0, 0, 0, 0.5);
-    height: max-content;
+    background: linear-gradient(12deg, #3d3f45 3%, #646b82 100%);
+    outline: solid 1px rgb(255, 255, 255);
 }
 
 .main-editor>.meme-text-input {
@@ -21,7 +21,5 @@
 }
 
 .main-editor>.emojis-box>.emoji {
-    font-size: 1.5em;
     cursor: pointer;
-
 }

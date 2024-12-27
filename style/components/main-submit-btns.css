@@ -1,0 +1,9 @@
+.main-submit-btns {
+    height: 100%;
+    place-items: end;
+}
+
+.main-submit-btns>* {
+    flex-grow: 1;
+    margin: 10px;
+}

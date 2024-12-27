@@ -41,7 +41,6 @@ function drawImage(meme) {
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
     renderMeme()
 }
 
@@ -374,23 +373,24 @@ function onDown(ev) {
     document.body.style.cursor = 'grab'
 }
 
+
 function onMove(ev) {
     if (!gIsMouseDown) return
-    const isDrag = getLine()
-    console.log(isDrag);
+    const pos = getEvPos(ev)
 
+    const isDrag = getLine()
     if (!isDrag) return
+
     document.body.style.cursor = 'grabbing'
 
-    const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
-    moveLine(dx, dy)
 
+    moveLine(dx, dy)
     gStartPos = pos
+
     renderMeme()
 }
-
 
 function onUp(ev) {
     const isDrag = getLine()
@@ -411,21 +411,28 @@ function onUp() {
 }
 
 function getEvPos(ev) {
+    const canvasRect = gElCanvas.getBoundingClientRect()
     let pos = {
-        x: ev.offsetX,
-        y: ev.offsetY,
-    }
+        x: ev.clientX - canvasRect.left,
+        y: ev.clientY - canvasRect.top,
+    };
+
     if (['touchstart', 'touchmove', 'touchend'].includes(ev.type)) {
         ev.preventDefault()
         ev = ev.changedTouches[0]
 
         pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-        }
+            x: ev.clientX - canvasRect.left,
+            y: ev.clientY - canvasRect.top,
+        };
     }
-    return pos
-}
 
+    const scaleX = gElCanvas.width / canvasRect.width
+    const scaleY = gElCanvas.height / canvasRect.height
+    pos.x *= scaleX
+    pos.y *= scaleY
+
+    return pos;
+}
 
 

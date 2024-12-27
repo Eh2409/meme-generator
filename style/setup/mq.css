@@ -187,20 +187,31 @@
 
     /* canvas-container */
 
-    .canvas-container {
-        width: 60vh;
+    .main-meme-generator {
+        display: grid;
+        grid-auto-columns: minmax(400px, 1fr) minmax(auto, 1fr);
+        height: 80vh;
+        padding: 20px;
     }
 
-    /* main-editor */
+    .canvas-box {
+        height: 70vh;
+        grid-column: 1;
+        margin-block-end: 0;
+    }
 
     .main-editor {
-        padding: 1em;
+        grid-column: 2;
     }
 
     .main-editor-header>.main-editor-logo {
-        font-size: 1.375em;
+        font-size: 1em;
     }
 
+    .main-editor>.emojis-box>.emoji {
+        font-size: 1em;
+
+    }
 
     /* editor-nav */
     .editor-nav {
@@ -236,25 +247,28 @@
         padding-inline: 0;
     }
 
-    /* generator-container */
+    /* .main-meme-generator */
 
-    .generator-container {
+    .main-meme-generator {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1em;
+        grid-auto-columns: minmax(500px, 1fr) minmax(auto, 1fr)
     }
 
-    /* canvas-container */
-
-    .canvas-container {
+    .canvas-box {
+        height: 70vh;
         grid-column: 1;
-        width: 100%;
     }
-
-    /* main-editor */
 
     .main-editor {
         grid-column: 2;
-        padding: 1em;
+    }
+
+
+    .main-editor-header>.main-editor-logo {
+        font-size: 2em;
+    }
+
+    .main-editor>.emojis-box>.emoji {
+        font-size: 2em;
     }
 }
