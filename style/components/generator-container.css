@@ -9,7 +9,7 @@
 .canvas-box {
     grid-column: 1;
     width: 100%;
-    background-image: url(/images/back.jpg);
+    background-image: url(../../images/back.jpg);
     outline: solid 1px rgb(255, 255, 255);
 }
 
