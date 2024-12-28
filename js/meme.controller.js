@@ -242,7 +242,7 @@ function onSaveMeme() {
         saveMeme(dataUrl);
 
         const elShowSave = document.querySelector('.saved-meme');
-        elShowSave.innerHTML = `<img src="${dataUrl}" alt="Saved Meme">`;
+        elShowSave.innerHTML = `<img src="${dataUrl}" alt="Saved Meme" class="saved-Meme-img">`;
 
         const elDownloadBtn = document.querySelector('.saved-meme-btns a');
         console.log(elDownloadBtn);
