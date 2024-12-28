@@ -435,4 +435,13 @@ function getEvPos(ev) {
     return pos;
 }
 
+/// random meme
+
+function onSetRandomMeme() {
+    // modal
+    SetRandomMeme()
+    // Dom
+    initCanvas()
+}
+
 

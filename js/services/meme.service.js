@@ -20,7 +20,7 @@ var gMeme = {
         {
             txt: 'Enter text here',
             location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-            size: 50,
+            size: 30,
             color: '#ffb921',
             strokeColor: '#000000',
             fontFamily: 'Impact',
@@ -30,7 +30,7 @@ var gMeme = {
         {
             txt: 'Enter text here',
             location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-            size: 50,
+            size: 30,
             color: '#ffb921',
             strokeColor: '#000000',
             fontFamily: 'Impact',
@@ -40,6 +40,12 @@ var gMeme = {
     ]
 }
 
+var gRandomLines = [
+    ['The face you make', 'when you step on a LEGO at 3 AM.'],
+    ['Yo dawg, I heard you like memes', 'so I put a meme in your meme.'],
+    ['Is this', 'a pigeon?'],
+    ['Me explaining the meme', 'my mom staring in confusion.']
+]
 
 // Meme Management
 
@@ -100,7 +106,7 @@ function resetMeme() {
             {
                 txt: 'Enter text here',
                 location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-                size: 50,
+                size: 30,
                 color: '#ffb921',
                 strokeColor: '#000000',
                 fontFamily: 'Impact',
@@ -110,7 +116,7 @@ function resetMeme() {
             {
                 txt: 'Enter text here',
                 location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-                size: 50,
+                size: 30,
                 color: '#ffb921',
                 strokeColor: '#000000',
                 fontFamily: 'Impact',
@@ -126,12 +132,14 @@ function resetMeme() {
 
 function _setgImgs() {
     gImgs = [
+        { id: 0, url: 'images/0.jpg', keywords: ['funny', 'sad'] },
         { id: 1, url: 'images/1.jpg', keywords: ['funny', 'sad'] },
         { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
         { id: 3, url: 'images/3.jpg', keywords: ['funny', 'baby'] },
         { id: 4, url: 'images/4.jpg', keywords: ['funny', 'sad'] },
         { id: 5, url: 'images/5.jpg', keywords: ['happy', 'baby'] },
         { id: 6, url: 'images/6.jpg', keywords: ['funny', 'baby'] },
+        { id: 7, url: 'images/7.jpg', keywords: ['funny', 'baby'] },
         { id: 8, url: 'images/8.jpg', keywords: ['funny', 'sad'] },
         { id: 9, url: 'images/9.jpg', keywords: ['funny', 'baby'] },
         { id: 10, url: 'images/10.jpg', keywords: ['funny', 'happy'] },
@@ -172,7 +180,7 @@ function addLine(emoji) {
     var newLine = {
         txt: emoji || 'Enter text here',
         location: { x: 0, y: 0, lineWidth: 0, textHeight: 0 },
-        size: 50,
+        size: 30,
         color: '#ffb921',
         strokeColor: '#000000',
         fontFamily: 'Impact',
@@ -262,7 +270,7 @@ function _loadKeywordCountMap() {
     gKeywordSearchCountMap = loadFromStorage(KEYWORD_KEY)
     if (gKeywordSearchCountMap) return
 
-    gKeywordSearchCountMap = { 'funny': 14, 'cat': 10, 'baby': 13, 'happy': 10, 'sad': 12, 'dog': 11 }
+    gKeywordSearchCountMap = { 'funny': 5, 'cat': 5, 'baby': 5, 'happy': 5, 'sad': 5, 'dog': 5 }
     saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
 }
 
@@ -311,6 +319,17 @@ function getLine() {
 function moveLine(dx, dy) {
     gMeme.lines[gMeme.selectedLineIdx].location.x += dx
     gMeme.lines[gMeme.selectedLineIdx].location.y += dy
+}
+
+
+//// 
+
+function SetRandomMeme() {
+    resetMeme()
+    var imageId = getRandomInt(0, gImgs.length)
+    var randomLines = gRandomLines[getRandomInt(0, gRandomLines.length)]
+    setImg(imageId)
+    gMeme.lines.forEach((line, idx) => line.txt = randomLines[idx])
 }
 
 
