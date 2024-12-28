@@ -20,6 +20,16 @@
     place-content: center;
 }
 
+
+
+.main-editor>.font-family-select {
+    margin-block-end: 1em;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+
+
 .main-editor>.emojis-box>.emoji {
     cursor: pointer;
 }

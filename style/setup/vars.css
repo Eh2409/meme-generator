@@ -1,11 +1,11 @@
 :root {
     /* COLORS */
-    --site-background-color: #ffd333;
+    --site-background-color: #53a0f9;
     --background-color-gallery: #82ce9b;
     --background-color-generator: #3e508f;
     --background-color-editor: #377ad4;
     --background-color-Seved-meme: #e6338a;
-    --background-color-about: rgb(255, 247, 192);
+    --background-color-about: rgba(94, 110, 120, 0.7);
     --background-color-btn-editor: #98a2ba;
 
     --white-color: white;
@@ -15,21 +15,21 @@
     --editor-btn-font-size: rgb(36, 36, 192);
 
 
-    --background-color-filters: orange;
-    --color-filters-shadow: #8f5203;
+    --background-color-filters: rgb(81, 155, 239);
+    --color-filters-shadow: #4d68b1;
 
     --editor-font-color: rgb(2, 12, 101);
     --editor-font-hover-color: rgb(197, 249, 249);
 
-    --main-font-color: #58578a;
+    --main-font-color: #ffffff;
 
     --key-btn-color: #2933be;
     --key-btn-color-shadow: #141b7b;
     --key-btn-color-hover: #3f49d6;
 
-    --key-btn-color-green: green;
-    --key-btn-color-shadow-green: rgb(1, 82, 1);
-    --key-btn-color-hover-green: rgb(6, 173, 6);
+    --key-btn-color-green: rgb(38, 171, 156);
+    --key-btn-color-shadow-green: rgb(24, 122, 120);
+    --key-btn-color-hover-green: rgb(97, 222, 205);
 
     --key-btn-color-purple: purple;
     --key-btn-color-shadow-purple: rgb(84, 1, 84);

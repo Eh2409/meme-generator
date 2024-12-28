@@ -1,8 +1,23 @@
+.main-nav>ul>li {
+    position: relative;
+}
+
 .main-nav>ul>li>a {
     color: var(--main-font-color);
     font-size: 1.25em;
+    scale: 1;
 }
 
-.main-nav>ul>li>a:hover {
-    color: var(--background-color-Seved-meme);
+.main-nav>ul>li>a:hover img {
+    animation: tada 600ms;
+}
+
+
+.main-nav>ul>li .chibi img {
+    position: absolute;
+    top: -20px;
+    left: -40px;
+    width: 30px;
+    aspect-ratio: auto;
+    opacity: 1;
 }

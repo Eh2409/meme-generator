@@ -1,6 +1,6 @@
 .menu-btn {
     font-family: Fredoka, sans-serif;
-    background-color: var(--site-background-color);
+    background-color: rgb(20, 20, 20, 0);
     border: none;
     color: var(--main-font-color);
     z-index: 10;

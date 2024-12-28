@@ -41,10 +41,10 @@ var gMeme = {
 }
 
 var gRandomLines = [
-    ['The face you make', 'when you step on a LEGO at 3 AM.'],
-    ['Yo dawg, I heard you like memes', 'so I put a meme in your meme.'],
-    ['Is this', 'a pigeon?'],
-    ['Me explaining the meme', 'my mom staring in confusion.']
+    ['When Nami sees treasure', 'She becomes the real Pirate King.'],
+    ['Luffy after eating 50 plates of meat:', 'Still asking for dessert.'],
+    ['When the Straw Hats finally find the treasure', 'but its just Luffys hat again'],
+    ['Usopp trying to tell a story', 'And the crew just nodding like they believe it!']
 ]
 
 // Meme Management
@@ -132,33 +132,33 @@ function resetMeme() {
 
 function _setgImgs() {
     gImgs = [
-        { id: 0, url: 'images/0.jpg', keywords: ['funny', 'sad'] },
-        { id: 1, url: 'images/1.jpg', keywords: ['funny', 'sad'] },
-        { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
-        { id: 3, url: 'images/3.jpg', keywords: ['funny', 'baby'] },
-        { id: 4, url: 'images/4.jpg', keywords: ['funny', 'sad'] },
-        { id: 5, url: 'images/5.jpg', keywords: ['happy', 'baby'] },
-        { id: 6, url: 'images/6.jpg', keywords: ['funny', 'baby'] },
-        { id: 7, url: 'images/7.jpg', keywords: ['funny', 'baby'] },
-        { id: 8, url: 'images/8.jpg', keywords: ['funny', 'sad'] },
-        { id: 9, url: 'images/9.jpg', keywords: ['funny', 'baby'] },
-        { id: 10, url: 'images/10.jpg', keywords: ['funny', 'happy'] },
-        { id: 11, url: 'images/11.jpg', keywords: ['funny', 'baby'] },
-        { id: 12, url: 'images/12.jpg', keywords: ['sad', 'dog'] },
-        { id: 13, url: 'images/13.jpg', keywords: ['funny', 'happy'] },
-        { id: 14, url: 'images/14.jpg', keywords: ['funny', 'happy'] },
-        { id: 15, url: 'images/15.jpg', keywords: ['funny', 'happy'] },
-        { id: 16, url: 'images/16.jpg', keywords: ['funny', 'happy'] },
-        { id: 17, url: 'images/17.jpg', keywords: ['funny', 'happy'] },
-        { id: 18, url: 'images/18.jpg', keywords: ['funny', 'happy'] },
-        { id: 19, url: 'images/19.jpg', keywords: ['funny', 'happy'] },
-        { id: 20, url: 'images/20.jpg', keywords: ['cat', 'happy'] },
-        { id: 21, url: 'images/21.jpg', keywords: ['funny', 'dog'] },
-        { id: 22, url: 'images/22.jpg', keywords: ['happy', 'sad'] },
-        { id: 23, url: 'images/23.jpg', keywords: ['funny', 'baby'] },
-        { id: 24, url: 'images/24.jpg', keywords: ['cat', 'happy'] },
-        { id: 25, url: 'images/25.jpg', keywords: ['cat', 'dog'] },
-        { id: 26, url: 'images/26.jpg', keywords: ['funny', 'happy'] },
+        { id: 0, url: 'images/0.jpg', keywords: ['sad', 'face'] },
+        { id: 1, url: 'images/1.jpg', keywords: ['funny', 'luffy'] },
+        { id: 2, url: 'images/2.jpg', keywords: ['funny', 'face'] },
+        { id: 3, url: 'images/3.jpg', keywords: ['funny', 'luffy'] },
+        { id: 4, url: 'images/4.jpg', keywords: ['funny', 'luffy'] },
+        { id: 5, url: 'images/5.jpg', keywords: ['happy', 'nami'] },
+        { id: 6, url: 'images/6.jpg', keywords: ['funny', 'luffy'] },
+        { id: 7, url: 'images/7.jpg', keywords: ['funny', 'luffy'] },
+        { id: 8, url: 'images/8.jpg', keywords: ['funny', 'luffy'] },
+        { id: 9, url: 'images/9.jpg', keywords: ['funny', 'luffy'] },
+        { id: 10, url: 'images/10.jpg', keywords: ['funny', 'luffy'] },
+        { id: 11, url: 'images/11.jpg', keywords: ['funny', 'nami'] },
+        { id: 12, url: 'images/12.jpg', keywords: ['funny', 'Usopp'] },
+        { id: 13, url: 'images/13.jpg', keywords: ['funny', 'Usopp'] },
+        { id: 14, url: 'images/14.jpg', keywords: ['funny', 'Usopp'] },
+        { id: 15, url: 'images/15.jpg', keywords: ['funny', 'Usopp'] },
+        { id: 16, url: 'images/16.jpg', keywords: ['funny', 'zoro'] },
+        { id: 17, url: 'images/17.jpg', keywords: ['funny', 'one peice'] },
+        { id: 18, url: 'images/18.jpg', keywords: ['funny', 'one peice'] },
+        { id: 19, url: 'images/19.jpg', keywords: ['funny', 'luffy'] },
+        { id: 20, url: 'images/20.jpg', keywords: ['zoro', 'happy'] },
+        { id: 21, url: 'images/21.jpg', keywords: ['sad', 'one peice'] },
+        { id: 22, url: 'images/22.jpg', keywords: ['happy', 'luffy'] },
+        { id: 23, url: 'images/23.jpg', keywords: ['sad', 'one peice'] },
+        { id: 24, url: 'images/24.jpg', keywords: ['cat', 'luffy'] },
+        { id: 25, url: 'images/25.jpg', keywords: ['cat', 'nami'] },
+        { id: 26, url: 'images/26.jpg', keywords: ['sad', 'nami'] },
     ]
 }
 
@@ -270,7 +270,7 @@ function _loadKeywordCountMap() {
     gKeywordSearchCountMap = loadFromStorage(KEYWORD_KEY)
     if (gKeywordSearchCountMap) return
 
-    gKeywordSearchCountMap = { 'funny': 5, 'cat': 5, 'baby': 5, 'happy': 5, 'sad': 5, 'dog': 5 }
+    gKeywordSearchCountMap = { 'funny': 5, 'sad': 5, 'luffy': 5, 'nami': 5, 'zoro': 5, 'Usopp': 5 }
     saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
 }
 

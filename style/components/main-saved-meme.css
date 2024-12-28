@@ -3,7 +3,7 @@
     place-items: center;
     justify-items: center;
     margin-block-end: 1em;
-    background: linear-gradient(12deg, #3d3f45 3%, #646b82 100%);
+    background-color: rgba(129, 200, 244, 0.7);
     border-radius: 10px;
     padding: 10px;
 }

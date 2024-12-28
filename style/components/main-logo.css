@@ -1,8 +1,23 @@
 .main-logo {
+    position: relative;
     font-size: 2em;
+}
+
+.main-logo:hover img {
+    rotate: 30deg;
+    animation: rubberBand 500ms;
 }
 
 .main-logo>a {
     color: var(--main-font-color);
     font-weight: bold;
+}
+
+.main-logo>a>.chibi-logo img {
+    position: absolute;
+    top: -10px;
+    left: 7em;
+    width: 70px;
+    aspect-ratio: auto;
+    transition: 500ms;
 }

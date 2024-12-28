@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/animate.min.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="shortcut icon" href="images/FAVE.png">
     <script src="https://kit.fontawesome.com/cbf5806738.js" crossorigin="anonymous"></script>
@@ -16,12 +17,17 @@
     <header class="main-header ">
 
         <div class="header-content flex space-between align-center">
-            <div class="main-logo"><a href="index.html">Meme generator</a></div>
+            <div class="main-logo"><a href="index.html">Meme generator
+                    <span class="chibi-logo"><img src="/images/luffy-logo.png" alt="luffy"></span>
+                </a></div>
             <nav class="main-nav">
                 <ul class="clean-list flex" onclick="onToggleMenu()">
-                    <li><a href="#" onclick=" toggleDisplay('main-gallery')">Gallery</a></li>
-                    <li><a href="#" onclick=" onSetRandomMeme()">Random meme</a></li>
-                    <li><a href="#" onclick=" toggleDisplay('main-about')">About</a></li>
+                    <li><a href="#" onclick=" toggleDisplay('main-gallery')"><span class="chibi"><img
+                                    src="images/luffy.png" alt="luffy"></span>Gallery</a></li>
+                    <li><a href="#" onclick=" onSetRandomMeme()"><span class="chibi"><img src="images/nami.png"
+                                    alt="nami">Random meme</a></li>
+                    <li><a href="#" onclick=" toggleDisplay('main-about')"><span class="chibi"><img
+                                    src="images/zoro.png" alt="zoro">About</a></li>
                 </ul>
             </nav>
             <button type="button" class="menu-btn" onclick="onToggleMenu()"></button>
@@ -68,15 +74,6 @@
                     </div>
                 </div>
 
-                <select name="font-family" class="font-family-select" onchange="onSetFontFamily(this.value)">
-                    <option value="Arial">Arial</option>
-                    <option value="Courier New">Courier New</option>
-                    <option value="Times">Times</option>
-                    <option value="Trebuchet MS">Trebuchet MS</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Impact">Impact</option>
-                    <option value="Verdana">Verdana</option>
-                </select>
 
                 <div class="editor-box">
                     <div class="editor-nav flex  justify-center align-center ">
@@ -116,16 +113,26 @@
                         oninput="onSetLineTxt(this.value)">
                 </div>
 
+                <select name="font-family" class="font-family-select" onchange="onSetFontFamily(this.value)">
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Times">Times</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Verdana">Verdana</option>
+                </select>
+
                 <div class="emojis-box flex">
                     <span class="emoji" onclick="onAddEmoji(this.innerText)">😃</span>
                     <span class="emoji" onclick="onAddEmoji(this.innerText)">😂</span>
                     <span class="emoji" onclick="onAddEmoji(this.innerText)">😍</span>
-                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🥸</span>
-                    <span class="emoji" onclick="onAddEmoji(this.innerText)">😱</span>
-                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🫢</span>
-                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🤮</span>
-                    <span class="emoji" onclick="onAddEmoji(this.innerText)">😵‍💫</span>
-                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🤑</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🏴‍☠️</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🍖</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🍈</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">⚓</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🚢</span>
+                    <span class="emoji" onclick="onAddEmoji(this.innerText)">🗺️</span>
                 </div>
 
 

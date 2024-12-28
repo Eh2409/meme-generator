@@ -8,7 +8,7 @@
         top: 0;
         left: 0;
         right: 0;
-        background-color: var(--site-background-color);
+        background-color: rgb(20, 20, 20, 0.5);
         z-index: 5;
     }
 
@@ -20,7 +20,6 @@
     }
 
     .main-logo>a {
-        color: #58578a;
         font-weight: bold;
     }
 
@@ -28,11 +27,11 @@
 
     .main-nav {
         position: fixed;
-        top: 0;
+        top: 62px;
         right: 0;
-        height: 1vh;
+        height: 0vh;
 
-        background-color: var(--site-background-color);
+        background-color: rgb(20, 20, 20, 0.5);
 
         min-width: 150px;
 
@@ -60,14 +59,14 @@
     body.menu-open .main-nav {
         animation: fadeInRight 600ms;
         border-bottom-left-radius: 0;
+        top: 62px;
         height: 100vh;
     }
 
     .main-nav>ul {
         flex-direction: column;
-
         place-items: center;
-        margin-block-start: 80px;
+        margin-block-start: 10px;
     }
 
 
@@ -77,6 +76,9 @@
         margin-block: 1em;
     }
 
+    .main-nav>ul>li .chibi img {
+        opacity: 0;
+    }
 
     /* menu-btn */
 
@@ -86,15 +88,12 @@
         right: 45px;
 
         text-transform: uppercase;
+        opacity: 1;
 
         transform: rotate(0deg);
         transition: 600ms;
     }
 
-    body:dir(rtl) .menu-btn {
-        top: 6px;
-        left: 40px
-    }
 
     .menu-btn::before {
         content: '☰';
@@ -179,6 +178,22 @@
         margin-block: 2em;
     }
 
+    .main-logo {
+        margin-inline-end: 1.1em;
+    }
+
+    .main-logo>a>.chibi-logo img {
+        position: absolute;
+        top: -30px;
+        left: 2.3em;
+    }
+
+    /* .menu-btn  */
+
+    .menu-btn {
+        opacity: 1;
+    }
+
     /* main-nav */
 
     .main-nav>ul>li {
@@ -209,7 +224,7 @@
     }
 
     .main-editor>.emojis-box>.emoji {
-        font-size: 1em;
+        font-size: 1.5em;
 
     }
 
@@ -227,6 +242,8 @@
         width: auto;
         margin-block: 1em;
     }
+
+
 }
 
 /* LARGE  */
@@ -262,6 +279,16 @@
     .main-editor {
         grid-column: 2;
     }
+
+    .editor-nav>button {
+        font-size: 1.4em;
+    }
+
+    .font-size-input,
+    .line-height-input {
+        top: 3em;
+    }
+
 
 
     .main-editor-header>.main-editor-logo {
