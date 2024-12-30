@@ -16,6 +16,7 @@ const gTrans = {
     editorTextInput: { en: 'Enter text', he: 'הכנס טקסט' },
     editorTextInput: { en: 'Enter text', he: 'הכנס טקסט' },
     aboutTitle: { en: 'About Meme Generator', he: 'אודות מחולל הממים' },
+    savedMemeTitle: { en: 'Your meme has been successfully saved!', he: 'המם שלך נשמר בהצלחה!' },
 };
 
 var gCurrLang = 'en'

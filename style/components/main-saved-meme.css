@@ -8,6 +8,11 @@
     padding: 10px;
 }
 
+.saved-meme-header {
+    color: var(--white-color);
+    text-align: center;
+}
+
 
 .main-saved-meme>.saved-meme>.saved-Meme-img {
     position: relative;
