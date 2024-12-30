@@ -92,6 +92,7 @@ function drawText(lines, selectedLineIdx) {
         gCtx.textBaseline = 'top';
         gCtx.fillStyle = color
         gCtx.font = `${size}px ${fontFamily}`;
+        gCtx.lineWidth = 2;
         gCtx.strokeStyle = strokeColor;
 
         var lineWidth = gCtx.measureText(txt).width
