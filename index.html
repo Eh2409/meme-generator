@@ -12,24 +12,41 @@
 </head>
 
 <body class="main-layout" onload="onInit()">
+
     <div class="main-screen" onclick="onToggleMenu()"></div>
 
     <header class="main-header ">
 
-        <div class="header-content flex space-between align-center">
-            <div class="main-logo"><a href="index.html">Meme generator
-                    <span class="chibi-logo"><img src="images/luffy-logo.png" alt="luffy"></span>
-                </a></div>
+        <div class="header-content flex align-center">
+            <div class="main-logo">
+                <a href="index.html">
+                    <img src="images/luffy-logo.png" alt="luffy" class="chibi-logo">
+                    <span data-trans="title">Meme generator</span>
+                </a>
+            </div>
             <nav class="main-nav">
                 <ul class="clean-list flex" onclick="onToggleMenu()">
-                    <li><a href="#" onclick=" toggleDisplay('main-gallery')"><span class="chibi"><img
-                                    src="images/luffy.png" alt="luffy"></span>Gallery</a></li>
-                    <li><a href="#" onclick=" onSetRandomMeme()"><span class="chibi"><img src="images/nami.png"
-                                    alt="nami">Random meme</a></li>
-                    <li><a href="#" onclick=" toggleDisplay('main-about')"><span class="chibi"><img
-                                    src="images/zoro.png" alt="zoro">About</a></li>
+                    <li>
+                        <a href="#" onclick=" toggleDisplay('main-gallery')">
+                            <img src="images/luffy.png" alt="luffy" class="chibi">
+                            <span data-trans="navGallery">Gallery</span></a>
+                    </li>
+                    <li>
+                        <a href="#" onclick=" onSetRandomMeme()">
+                            <img src="images/nami.png" alt="nami" class="chibi">
+                            <span data-trans="navRandom">Random meme </span></a>
+                    </li>
+                    <li>
+                        <a href="#" onclick=" toggleDisplay('main-about')">
+                            <img src="images/zoro.png" alt="zoro" class="chibi">
+                            <span data-trans="navAbout">About</span></a>
+                    </li>
                 </ul>
             </nav>
+            <select onchange="onSetLang(this.value)" class="langBtn">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+            </select>
             <button type="button" class="menu-btn" onclick="onToggleMenu()"></button>
         </div>
 
@@ -41,10 +58,11 @@
 
             <div class="saved-meme"></div>
             <div class="saved-meme-btns">
-                <a href="#" download="file-name"><button class="download-btn key-btn ">Download</button></a>
-                <a href="#"><button onclick="onSetDisplay('my-meme'),toggleDisplay('main-gallery')"
-                        class="key-btn btn-green">My
-                        meme gallery</button></a>
+                <a href="#" download="file-name"><button class="download-btn key-btn"
+                        data-trans="downloadBtn">Download</button></a>
+                <a href="#">
+                    <button onclick="onSetDisplay('my-meme'),toggleDisplay('main-gallery')" class="key-btn btn-green"
+                        data-trans="myGalleryBtn">My meme gallery</button></a>
             </div>
         </section>
 
@@ -59,7 +77,7 @@
 
             <div class="main-editor">
                 <div class="main-editor-header flex space-between align-center">
-                    <span class="main-editor-logo">Meme editor</span>
+                    <span class="main-editor-logo" data-trans="editorTitle">Meme editor</span>
                     <div class="editor-header-btns flex align-center">
                         <button onclick="onAddLine()">
                             <i class="fa-solid fa-plus"></i>
@@ -110,7 +128,7 @@
                         </button>
                     </div>
                     <input type="text" placeholder="Enter text" class="meme-text-input"
-                        oninput="onSetLineTxt(this.value)">
+                        oninput="onSetLineTxt(this.value)" data-trans="editorTextInput">
                 </div>
 
                 <select name="font-family" class="font-family-select" onchange="onSetFontFamily(this.value)">
@@ -137,12 +155,13 @@
 
 
                 <div class="main-submit-btns flex space-between align-center">
-                    <button onclick="onSaveMeme()" class="key-btn btn-green">Save</button>
+                    <button onclick="onSaveMeme()" class="key-btn btn-green" data-trans="saveBtn">Save</button>
 
                     <a href="#" onclick="onDownloadMeme(this)" download="file-name" class="download-url" hidden></a>
-                    <button class="download-btn key-btn btn-purple" onclick="setDownload()">Download</button>
+                    <button class="download-btn key-btn btn-purple" data-trans="downloadBtn"
+                        onclick="setDownload()">Download</button>
 
-                    <button onclick=" onUploadImg()" class="key-btn">Share</button>
+                    <button onclick=" onUploadImg()" class="key-btn" data-trans="shareBtn">Share</button>
                 </div>
             </div>
 
@@ -152,22 +171,27 @@
         <section class="main-gallery">
             <div class="main-gallery-nav">
                 <ul class="clean-list flex justify-center">
-                    <li onclick="onSetDisplay('gallery')" class="key-btn btn-green">Meme gallery</li>
-                    <li onclick="onSetDisplay('my-meme')" class="key-btn btn-green">My meme gallery</li>
+                    <li onclick="onSetDisplay('gallery')" class="key-btn btn-green" data-trans="myGalleryBtn">Meme
+                        gallery</li>
+                    <li onclick="onSetDisplay('my-meme')" class="key-btn btn-green" data-trans="memeGalleryBtn">My meme
+                        gallery</li>
                 </ul>
                 <div class="main-gallery-filters flex">
                     <div class="gallery-filter-bar flex">
                         <input class="gallery-filter" list="keywords" oninput="onGalleryFilter(this.value)"
-                            placeholder="Search keyword">
+                            placeholder="Search keyword" data-trans="searchKeyword">
 
                         <datalist id="keywords">
-                            <option value="cat">
-                            <option value="dog">
-                            <option value="baby">
                             <option value="funny">
+                            <option value="sad">
+                            <option value="luffy">
+                            <option value="nami">
+                            <option value="zoro">
+                            <option value="Usopp">
                         </datalist>
 
-                        <button class="clear-filter" onclick="onClearGalleryFilter()">clear</button>
+                        <button class="clear-filter" onclick="onClearGalleryFilter()"
+                            data-trans="clearBtn">clear</button>
                     </div>
 
                     <div class="search-by-keywords flex align-center space-around"></div>
@@ -181,26 +205,29 @@
 
         <section class="main-about full main-layout hide">
             <div class="main-about-container">
-                <h1>About Meme Generator</h1>
-                <p>Welcome to <strong>Meme Generator</strong>, the ultimate tool for creating and sharing your own
-                    hilarious memes! Whether you want to upload your own images or select from a variety of fun
-                    templates, our easy-to-use platform lets you add custom text to craft the perfect meme. Once
-                    you're done, you can save your creation to your computer or share it with friends and followers.
-                </p>
-                <p><strong>Meme Generator</strong> is all about fun, creativity, and self-expression—turn any image
-                    into a meme with just a few clicks!</p>
-                <p>Start creating now and bring your meme ideas to life!</p>
+                <h1 data-trans="aboutTitle">About Meme Generator</h1>
+                <div class="about-container">
+                    <p>Welcome to <strong>Meme Generator</strong>, the ultimate tool for creating and sharing your own
+                        hilarious memes! Whether you want to upload your own images or select from a variety of fun
+                        templates, our easy-to-use platform lets you add custom text to craft the perfect meme. Once
+                        you're done, you can save your creation to your computer or share it with friends and followers.
+                    </p>
+                    <p><strong>Meme Generator</strong> is all about fun, creativity, and self-expression—turn any image
+                        into a meme with just a few clicks!</p>
+                    <p>Start creating now and bring your meme ideas to life!</p>
+                </div>
             </div>
         </section>
 
     </main>
 
     <footer class="main-footer full main-layout">
-        <small>Meme generator</small>
+        <small data-trans="title">Meme generator</small>
     </footer>
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
+    <script src="js/services/lang.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/services/upload.service.js"></script>
     <script src="js/gallery.controller.js"></script>

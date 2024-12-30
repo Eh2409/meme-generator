@@ -40,16 +40,19 @@
 
     }
 
-    body:dir(rtl) .main-nav {
-        right: auto;
+    body.rtl .main-nav {
         left: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 100vw;
+        right: auto;
     }
 
     body:not(.menu-open) .main-nav,
     body:not(.menu-open) .main-nav ul li {
         transform: translateX(100%);
+    }
+
+    body:not(.menu-open).rtl .main-nav,
+    body:not(.menu-open).rtl .main-nav ul li {
+        transform: translateX(-100%);
     }
 
     body.menu-open {
@@ -61,6 +64,10 @@
         border-bottom-left-radius: 0;
         top: 62px;
         height: 100vh;
+    }
+
+    body.rtl.menu-open .main-nav {
+        animation: fadeInLeft 600ms;
     }
 
     .main-nav>ul {
@@ -76,7 +83,7 @@
         margin-block: 1em;
     }
 
-    .main-nav>ul>li .chibi img {
+    .main-nav>ul>li .chibi {
         opacity: 0;
     }
 
@@ -95,6 +102,11 @@
     }
 
 
+    body.rtl .menu-btn {
+        left: 45px;
+        right: auto;
+    }
+
     .menu-btn::before {
         content: '☰';
         display: block;
@@ -107,6 +119,10 @@
     .menu-btn::after {
         content: 'menu';
         transition: 300ms;
+    }
+
+    body.rtl .menu-btn::after {
+        content: 'תפריט';
     }
 
     body.menu-open .menu-btn {
@@ -123,6 +139,17 @@
         transition: 300ms;
         transition-delay: 100ms;
     }
+
+
+    body.rtl.menu-open .menu-btn::after {
+        content: 'סגור';
+    }
+
+
+    body.rtl.menu-open .menu-btn {
+        transform: rotate(-360deg);
+    }
+
 
     /* main-screen */
 
@@ -172,26 +199,42 @@
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--m)) minmax(20px, 1fr);
     }
 
+    /* header-content  */
+    .header-content {
+        justify-content: space-between;
+    }
+
     /* main-header */
 
-    .main-header>.header-content {
-        margin-block: 2em;
-    }
-
     .main-logo {
-        margin-inline-end: 1.1em;
+        font-size: 1.4em;
+        margin-inline-end: 3em;
+        line-height: 2em;
     }
 
-    .main-logo>a>.chibi-logo img {
+    .main-logo .chibi-logo {
         position: absolute;
-        top: -30px;
-        left: 2.3em;
+        top: -10px;
+        left: 1.8em;
+        width: 50px;
+    }
+
+
+    body.rtl .main-logo .chibi-logo {
+        position: absolute;
+        top: -10px;
+        right: 1.8em;
+        width: 50px;
     }
 
     /* .menu-btn  */
 
     .menu-btn {
         opacity: 1;
+    }
+
+    .langBtn {
+        margin-inline-start: 0;
     }
 
     /* main-nav */
@@ -252,6 +295,34 @@
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--l)) minmax(20px, 1fr);
     }
 
+    /* main-logo  */
+
+    .main-logo {
+        font-size: 2em;
+        margin-inline-end: 3em;
+    }
+
+    .main-logo .chibi-logo {
+        position: absolute;
+        top: -15px;
+        left: 2em;
+        width: 70px;
+    }
+
+    body.rtl .main-logo .chibi-logo {
+        position: absolute;
+        top: -15px;
+        right: 2em;
+        width: 70px;
+    }
+
+
+    /* main-nav */
+
+    .main-nav>ul>li>a {
+        font-size: 1.25em;
+    }
+
     /* gallery-container */
 
     .gallery-container {
@@ -288,8 +359,6 @@
     .line-height-input {
         top: 3em;
     }
-
-
 
     .main-editor-header>.main-editor-logo {
         font-size: 2em;

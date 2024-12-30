@@ -17,6 +17,12 @@
     filter: drop-shadow(5px 5px 0px var(--key-btn-color-shadow));
 }
 
+body.rtl .main-gallery-filters>.gallery-filter-bar>.gallery-filter {
+    border-radius: 0 10px 10px 0;
+    z-index: 1;
+}
+
+
 .main-gallery-filters>.gallery-filter-bar>.clear-filter {
     font-family: Fredoka;
     font-size: 1em;
@@ -40,6 +46,10 @@
     }
 }
 
+body.rtl .main-gallery-filters>.gallery-filter-bar>.clear-filter {
+    border-radius: 10px 0 0 10px;
+}
+
 
 
 .main-gallery-filters>.search-by-keywords {
@@ -48,9 +58,10 @@
     border-radius: 10px;
     padding: 0.3em;
     filter: drop-shadow(5px 5px 0px var(--color-filters-shadow));
-    max-width: 95vw;
+    max-width: 90vw;
     overflow: hidden;
 }
+
 
 .main-gallery-filters>.search-by-keywords>a {
     font-family: LuckiestGuy, sans-serif;

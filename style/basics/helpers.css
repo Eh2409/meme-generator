@@ -32,7 +32,13 @@
     list-style-type: none;
 }
 
+/* direction */
 
+.rtl {
+    direction: rtl;
+}
+
+/* display */
 .hide {
     display: none !important
 }

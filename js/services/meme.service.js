@@ -270,7 +270,7 @@ function _loadKeywordCountMap() {
     gKeywordSearchCountMap = loadFromStorage(KEYWORD_KEY)
     if (gKeywordSearchCountMap) return
 
-    gKeywordSearchCountMap = { 'funny': 5, 'sad': 5, 'luffy': 5, 'nami': 5, 'zoro': 5, 'Usopp': 5 }
+    gKeywordSearchCountMap = { 'funny': 5, 'sad': 5, 'luffy': 5, 'nami': 5, 'zoro': 5, 'usopp': 5, 'one peice': 5 }
     saveToStorage(KEYWORD_KEY, gKeywordSearchCountMap)
 }
 

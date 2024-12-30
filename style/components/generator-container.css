@@ -1,4 +1,5 @@
 .main-meme-generator {
+    direction: ltr;
     align-content: center;
     gap: 10px;
     margin-block-end: 1em;
@@ -19,7 +20,6 @@
 }
 
 .canvas-container>.main-canvas {
-    direction: ltr;
     width: auto;
     height: auto;
     max-width: 100%;

@@ -445,3 +445,40 @@ function onSetRandomMeme() {
 }
 
 
+/// lang
+
+function onSetLang(lang) {
+    setLang(lang)
+
+    const editorHeader = document.querySelector('.main-editor-header')
+    const memeTextInput = document.querySelector('.meme-text-input')
+    const aboutContainer = document.querySelector('.about-container')
+
+    if (lang == 'he') {
+        document.body.classList.add('rtl')
+        editorHeader.classList.add('rtl')
+        memeTextInput.classList.add('rtl')
+        aboutContainer.innerHTML = `
+        <p>ברוכים הבאים ל- <strong>מחולל ממים</strong>, הכלי האולטימטיבי ליצירה ושיתוף של הממים הכי מצחיקים שלכם! בין אם אתם רוצים להעלות תמונות משלכם או לבחור מתוך מגוון תבניות כיפיות, הפלטפורמה הידידותית שלנו מאפשרת לכם להוסיף טקסט מותאם אישי וליצור את המם המושלם. ברגע שתסיימו , תוכלו לשמור את היצירה שלכם במחשב או לשתף אותה עם חברים ועוקבים.</p>
+        <p><strong>מחולל ממים</strong> עוסק בכיף, יצירתיות וביטוי עצמי הפכו כל תמונה למם בכמה לחיצות!</p>
+        <p>החלו ליצור עכשיו וצרו את הממים שתמיד חלמתם עליהם!</p>`
+
+    } else {
+        document.body.classList.remove('rtl')
+        editorHeader.classList.remove('rtl')
+        memeTextInput.classList.remove('rtl')
+        aboutContainer.innerHTML = `
+        <p>Welcome to <strong>Meme Generator</strong>, the ultimate tool for creating and sharing your own
+            hilarious memes! Whether you want to upload your own images or select from a variety of fun
+            templates, our easy-to-use platform lets you add custom text to craft the perfect meme. Once
+            you're done, you can save your creation to your computer or share it with friends and followers.
+        </p>
+        <p><strong>Meme Generator</strong> is all about fun, creativity, and self-expression—turn any image
+            into a meme with just a few clicks!
+        </p>
+        <p>Start creating now and bring your meme ideas to life!</p>`
+    }
+
+    doTrans()
+}
+

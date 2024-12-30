@@ -11,10 +11,35 @@
     grid-column: 1 / -1;
 }
 
+/* header-content */
+.header-content {
+    justify-content: start;
+}
+
+/* main-logo */
+
+.main-logo .chibi-logo {
+    position: absolute;
+    top: -15px;
+    left: 2em;
+    width: 40px;
+}
+
+body.rtl .main-logo .chibi-logo {
+    position: absolute;
+    top: -15px;
+    right: 2em;
+    width: 40px;
+}
+
 /* main-nav */
 
 .main-nav>ul>li {
     margin-inline-end: 1em;
+}
+
+.langBtn {
+    margin-inline-start: 1em;
 }
 
 /* main-meme-generator */

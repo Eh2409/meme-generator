@@ -4,20 +4,25 @@
 
 .main-nav>ul>li>a {
     color: var(--main-font-color);
-    font-size: 1.25em;
     scale: 1;
 }
 
-.main-nav>ul>li>a:hover img {
+.main-nav>ul>li>a:hover .chibi {
     animation: tada 600ms;
 }
 
 
-.main-nav>ul>li .chibi img {
+.main-nav>ul>li .chibi {
     position: absolute;
     top: -20px;
     left: -40px;
     width: 30px;
     aspect-ratio: auto;
     opacity: 1;
+}
+
+body.rtl .main-nav>ul>li .chibi {
+    top: -20px;
+    right: -40px;
+    width: 30px;
 }

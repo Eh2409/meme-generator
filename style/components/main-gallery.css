@@ -7,6 +7,11 @@
     margin-block-end: 1em;
 }
 
+.main-gallery-nav>ul {
+    direction: ltr;
+}
+
+
 .main-gallery-nav>ul>li {
     font-size: 1.25em;
     margin-inline-end: 1em;
