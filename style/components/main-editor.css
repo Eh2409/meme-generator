@@ -5,6 +5,7 @@
     padding-inline: 0.3em;
     background: linear-gradient(12deg, #3d3f45 3%, #646b82 100%);
     outline: solid 1px rgb(255, 255, 255);
+    border-radius: 10px;
 }
 
 .main-editor>.meme-text-input {

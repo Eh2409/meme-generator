@@ -53,12 +53,10 @@ body.rtl .main-gallery-filters>.gallery-filter-bar>.clear-filter {
 
 
 .main-gallery-filters>.search-by-keywords {
-    background-color: var(--background-color-filters);
+    background-color: rgb(0, 0, 0, 0.3);
     flex-grow: 2;
-    border-radius: 10px;
-    padding: 0.3em;
-    filter: drop-shadow(5px 5px 0px var(--color-filters-shadow));
-    max-width: 90vw;
+    padding-inline: 1em;
+    max-width: 95vw;
     overflow: hidden;
 }
 

@@ -2,7 +2,7 @@
 .my-meme-container {
     min-height: 60vh;
     gap: 10px;
-    background-color: rgba(129, 200, 244, 0.7);
+    background-color: var(--background-color-gallery);
     border-radius: 10px;
 }
 

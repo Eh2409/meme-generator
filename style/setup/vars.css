@@ -1,11 +1,10 @@
 :root {
     /* COLORS */
     --site-background-color: #53a0f9;
-    --background-color-gallery: #82ce9b;
-    --background-color-generator: #3e508f;
-    --background-color-editor: #377ad4;
-    --background-color-Seved-meme: #e6338a;
-    --background-color-about: rgba(94, 110, 120, 0.7);
+    --background-color-gallery: rgb(0, 0, 0, 0.3);
+    --background-color-generator: rgb(0, 0, 0, 0.3);
+    --background-color-Seved-meme: rgb(0, 0, 0, 0.3);
+    --background-color-about: rgb(0, 0, 0, 0.3);
     --background-color-btn-editor: #98a2ba;
 
     --white-color: white;

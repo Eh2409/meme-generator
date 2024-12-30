@@ -1,9 +1,9 @@
 .main-saved-meme {
-    min-height: 60vh;
+    min-height: 80vh;
     place-items: center;
     justify-items: center;
     margin-block-end: 1em;
-    background-color: rgba(129, 200, 244, 0.7);
+    background-color: var(--background-color-Seved-meme);
     border-radius: 10px;
     padding: 10px;
 }
