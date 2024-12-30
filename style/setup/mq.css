@@ -200,29 +200,36 @@
     }
 
     /* header-content  */
-    .header-content {
-        justify-content: space-between;
+    .main-header>.header-content {
+        margin-block: 2em;
     }
+
+    .main-header>.header-content .site-image-logo {
+        margin-inline-end: 5em;
+    }
+
+
 
     /* main-header */
 
-    .main-logo {
+    /* .main-logo {
         font-size: 1.4em;
         margin-inline-end: 3em;
         line-height: 2em;
-    }
+    } */
+
 
     .main-logo .chibi-logo {
         position: absolute;
-        top: -10px;
-        left: 1.8em;
+        top: -30px;
+        left: 4em;
         width: 50px;
     }
 
 
     body.rtl .main-logo .chibi-logo {
         position: absolute;
-        top: -10px;
+        top: -20px;
         right: 1.8em;
         width: 50px;
     }
@@ -297,21 +304,30 @@
 
     /* main-logo  */
 
-    .main-logo {
+    /* .main-logo {
         font-size: 2em;
         margin-inline-end: 3em;
+    } */
+
+
+    .main-header>.header-content .site-image-logo {
+        width: 350px;
+    }
+
+    body.rtl .main-header>.header-content .site-image-logo {
+        width: 250px;
     }
 
     .main-logo .chibi-logo {
         position: absolute;
-        top: -15px;
-        left: 2em;
+        top: -30px;
+        left: 7em;
         width: 70px;
     }
 
     body.rtl .main-logo .chibi-logo {
         position: absolute;
-        top: -15px;
+        top: -30px;
         right: 2em;
         width: 70px;
     }

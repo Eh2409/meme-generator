@@ -16,7 +16,15 @@
     justify-content: start;
 }
 
+.main-header>.header-content {
+    margin-block: 1em;
+}
+
 /* main-logo */
+
+.main-header>.header-content .site-image-logo {
+    width: 180px;
+}
 
 .main-logo .chibi-logo {
     position: absolute;
