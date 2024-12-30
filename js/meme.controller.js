@@ -505,7 +505,7 @@ function onSetLang(lang) {
         <p>ברוכים הבאים ל- <strong>מחולל ממים</strong>, הכלי האולטימטיבי ליצירה ושיתוף של הממים הכי מצחיקים שלכם! בין אם אתם רוצים להעלות תמונות משלכם או לבחור מתוך מגוון תבניות כיפיות, הפלטפורמה הידידותית שלנו מאפשרת לכם להוסיף טקסט מותאם אישי וליצור את המם המושלם. ברגע שתסיימו , תוכלו לשמור את היצירה שלכם במחשב או לשתף אותה עם חברים ועוקבים.</p>
         <p><strong>מחולל ממים</strong> עוסק בכיף, יצירתיות וביטוי עצמי הפכו כל תמונה למם בכמה לחיצות!</p>
         <p>החלו ליצור עכשיו וצרו את הממים שתמיד חלמתם עליהם!</p>`
-        siteLogo.innerHTML = ' <img src="/images/site-logo-he.png" alt="Meme generator" class="site-image-logo">'
+        siteLogo.innerHTML = ' <img src="images/site-logo-he.png" alt="Meme generator" class="site-image-logo">'
 
     } else {
         document.body.classList.remove('rtl')
@@ -521,7 +521,7 @@ function onSetLang(lang) {
             into a meme with just a few clicks!
         </p>
         <p>Start creating now and bring your meme ideas to life!</p>`
-        siteLogo.innerHTML = ' <img src="/images/site-logo.png" alt="Meme generator" class="site-image-logo">'
+        siteLogo.innerHTML = ' <img src="images/site-logo.png" alt="Meme generator" class="site-image-logo">'
     }
 
     doTrans()
