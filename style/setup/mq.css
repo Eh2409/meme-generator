@@ -41,6 +41,7 @@
     }
 
     body.rtl .main-nav {
+        top: 74px;
         left: 0;
         right: auto;
     }
@@ -63,6 +64,13 @@
         animation: fadeInRight 600ms;
         border-bottom-left-radius: 0;
         top: 62px;
+        height: 100vh;
+    }
+
+    body.rtl.menu-open .main-nav {
+        animation: fadeInRight 600ms;
+        border-bottom-left-radius: 0;
+        top: 74px;
         height: 100vh;
     }
 
@@ -170,7 +178,7 @@
     }
 
     .main-content {
-        margin-block-start: 4em;
+        margin-block-start: 5em;
     }
 }
 

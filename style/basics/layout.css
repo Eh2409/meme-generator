@@ -50,6 +50,12 @@ body.rtl .main-logo .chibi-logo {
     margin-inline-start: 1em;
 }
 
+/* main */
+
+main {
+    min-height: 90vh;
+}
+
 /* main-meme-generator */
 .canvas-box {
     margin-block-end: 1em;
@@ -88,9 +94,4 @@ body.rtl .main-logo .chibi-logo {
 .main-saved-meme>.saved-meme {
     width: 90%;
     margin-block: 1em;
-}
-
-
-main {
-    min-height: 90vh;
 }
