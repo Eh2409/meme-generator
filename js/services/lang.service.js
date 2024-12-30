@@ -6,7 +6,7 @@ const gTrans = {
     navRandom: { en: 'Random meme', he: 'מם אקראי' },
     navAbout: { en: 'About', he: 'אודות' },
     saveBtn: { en: 'Save', he: 'שמור' },
-    downloadBtn: { en: 'Download', he: 'הורדה' },
+    downloadBtn: { en: 'Download', he: 'הורד' },
     shareBtn: { en: 'Share', he: 'שתף' },
     clearBtn: { en: 'Clear', he: 'נקה' },
     myGalleryBtn: { en: 'My meme gallery', he: 'גלריית הממים שלי' },
