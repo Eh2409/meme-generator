@@ -72,14 +72,18 @@ function onImgSelect(imgId) {
     // modal
     setImg(imgId)
     // Dom
-    initCanvas()
+
+    // initCanvas()
+    toggleDisplay('main-meme-generator')
 }
 
 function onMemeSelect(memeId) {
     // modal
     setMeme(memeId)
     // Dom
-    initCanvas()
+
+    // initCanvas()
+    toggleDisplay('main-meme-generator')
 }
 
 function toggleGallery() {

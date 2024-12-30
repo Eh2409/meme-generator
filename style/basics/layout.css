@@ -81,3 +81,8 @@ body.rtl .main-logo .chibi-logo {
     width: 90%;
     margin-block: 1em;
 }
+
+
+main {
+    min-height: 90vh;
+}

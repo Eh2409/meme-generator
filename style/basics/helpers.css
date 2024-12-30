@@ -42,3 +42,21 @@
 .hide {
     display: none !important
 }
+
+/* animation */
+
+.bounce-out {
+    animation: bounceOutLeft 1500ms;
+}
+
+.bounce-in {
+    animation: bounceInRight 1500ms;
+}
+
+.fade-in {
+    animation: fadeIn 400ms;
+}
+
+.fade-out {
+    animation: fadeOut 400ms;
+}

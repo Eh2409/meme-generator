@@ -11,6 +11,7 @@
 
 
 /* COMPONENTS */
+@import url(../style/components/loader.css);
 @import url(../style/components/main-header.css);
 @import url(../style/components/main-logo.css);
 @import url(../style/components/main-nav.css);

@@ -55,6 +55,7 @@ function getMeme() {
 
 function setImg(imgId) {
     gIsEditModeOn = false
+    resetMeme()
     gMeme.selectedImgId = imgId
     gMeme.imgUrl = findImgUrlById(gMeme.selectedImgId)
 }

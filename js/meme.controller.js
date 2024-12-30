@@ -4,9 +4,10 @@ let gElCanvas
 let gCtx
 let gStartPos
 var gIsMouseDown = false
+var gIsToggleDisplayOn = false
 
 function initCanvas() {
-    toggleDisplay('main-meme-generator')
+    // toggleDisplay('main-meme-generator')
 
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -142,10 +143,45 @@ function textAlignPos(textAlign, lineWidth) {
 }
 
 function toggleDisplay(className) {
+    if (gIsToggleDisplayOn) return
+    gIsToggleDisplayOn = true
     const elSections = document.querySelectorAll('main section')
-    elSections.forEach(section => section.classList.add('hide'))
+    elSections.forEach(section => section.classList.add('bounce-out'))
     const elcurrDisplay = document.querySelector(`.${className}`)
-    elcurrDisplay.classList.remove('hide')
+
+    const elloader = document.querySelector(`.loader`)
+    elloader.classList.remove('hide')
+    elloader.classList.add('fade-in')
+
+    setTimeout(() => {
+        elSections.forEach(section => section.classList.remove('bounce-out'))
+        elSections.forEach(section => section.classList.add('hide'))
+        elloader.classList.remove('fade-in')
+    }, 1000)
+
+    setTimeout(() => {
+        elcurrDisplay.classList.remove('hide')
+        elcurrDisplay.classList.add('bounce-in')
+        if (className === 'main-meme-generator') {
+            initCanvas()
+        }
+
+    }, 1200)
+
+    setTimeout(() => {
+        gIsToggleDisplayOn = false
+        elloader.classList.add('fade-out')
+    }, 2500)
+
+    setTimeout(() => {
+        elloader.classList.add('hide')
+        elloader.classList.remove('fade-out')
+    }, 2800)
+
+    setTimeout(() => {
+        const elcurrDisplay = document.querySelector(`.${className}`)
+        elcurrDisplay.classList.remove('bounce-in')
+    }, 3000)
 }
 
 
@@ -198,7 +234,6 @@ function onSwitchLine() {
     // modal
     switchLine()
     // Dom
-
     renderMeme()
 }
 
@@ -318,7 +353,9 @@ function onEditMeme(memeId) {
     // modal
     editMeme(memeId)
     // Dom
-    initCanvas()
+
+    // initCanvas()
+    toggleDisplay('main-meme-generator')
 }
 
 /// Upload image
@@ -343,7 +380,9 @@ function renderImg(img) {
     // modal
     uploadImage(img)
     // Dom
-    initCanvas()
+
+    // initCanvas()
+    toggleDisplay('main-meme-generator')
 }
 
 ////  Line click
@@ -442,7 +481,9 @@ function onSetRandomMeme() {
     // modal
     SetRandomMeme()
     // Dom
-    initCanvas()
+
+    // initCanvas()
+    toggleDisplay('main-meme-generator')
 }
 
 
