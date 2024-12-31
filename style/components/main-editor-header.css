@@ -3,6 +3,7 @@
     color: var(--editor-font-color);
 }
 
+
 .main-editor-header>.main-editor-logo {
     filter: drop-shadow(1px 1px 0px var(--key-btn-color-shadow));
 }
@@ -22,7 +23,7 @@
     border-radius: 10px;
 
     &:hover {
-        color: white;
+        color: var(--main-font-color);
     }
 }
 

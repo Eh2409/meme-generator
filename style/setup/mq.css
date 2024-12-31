@@ -220,13 +220,6 @@
 
     /* main-header */
 
-    /* .main-logo {
-        font-size: 1.4em;
-        margin-inline-end: 3em;
-        line-height: 2em;
-    } */
-
-
     .main-logo .chibi-logo {
         position: absolute;
         top: -30px;
@@ -267,7 +260,7 @@
         padding: 20px;
     }
 
-    .canvas-box {
+    .canvas-wrapper {
         height: 70vh;
         grid-column: 1;
         margin-block-end: 0;
@@ -309,14 +302,6 @@
     .main-layout {
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--l)) minmax(20px, 1fr);
     }
-
-    /* main-logo  */
-
-    /* .main-logo {
-        font-size: 2em;
-        margin-inline-end: 3em;
-    } */
-
 
     .main-header>.header-content .site-image-logo {
         width: 350px;
@@ -366,7 +351,7 @@
         grid-auto-columns: minmax(500px, 1fr) minmax(auto, 1fr)
     }
 
-    .canvas-box {
+    .canvas-wrapper {
         height: 70vh;
         grid-column: 1;
     }

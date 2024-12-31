@@ -1,8 +1,6 @@
 .main-gallery {
     padding-block: 1em;
     margin-block-end: 1em;
-    /* animation: bounceOutLeft 1500ms infinite; */
-    /* animation: bounceInRight 1500ms infinite; */
 }
 
 .main-gallery-nav {
@@ -12,7 +10,6 @@
 .main-gallery-nav>ul {
     direction: ltr;
 }
-
 
 .main-gallery-nav>ul>li {
     font-size: 1.25em;
